@@ -38,7 +38,7 @@ To set up the project locally, follow these steps:
 
 1. Clone the repo 
 ```bash
-git clone https://github.com/yourusername/flushing-tech-website.git
+git clone https://github.com/flushingtech/flushingtech.org.git
 ```
 
 2. Switch to your project directory 
