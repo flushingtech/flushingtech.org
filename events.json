@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Bi-Weekly Hackathons",
+        "image_URL": "/dice.png",
+        "description": "We hack"
+    },
+    {
+        "title": "Office Hours",
+        "image_URL": "/dice.png",
+        "description": "We office"
+    },
+    {
+        "title": "Happy Hour",
+        "image_URL": "/dice.png",
+        "description": "We happy"
+    },
+    {
+        "title": "Virtual Hackathons",
+        "image_URL": "/dice.png",
+        "description": "We hack virtually"
+    }
+]
