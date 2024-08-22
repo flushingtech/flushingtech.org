@@ -5,7 +5,7 @@ interface EventCardProps {
   title: string;
   image_URL: string;
   description: string;
-  setCurrEvent: (description: string) => void; // Add setCurrEvent to props
+  setCurrDescrip: (description: string) => void; // Add setCurrEvent to props
 }
 
 //   event car should update state variable onclick
@@ -13,12 +13,12 @@ const EventCard = ({
   title,
   image_URL,
   description,
-  setCurrEvent,
+  setCurrDescrip,
 }: EventCardProps) => {
   return (
     <button
       className="flex flex-col items-center"
-      onClick={() => setCurrEvent(description)}
+      onClick={() => setCurrDescrip(description)}
     >
       <div>{title}</div>
 

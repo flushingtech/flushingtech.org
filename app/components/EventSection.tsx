@@ -7,7 +7,7 @@ import EventCard from "./EventCard";
 
 
 const Events = () => {
-    const [currEvent, setCurrEvent]= useState("click event card to learn more")
+    const [currDescrip, setCurrDescrip]= useState("click event card to learn more")
     return (
         <section>
             <div className="event-cards">
@@ -17,13 +17,13 @@ const Events = () => {
                         title={event.title}
                         image_URL={event.image_URL}
                         description={event.description}
-                        setCurrEvent={setCurrEvent} // Pass setCurrEvent to EventCard
+                        setCurrDescrip={setCurrDescrip} // Pass setCurrEvent to EventCard
                     />
                 ))}
             </div>
             
             <div>
-                {currEvent}
+                {currDescrip}
             </div>
         </section>
       
