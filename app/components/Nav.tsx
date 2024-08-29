@@ -1,10 +1,10 @@
 const Navbar = () => {
   return (
-    <nav className="fixed top-0 left-0 w-full flex bg-gray-900 text-white py-4">
+    <nav className="fixed top-0 left-0 w-full flex bg-gray-900 text-white justify-between py-4 px-4">
       <a href="#" className="bg-green-400">
         <img src="" alt="Flushing Tech Home" />
       </a>
-      <div className="flex flex-1 justify-center bg-orange-400 mr-8 ">
+      <div>
         <ul className="flex space-x-4">
           <li>
             <a href="#events" className="hover:text-gray-400">
