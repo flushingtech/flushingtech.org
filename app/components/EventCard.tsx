@@ -1,3 +1,4 @@
+// "use client";
 import eventData from "../../events.json";
 
 // Define the interface for the props
@@ -5,24 +6,33 @@ interface EventCardProps {
   title: string;
   image_URL: string;
   description: string;
-  setCurrDescrip: (description: string) => void; // Add setCurrEvent to props
+  setCurrDescrip: (description: string) => void; 
+  setSelectedCard: (cardTitle: string) => void;
+  selectedCard: string;
 }
 
 //   event car should update state variable onclick
-const EventCard = ({
+const EventCard: React.FC<EventCardProps> = ({
   title,
   image_URL,
   description,
   setCurrDescrip,
-}: EventCardProps) => {
+  setSelectedCard,
+  selectedCard
+}) => {
+
+  console.log("eventcard")
+  
   return (
     <button
-      className="flex flex-col items-center"
-      onClick={() => setCurrDescrip(description)}
+      className={`flex flex-col items-center ${title === selectedCard ? 'border-4 border-red-300' : 'border border-yellow-200'}`}
+      onClick={() => {
+        setSelectedCard(title);
+        setCurrDescrip(description);
+      }}
     >
       <div>{title}</div>
-
-      <img src={image_URL} />
+      <img src={image_URL} alt={title} />
     </button>
   );
 };

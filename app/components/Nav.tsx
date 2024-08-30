@@ -42,7 +42,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
-// check if "sticky"
 // make responsive for mobile
 // input the logo
-// need to get the events piece to jump to events section
