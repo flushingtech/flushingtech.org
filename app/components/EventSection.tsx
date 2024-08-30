@@ -9,7 +9,7 @@ import EventCard from "./EventCard";
 const Events = () => {
     const [currDescrip, setCurrDescrip]= useState("click event card to learn more")
     return (
-        <section id="events">
+        <section id="events" className="scroll-mt-24">
             <div className="event-cards">
                 {eventData.map((event, index) => (
                     <EventCard 
