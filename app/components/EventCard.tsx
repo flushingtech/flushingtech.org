@@ -22,8 +22,8 @@ const EventCard: React.FC<EventCardProps> = ({
   
   return (
     <button
-      className={`flex flex-col items-center ${title === selectedCard ? 'border-4 border-red-300' : 'border border-yellow-200'}`}
-      onClick={() => {
+    className={`flex flex-col items-center ${title === selectedCard ? 'border-4 border-red-300' : 'border border-yellow-200 hover:border-orange-400'}`}
+    onClick={() => {
         setSelectedCard(title);
         setCurrDescrip(description);
       }}
