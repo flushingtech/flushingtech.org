@@ -22,14 +22,14 @@ const EventCard: React.FC<EventCardProps> = ({
   
   return (
     <button
-    className={`flex flex-col items-center ${title === selectedCard ? 'border-4 border-red-300' : 'border border-yellow-200 hover:border-orange-400'}`}
+    className="flex flex-col items-center"
     onClick={() => {
         setSelectedCard(title);
         setCurrDescrip(description);
       }}
     >
       <div>{title}</div>
-      <img src={image_URL} alt={title} />
+      <img src={image_URL} alt={title} className={`${title === selectedCard ? 'border-4 border-red-300' : 'border border-yellow-200 hover:border-orange-400'}`}/>
     </button>
   );
 };
