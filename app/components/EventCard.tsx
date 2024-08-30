@@ -1,6 +1,3 @@
-// "use client";
-import eventData from "../../events.json";
-
 // Define the interface for the props
 interface EventCardProps {
   title: string;
