@@ -8,7 +8,6 @@ interface EventCardProps {
   selectedCard: string;
 }
 
-//   event car should update state variable onclick
 const EventCard: React.FC<EventCardProps> = ({
   title,
   image_URL,
