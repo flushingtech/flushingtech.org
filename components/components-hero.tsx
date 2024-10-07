@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 
 export default function HeroComponent() {
   return (
@@ -10,12 +10,16 @@ export default function HeroComponent() {
           Meet <span className="text-[#FF6B35]">Flushing Tech</span>
         </h1>
         <p className="text-xl mb-8 max-w-2xl">
-          Lorem ipsum odor amet, consectetuer adipiscing elit. Libero eleifend auctor posuere volutpat rhoncus laoreet.
+          Lorem ipsum odor amet, consectetuer adipiscing elit. Libero eleifend
+          auctor posuere volutpat rhoncus laoreet.
         </p>
-        <Button variant="outline" className="text-white border-white hover:bg-[#FF6B35] hover:text-white">
+        <Button
+          variant="outline"
+          className="text-white border-white bg-[#274653] hover:text-white"
+        >
           Learn More
         </Button>
       </div>
     </section>
-  )
+  );
 }
