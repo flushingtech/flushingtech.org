@@ -10,13 +10,14 @@ interface EventCardProps {
   imageSrc: string;
   imageAlt: string;
   onClick: () => void;
+  selected:boolean;
 }
 
 // Reusable EventCard Component
-const EventCard = ({ title, imageSrc, imageAlt, onClick }: EventCardProps) => (
+const EventCard = ({ title, imageSrc, imageAlt, onClick,selected }: EventCardProps) => (
   <div onClick={onClick} className="cursor-pointer">
     <h3 className="text-2xl text-center mb-5">{title}</h3>
-    <Card className="bg-transparent border-white">
+    <Card className={`bg-transparent border-2 ${selected ? 'border-accent' : 'border-peach'}`}>
       <CardContent className="p-6">
         <Image
           src={imageSrc}
@@ -55,6 +56,7 @@ export default function ConnectWithUsComponent() {
               imageSrc={event.imageSrc}
               imageAlt={event.imageAlt}
               onClick={()=>handleCardClick(event.info)}
+              selected = {event.info.description == selectedDescription}
             />
           ))}
         </div>
