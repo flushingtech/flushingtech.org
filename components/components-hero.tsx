@@ -15,7 +15,7 @@ export default function HeroComponent() {
         </p>
         <Button
           variant="outline"
-          className="text-white border-white bg-[#274653] hover:text-white"
+          className="text-white border-white bg-[#274653] hover:text-white rounded-full px-6 py-2"
         >
           Learn More
         </Button>
