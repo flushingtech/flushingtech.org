@@ -1,22 +1,38 @@
 [
     {
-        "title": "Bi-Weekly Hackathons",
-        "image_URL": "/dice.png",
-        "description": "We hack"
+      "title": "Bi-Weekly Tech Jams",
+      "imageSrc": "/placeholder.svg",
+      "imageAlt": "Tech Jams",
+      "info":{
+          "description": "Collaborate on projects and share ideas.",
+          "link":""
+      }
     },
     {
-        "title": "Office Hours",
-        "image_URL": "/dice.png",
-        "description": "We office"
+      "title": "Office Hours",
+      "imageSrc": "/placeholder.svg",
+      "imageAlt": "Office Hours",
+      "info":{
+          "description": "Chat about tech.",
+          "link":""
+      }
     },
     {
-        "title": "Happy Hour",
-        "image_URL": "/dice.png",
-        "description": "We happy"
+      "title": "Happy Hour",
+      "imageSrc": "/placeholder.svg",
+      "imageAlt": "Happy Hour",
+      "info":{
+          "description": "Relax with other techies",
+          "link":""
+      }
     },
     {
-        "title": "Virtual Hackathons",
-        "image_URL": "/dice.png",
-        "description": "We hack virtually"
+      "title": "Virtual Hackathons",
+      "imageSrc": "/placeholder.svg",
+      "imageAlt": "Virtual Hackathons",
+      "info":{
+          "description": "Virtually collaborate.",
+          "link":"https://www.meetup.com/flushing-tech/events/303556030/?recId=74090773-f5f3-4435-a792-7349bc33198a&recSource=keyword_search&searchId=9ed05e10-f3ee-46ab-9b3d-2043f756d497&eventOrigin=find_page$all"
+      }
     }
-]
+  ]

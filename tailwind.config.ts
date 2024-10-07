@@ -19,6 +19,8 @@ const config: Config = {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
+			peach: "#FFE4CE",
+			blue: "#264653",
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -42,7 +44,7 @@ const config: Config = {
   				foreground: 'hsl(var(--muted-foreground))'
   			},
   			accent: {
-  				DEFAULT: 'hsl(var(--accent))',
+  				DEFAULT: '#BB2828',
   				foreground: 'hsl(var(--accent-foreground))'
   			},
   			destructive: {
