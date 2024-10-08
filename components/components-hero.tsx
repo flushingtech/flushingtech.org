@@ -4,7 +4,15 @@ import { Button } from "@/components/ui/button";
 
 export default function HeroComponent() {
   return (
-    <section className="bg-[#1E2A3A] text-white py-20">
+    <section
+      className="text-white py-20"
+      style={{
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/luca-bravo-XJXWbfSo2f0-unsplash_1_1.webp')`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       <div className="container mx-auto px-4">
         <h1 className="text-5xl font-bold mb-4">
           Meet <span className="text-[#FF6B35]">Flushing Tech</span>
