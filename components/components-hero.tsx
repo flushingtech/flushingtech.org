@@ -23,7 +23,7 @@ export default function HeroComponent() {
         </p>
         <Button
           variant="outline"
-          className="text-[#FFE4CE] border-[#FFE4CE] bg-[#274653] rounded-full px-6 py-2 hover:bg-[#1E2A3A] hover:text-[#FF6B35] transition-colors duration-300"
+          className="text-[#FFE4CE] border-[#FFE4CE] bg-[#274653] rounded-full px-6 py-2 hover:bg-[#1E2A3A] hover:text-[#FF6B35] transition-colors duration-300 mx-auto block"
         >
           Learn More
         </Button>
