@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function HeroComponent() {
   return (
     <section
-      className="text-white py-20"
+      className="text-white py-20 h-[80vh]"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/luca-bravo-XJXWbfSo2f0-unsplash_1_1.webp')`,
         backgroundSize: "cover",
