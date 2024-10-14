@@ -16,9 +16,11 @@ export default function HeroComponent() {
       <div className="container mx-auto px-4 h-[100%] flex flex-col justify-center item-center">
         <div className="block flex-grow-[3] py-[10%]">
           <h1 className="text-5xl font-bold mb-4">
-            Meet <span className="text-[#FF6B35]">Flushing Tech |</span>
+            <span className="text-[#FFE4CE]">Meet</span>{" "}
+            <span className="text-[#F29040]">Flushing Tech</span>
+            <span className="text-[#FFE4CE]"> |</span>
           </h1>
-          <p className="text-xl mb-8 max-w-md">
+          <p className="text-xl mb-8 max-w-md text-[#F5F5F5]">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Libero eleifend
             auctor posuere volutpat rhoncus laoreet.
           </p>
