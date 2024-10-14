@@ -1,23 +1,47 @@
-'use client'
+"use client";
 
 import Link from "next/link"
 
+const navItems = [
+  { text: 'Events', href: '/events' },
+  { text: 'Github', href: 'https://github.com/flushingtech' },
+  { text: 'Meetup', href: 'https://www.meetup.com/flushing-tech/' },
+  { text: 'Discord', href: 'https://discord.gg/xGgFcZknDR' },
+]
+
 export default function HeaderComponent() {
   return (
-    <header className="bg-[#1E2A3A] text-white p-4">
-      <div className="container mx-auto flex justify-between items-center">
-        <Link href="/" className="text-xl font-bold">
-          <span className="text-white">c.tech</span>
-          <span className="text-[#FF6B35]">(flushing)</span>
+    <header className="flex justify-between items-center bg-[#FFE4CE] h-11 ">
+      {/* logo */}
+      <div className="ml-10">
+
+        <Link
+          href="/"
+          className="text-2xl"
+          style={{ fontFamily: "Gintronic, sans-serif" }}
+          >
+          <span className="text-primary">c.tech(flushing)</span>
         </Link>
-        <nav className="space-x-4">
-          <Link href="#events" className="hover:text-[#FF6B35]">Events</Link>
-          <Link href="#github" className="hover:text-[#FF6B35]">Github</Link>
-          <Link href="#meetup" className="hover:text-[#FF6B35]">Meetup</Link>
-          <Link href="#discord" className="hover:text-[#FF6B35]">Discord</Link>
-          <Link href="#contact" className="hover:text-[#FF6B35]">Contact</Link>
+          </div>
+        
+      {/* nav links */}
+        <nav aria-label="Main Navigation" className="mr-5">
+          <ul className="flex list-none space-x-16">
+            {navItems.map((item) => (
+              <li key={item.text}>
+                <Link
+                  href={item.href}
+                  className="text-primary hover:underline transition-colors duration-200 text-2xl"
+                  style={{
+                    fontFamily: "Gintronic, sans-serif",
+                  }}
+                >
+                  {item.text}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </nav>
-      </div>
     </header>
-  )
+  );
 }
