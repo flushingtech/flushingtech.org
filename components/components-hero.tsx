@@ -16,9 +16,9 @@ export default function HeroComponent() {
       <div className="container mx-auto px-4 h-[100%] flex flex-col justify-center item-center">
         <div className="block flex-grow-[3] py-[10%]">
           <h1 className="text-5xl font-bold mb-4">
-            <span className="text-[#FFE4CE]">Meet</span>{" "}
+            <span className="text-peach">Meet</span>{" "}
             <span className="text-[#F29040]">Flushing Tech</span>
-            <span className="text-[#FFE4CE]"> |</span>
+            <span className="text-peach"> |</span>
           </h1>
           <p className="text-xl mb-8 max-w-md text-[#F5F5F5]">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Libero eleifend
@@ -28,7 +28,7 @@ export default function HeroComponent() {
         <div className="flex-grow-[1]">
           <Button
             variant="outline"
-            className="text-[#FFFFF] border-[#FFE4CE] bg-[#274653] rounded-full px-6 py-2 hover:bg-[#1E2A3A] hover:text-[#FF6B35] transition-colors duration-300 mx-auto block w-[275px] h-[69px] text-[24px]"
+            className="text-[#FFFFF] border-peach bg-[#274653] rounded-full px-6 py-2 hover:bg-[#1E2A3A] hover:text-[#FF6B35] transition-colors duration-300 mx-auto block w-[275px] h-[69px] text-[24px]"
           >
             Learn More
           </Button>
