@@ -14,7 +14,7 @@ export default function HeroComponent() {
         height: "calc(100vh - 2.75em)",
       }}
     >
-      <div className="container mx-auto px-4 h-[100%] flex flex-col justify-center item-center">
+      <div className="container mx-auto px-4 lg: py-[10%] h-[100%] flex flex-col justify-center item-center">
         <div className="block flex-grow-[3] py-[10%]">
           <h1 className="text-5xl font-bold mb-4">
             <span className="text-peach">Meet</span>{" "}
