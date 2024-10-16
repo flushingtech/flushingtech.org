@@ -5,12 +5,13 @@ import { Button } from "@/components/ui/button";
 export default function HeroComponent() {
   return (
     <section
-      className="text-white py-20 h-[80vh]"
+      className="text-white py-20"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/luca-bravo-XJXWbfSo2f0-unsplash_1_1.webp')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
+        height: "calc(100vh - 2.75em)",
       }}
     >
       <div className="container mx-auto px-4 h-[100%] flex flex-col justify-center item-center">
