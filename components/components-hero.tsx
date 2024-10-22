@@ -18,7 +18,7 @@ export default function HeroComponent() {
         <div className="block flex-grow-[3] py-[10%]">
           <h1 className="text-5xl font-bold mb-4">
             <span className="text-peach">Meet</span>{" "}
-            <span className="text-[#F29040]">Flushing Tech</span>
+            <span className="text-site_orange">Flushing Tech</span>
             <span className="text-peach"> |</span>
           </h1>
           <p className="text-xl mb-8 max-w-md text-[#F5F5F5]">
@@ -27,10 +27,7 @@ export default function HeroComponent() {
           </p>
         </div>
         <div className="flex-grow-[1]">
-          <Button
-            variant="outline"
-            className="text-[#FFFFF] border-peach bg-[#274653] rounded-full px-6 py-2 hover:bg-[#1E2A3A] hover:text-[#FF6B35] transition-colors duration-300 mx-auto block w-[275px] h-[69px] text-[24px]"
-          >
+          <Button size="xl" className="block">
             Learn More
           </Button>
         </div>
