@@ -66,6 +66,9 @@ const config: Config = {
                     "5": "hsl(var(--chart-5))",
                 },
             },
+            fontFamily: {
+                titillium: ["var(--font-titillium)"],
+            },
         },
     },
     plugins: [require("tailwindcss-animate")],
