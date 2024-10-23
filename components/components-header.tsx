@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 const navItems = [
-  { text: "Events", href: "/events" },
+  { text: "Events", href: "#event-showcase" },
   { text: "Github", href: "https://github.com/flushingtech" },
   { text: "Meetup", href: "https://www.meetup.com/flushing-tech/" },
   { text: "Discord", href: "https://discord.gg/xGgFcZknDR" },
