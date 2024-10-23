@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useEffect } from "react";
 import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 
 const projects = [
@@ -26,7 +27,7 @@ const projects = [
 ];
 
 export default function ProjectsCarouselComponent() {
-  const [emblaRef, emblaApi] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
   const scrollTo = useCallback(
