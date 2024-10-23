@@ -15,13 +15,13 @@ export default function HeroComponent() {
       }}
     >
       <div className="container mx-auto px-4 lg: py-[10%] h-[100%] flex flex-col justify-center item-center">
-        <div className="block flex-grow-[3] py-[10%]">
-          <h1 className="text-5xl font-bold mb-4">
+        <div className="flex-grow-[3] py-[10%]">
+          <h1 className="text-5xl font-bold mb-4 font-titillium">
             <span className="text-peach">Meet</span>{" "}
             <span className="text-site_orange">Flushing Tech</span>
             <span className="text-peach"> |</span>
           </h1>
-          <p className="text-xl mb-8 max-w-md text-[#F5F5F5]">
+          <p className="text-xl max-w-xl text-[#F5F5F5] font-montserrat">
             Lorem ipsum odor amet, consectetuer adipiscing elit. Libero eleifend
             auctor posuere volutpat rhoncus laoreet.
           </p>
