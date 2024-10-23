@@ -18,52 +18,53 @@ export default function HeaderComponent() {
 
   return (
     <header className="bg-[#FFE4CE]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-11">
-          {/* logo */}
-          <div className="flex-shrink-0">
-            <Link
-              href="/"
-              className="text-2xl text-primary"
-              style={{ fontFamily: "Gintronic, sans-serif" }}
-            >
-              c.tech(flushing)
-            </Link>
-          </div>
+      <div className="flex justify-between items-center h-16">
+        {/* logo */}
+        <div className="flex-shrink-0 px-4">
+          <Link
+            href="/"
+            className="text-2xl text-primary"
+            style={{ fontFamily: "Gintronic, sans-serif" }}
+          >
+            c.tech
+            <span className="text-site_orange">
+              (<span className="text-site_red">flushing</span>)
+            </span>
+          </Link>
+        </div>
 
-          {/* Desktop menu */}
-          <nav className="hidden md:block">
-            <ul className="flex space-x-8">
-              {navItems.map((item) => (
-                <li key={item.text}>
-                  <Link
-                    href={item.href}
-                    className="text-primary hover:text-site_orange transition-colors duration-300 text-xl"
-                    style={{ fontFamily: "Gintronic, sans-serif" }}
-                  >
-                    {item.text}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </nav>
+        {/* Desktop menu */}
+        <nav className="hidden md:block px-4">
+          <ul className="flex space-x-8">
+            {navItems.map((item) => (
+              <li key={item.text}>
+                <Link
+                  href={item.href}
+                  className="text-primary hover:text-site_orange transition-colors duration-300 text-xl"
+                  style={{ fontFamily: "Gintronic, sans-serif" }}
+                >
+                  {item.text}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={toggleMenu}
-              className="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-menu"
-            >
-              <span className="sr-only">Open main menu</span>
-              {isMenuOpen ? (
-                <X className="h-6 w-6" aria-hidden="true" />
-              ) : (
-                <Menu className="h-6 w-6" aria-hidden="true" />
-              )}
-            </button>
-          </div>
+        {/* Mobile menu button */}
+        <div className="md:hidden px-4">
+          <button
+            onClick={toggleMenu}
+            className="text-primary hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
+            aria-expanded={isMenuOpen}
+            aria-controls="mobile-menu"
+          >
+            <span className="sr-only">Open main menu</span>
+            {isMenuOpen ? (
+              <X className="h-6 w-6" aria-hidden="true" />
+            ) : (
+              <Menu className="h-6 w-6" aria-hidden="true" />
+            )}
+          </button>
         </div>
       </div>
 

@@ -11,7 +11,7 @@ export default function HeroComponent() {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        height: "calc(100vh - 2.75em)",
+        height: "calc(100vh - 4em)",
       }}
     >
       <div className="container mx-auto px-4 lg: py-[10%] h-[100%] flex flex-col justify-center item-center">
