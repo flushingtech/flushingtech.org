@@ -74,7 +74,9 @@ export default function ConnectWithUsComponent() {
             <p>{selectedDescription}</p>
             {learnMoreLink !== "" && (
               <Button size="lg" className="mt-4">
-                <a href={learnMoreLink}>Learn More</a>
+                <a href={learnMoreLink} target="_blank">
+                  Learn More
+                </a>
               </Button>
             )}
           </div>
