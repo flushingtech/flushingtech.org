@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import events from "../events.json";
 
@@ -71,7 +72,11 @@ export default function ConnectWithUsComponent() {
         <div className="flex justify-center mt-10">
           <div className="w-2/3 text-2xl text-center flex-col">
             <p>{selectedDescription}</p>
-            {learnMoreLink !== "" && <a href={learnMoreLink}>Learn More</a>}
+            {learnMoreLink !== "" && (
+              <Button size="lg" className="mt-4">
+                <a href={learnMoreLink}>Learn More</a>
+              </Button>
+            )}
           </div>
         </div>
       </div>
