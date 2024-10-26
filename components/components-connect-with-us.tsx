@@ -27,13 +27,13 @@ const EventCard = ({
     <Card
       className={`bg-transparent border-2 rounded-none ${selected ? "border-accent" : "border-peach"}`}
     >
-      <CardContent className="p-6">
+      <CardContent className="p-0">
         <Image
           src={imageSrc}
           alt={imageAlt}
           width={600}
           height={200}
-          className="rounded-lg mb-4"
+          className="w-full"
         />
       </CardContent>
     </Card>

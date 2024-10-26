@@ -1,7 +1,7 @@
 [
   {
     "title": "Bi-Weekly Tech Jams",
-    "imageSrc": "/placeholder.svg",
+    "imageSrc": "/fahim-muntashir-14JOIxmsOqA-unsplash.jpg",
     "imageAlt": "Tech Jams",
     "info": {
       "description": "Collaborate on projects and share ideas.",
@@ -10,7 +10,7 @@
   },
   {
     "title": "Office Hours",
-    "imageSrc": "/placeholder.svg",
+    "imageSrc": "/phyo-min-03TT9QfihTo-unsplash.jpg",
     "imageAlt": "Office Hours",
     "info": {
       "description": "Chat about tech.",
@@ -19,7 +19,7 @@
   },
   {
     "title": "Happy Hour",
-    "imageSrc": "/placeholder.svg",
+    "imageSrc": "/major-tom-agency-MJqMxzsxLtM-unsplash.jpg",
     "imageAlt": "Happy Hour",
     "info": {
       "description": "Relax with other techies",
@@ -28,7 +28,7 @@
   },
   {
     "title": "Virtual Hackathons",
-    "imageSrc": "/placeholder.svg",
+    "imageSrc": "/ilya-pavlov-OqtafYT5kTw-unsplash.jpg",
     "imageAlt": "Virtual Hackathons",
     "info": {
       "description": "Virtually collaborate.",
