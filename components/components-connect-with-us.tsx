@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import events from "../events.json";
+import { useState, useEffect } from "react";
+import { handleRSS } from "@/app/components/utils/rss";
 
 interface EventCardProps {
   title: string;
@@ -45,11 +45,16 @@ export default function ConnectWithUsComponent() {
     "Click an event to learn more",
   ); // Default description
   const [learnMoreLink, setLearnMoreLink] = useState("");
+  const [events, setEvents] = useState();
 
   const handleCardClick = (info: any): void => {
     setSelectedDescription(info.description);
     setLearnMoreLink(info.link);
   };
+
+  useEffect(() => {
+    handleRSS().then((res) => setEvents(res));
+  }, []);
 
   return (
     <section id="event-showcase" className="bg-blue text-peach py-20">
@@ -58,16 +63,17 @@ export default function ConnectWithUsComponent() {
           Connect With Us!
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-44 gap-y-12">
-          {events.map((event, index) => (
-            <EventCard
-              key={index}
-              title={event.title}
-              imageSrc={event.imageSrc}
-              imageAlt={event.imageAlt}
-              onClick={() => handleCardClick(event.info)}
-              selected={event.info.description == selectedDescription}
-            />
-          ))}
+          {events != undefined &&
+            events.map((event, index) => (
+              <EventCard
+                key={index}
+                title={event.title}
+                imageSrc={event.imageSrc}
+                imageAlt={event.imageAlt}
+                onClick={() => handleCardClick(event.info)}
+                selected={event.info.description == selectedDescription}
+              />
+            ))}
         </div>
         <div className="flex justify-center mt-10">
           <div className="w-2/3 text-2xl text-center flex-col">
