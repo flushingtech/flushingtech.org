@@ -1,6 +1,6 @@
 "use server";
 
-export async function fetchRSS(url) {
+export async function fetchRSS(url: string) {
 	try {
 		const res = await fetch(url);
 		if (res.ok) {
