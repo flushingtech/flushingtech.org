@@ -1,7 +1,7 @@
 "use client";
-import { fetchRSS } from "@/app/actions/rss.ts";
+import { fetchRSS } from "@/app/actions/rss";
 
-export async function parseRSS(url: stirng) {
+export async function parseRSS(url: string): Promise<Document> {
 	try {
 		const xml = await fetchRSS(url);
 		const parser = new DOMParser();
