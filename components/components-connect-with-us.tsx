@@ -1,5 +1,6 @@
 "use client";
 
+import { Events } from "@/types/events";
 import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -41,13 +42,16 @@ const EventCard = ({
 );
 
 export default function ConnectWithUsComponent() {
-  const [selectedDescription, setSelectedDescription] = useState(
+  const [selectedDescription, setSelectedDescription] = useState<string>(
     "Click an event to learn more",
   ); // Default description
-  const [learnMoreLink, setLearnMoreLink] = useState("");
-  const [events, setEvents] = useState();
+  const [learnMoreLink, setLearnMoreLink] = useState<string>("");
+  const [events, setEvents] = useState<undefined | Events[]>();
 
-  const handleCardClick = (info: any): void => {
+  const handleCardClick = (info: {
+    description: string;
+    link: string;
+  }): void => {
     setSelectedDescription(info.description);
     setLearnMoreLink(info.link);
   };
