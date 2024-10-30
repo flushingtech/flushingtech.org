@@ -4,16 +4,7 @@
     "imageSrc": "/fahim-muntashir-14JOIxmsOqA-unsplash.jpg",
     "imageAlt": "Tech Jams",
     "info": {
-      "description": "Collaborate on projects and share ideas.",
-      "link": "https://www.meetup.com/flushing-tech/events/"
-    }
-  },
-  {
-    "title": "Office Hours",
-    "imageSrc": "/phyo-min-03TT9QfihTo-unsplash.jpg",
-    "imageAlt": "Office Hours",
-    "info": {
-      "description": "Chat about tech.",
+      "description": "We host biweekly Hackathons at the Queens College Incubator. This is freeform, self-organized hackathon where creativity knows no bounds. Whether you're a seasoned pro, aspiring entrepreneur, or a passionate hobbyist, this event is tailor-made for tech enthusiasts like you. Bring your laptops, your brightest ideas, and ongoing projects – let's build something extraordinary together! ",
       "link": "https://www.meetup.com/flushing-tech/events/"
     }
   },
@@ -22,17 +13,8 @@
     "imageSrc": "/major-tom-agency-MJqMxzsxLtM-unsplash.jpg",
     "imageAlt": "Happy Hour",
     "info": {
-      "description": "Relax with other techies",
+      "description": "Join us for our monthly happy hours! This is a good way to meet the rest of the group, unwind, and socialize or network in a more casual setting.",
       "link": "https://www.meetup.com/flushing-tech/events/"
-    }
-  },
-  {
-    "title": "Virtual Hackathons",
-    "imageSrc": "/ilya-pavlov-OqtafYT5kTw-unsplash.jpg",
-    "imageAlt": "Virtual Hackathons",
-    "info": {
-      "description": "Virtually collaborate.",
-      "link": "https://www.meetup.com/flushing-tech/events/303556030/?recId=74090773-f5f3-4435-a792-7349bc33198a&recSource=keyword_search&searchId=9ed05e10-f3ee-46ab-9b3d-2043f756d497&eventOrigin=find_page$all"
     }
   }
 ]
