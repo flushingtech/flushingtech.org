@@ -63,7 +63,7 @@ export default function ConnectWithUsComponent() {
   return (
     <section
       id="event-showcase"
-      className="bg-blue text-peach py-10 min-h-screen"
+      className="bg-site_navy text-peach py-10 min-h-screen"
     >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-semibold text-center mb-8">
