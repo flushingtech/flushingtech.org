@@ -63,10 +63,10 @@ export default function ConnectWithUsComponent() {
   return (
     <section
       id="event-showcase"
-      className="bg-site_navy text-peach py-10 min-h-screen"
+      className="bg-site_navy text-peach py-10 min-h-screen font-montserrat"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-semibold text-center mb-8">
+        <h2 className="text-4xl font-semibold text-center mb-8 font-titillium">
           Connect With Us!
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-44 gap-y-12">
