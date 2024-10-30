@@ -99,5 +99,4 @@ export default function ConnectWithUsComponent() {
   );
 }
 
-// add links that change dynamically based on most recently posted on meetup
 // make this accessible
