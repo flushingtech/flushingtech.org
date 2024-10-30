@@ -32,9 +32,9 @@ const EventCard = ({
         <Image
           src={imageSrc}
           alt={imageAlt}
-          width={600}
-          height={200}
-          className="w-full"
+          width={1000}
+          height={1000}
+          className="w-full max-h-[35vh] object-cover"
         />
       </CardContent>
     </Card>
@@ -61,7 +61,10 @@ export default function ConnectWithUsComponent() {
   }, []);
 
   return (
-    <section id="event-showcase" className="bg-blue text-peach py-20">
+    <section
+      id="event-showcase"
+      className="bg-blue text-peach py-10 min-h-screen"
+    >
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-semibold text-center mb-8">
           Connect With Us!
@@ -80,7 +83,7 @@ export default function ConnectWithUsComponent() {
             ))}
         </div>
         <div className="flex justify-center mt-10">
-          <div className="w-2/3 text-2xl text-center flex-col">
+          <div className="text-lg 2xl:text-2xl 2xl:w-2/3 text-center flex-col">
             <p>{selectedDescription}</p>
             {learnMoreLink !== "" && (
               <Button size="lg" className="mt-4">
