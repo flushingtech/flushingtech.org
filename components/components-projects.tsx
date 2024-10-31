@@ -5,24 +5,41 @@ import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { Button } from "@/components/ui/button";
 
-const projects = [
+type Project = {
+  title: string;
+  description: string;
+  image: string;
+  link: string;
+};
+
+const projects: Project[] = [
   {
-    title: "Project One",
+    title: "SpaceX UPS",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "Save API data to local file, in this case SpaceX launch data to an output.json. Built using Java with Maven.",
     image: "https://www.flushingtech.org/hackathons/2024-6-1-spacex-ups.jpg",
+    link: "https://github.com/AaronNewTech/space-scanner",
   },
   {
-    title: "Project Two",
+    title: "Wearable",
     description:
-      "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "Explore building wearables by learning Arduino basics. This project got a simple blinking program to run on the Arduino.",
     image: "https://www.flushingtech.org/hackathons/2024-6-1-wearables.jpg",
+    link: "",
   },
   {
-    title: "Project Three",
+    title: "Smart Homes Using Department of Buildings Data",
     description:
-      "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+      "Explore Department of Buildings data to help build potential smart home solutions.",
     image: "https://www.flushingtech.org/hackathons/2024-6-1-smarthome-dob.jpg",
+    link: "",
+  },
+  {
+    title: "Votte",
+    description:
+      "Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech",
+    image: "https://www.flushingtech.org/hackathons/2024-6-1-votte.jpg",
+    link: "https://github.com/flushingtech/Votte_Backend",
   },
 ];
 
@@ -34,7 +51,7 @@ export default function ProjectsCarouselComponent() {
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
     },
-    [emblaApi],
+    [emblaApi]
   );
 
   const onSelect = useCallback(() => {
@@ -63,13 +80,13 @@ export default function ProjectsCarouselComponent() {
               <div key={index} className="flex-[0_0_100%]">
                 <div className="container w-[80%] flex flex-col md:flex-row gap-8 items-center mx-auto">
                   <div className="md:w-1/2 relative">
-                    <img
-                      src={project.image}
-                      alt={`${project.title} Image`}
-                      width="600"
-                      height="600"
-                      className="border-4 border-site_red w-screen"
-                    />
+                    <a {...(project.link !== "" ? { href: project.link } : {})}>
+                      <img
+                        src={project.image}
+                        alt={`${project.title} Image`}
+                        className="border-4 border-site_red w-full"
+                      />
+                    </a>
                     <div className="absolute bottom-8 left-0 right-0 flex justify-center">
                       <div className="flex space-x-8">
                         {projects.map((_, dotIndex) => (
