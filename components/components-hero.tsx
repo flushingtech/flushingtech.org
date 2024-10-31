@@ -22,15 +22,22 @@ export default function HeroComponent() {
             <span className="text-peach"> |</span>
           </h1>
           <p className="text-xl lg:text-2xl max-w-4xl text-peach font-montserrat">
-          We are a vibrant community of tech enthusiasts who come together to connect, learn, share and inspire one another. At Flushing Tech, we aim to create an environment where ideas flourish, friendships are formed and where the latest trends and developments are explored.
-          <br/>
-          <br/>
-          Come join our group and enjoy our exciting events, including fun workshops, demos, presentations, social and networking events, and much more!
+            We are a vibrant community of tech enthusiasts who come together to
+            connect, learn, share and inspire one another. At Flushing Tech, we
+            aim to create an environment where ideas flourish, friendships are
+            formed and where the latest trends and developments are explored.
+            <br />
+            <br />
+            Come join our group and enjoy our exciting events, including fun
+            workshops, demos, presentations, social and networking events, and
+            much more!
           </p>
         </div>
         <div>
           <Button size="xl" className="block lg:inline">
-            <a href="https://www.meetup.com/flushing-tech" target="_blank">Learn More</a>
+            <a href="https://www.meetup.com/flushing-tech" target="_blank">
+              Learn More
+            </a>
           </Button>
         </div>
       </div>
