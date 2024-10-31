@@ -14,20 +14,22 @@ export default function HeroComponent() {
         height: "calc(100vh - 4em)",
       }}
     >
-      <div className="container mx-auto px-4 lg: py-[10%] h-[100%] flex flex-col justify-center item-center">
-        <div className="flex-grow-[3] py-[10%]">
-          <h1 className="text-5xl font-bold mb-4 font-titillium">
+      <div className="container mx-auto px-4 lg:py-[10%] h-full flex flex-col justify-center item-center">
+        <div className="py-[5%]">
+          <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-titillium">
             <span className="text-peach">Meet</span>{" "}
             <span className="text-site_orange">Flushing Tech</span>
             <span className="text-peach"> |</span>
           </h1>
-          <p className="text-xl max-w-xl text-[#F5F5F5] font-montserrat">
-            Lorem ipsum odor amet, consectetuer adipiscing elit. Libero eleifend
-            auctor posuere volutpat rhoncus laoreet.
+          <p className="text-xl lg:text-2xl max-w-4xl text-peach font-montserrat">
+          We are a vibrant community of tech enthusiasts who come together to connect, learn, share and inspire one another. At Flushing Tech, we aim to create an environment where ideas flourish, friendships are formed and where the latest trends and developments are explored.
+          <br/>
+          <br/>
+          Come join our group and enjoy our exciting events, including fun workshops, demos, presentations, social and networking events, and much more!
           </p>
         </div>
-        <div className="flex-grow-[1]">
-          <Button size="xl" className="block">
+        <div>
+          <Button size="xl" className="block lg:inline">
             Learn More
           </Button>
         </div>
