@@ -17,7 +17,7 @@ export default function HeaderComponent() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <header className="bg-[#FFE4CE]">
+    <header className="bg-peach">
       <div className="flex justify-between items-center h-16">
         {/* logo */}
         <div className="flex-shrink-0 px-4">
@@ -26,9 +26,9 @@ export default function HeaderComponent() {
             className="text-2xl text-primary"
             style={{ fontFamily: "Gintronic, sans-serif" }}
           >
-            c.tech
+            flushing
             <span className="text-site_orange">
-              (<span className="text-site_red">flushing</span>)
+              (<span className="text-site_red">tech</span>)
             </span>
           </Link>
         </div>
