@@ -17,28 +17,28 @@ const projects: Project[] = [
     title: "SpaceX UPS",
     description:
       "Save API data to local file, in this case SpaceX launch data to an output.json. Built using Java with Maven.",
-    image: "https://www.flushingtech.org/hackathons/2024-6-1-spacex-ups.jpg",
+    image: "/spacex-ups.jpg",
     link: "https://github.com/AaronNewTech/space-scanner",
   },
   {
     title: "Wearable",
     description:
       "Explore building wearables by learning Arduino basics. This project got a simple blinking program to run on the Arduino.",
-    image: "https://www.flushingtech.org/hackathons/2024-6-1-wearables.jpg",
+    image: "/wearables.jpg",
     link: "",
   },
   {
     title: "Smart Homes Using Department of Buildings Data",
     description:
       "Explore Department of Buildings data to help build potential smart home solutions.",
-    image: "https://www.flushingtech.org/hackathons/2024-6-1-smarthome-dob.jpg",
+    image: "/smarthome-dob.jpg",
     link: "",
   },
   {
     title: "Votte",
     description:
       "Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech",
-    image: "https://www.flushingtech.org/hackathons/2024-6-1-votte.jpg",
+    image: "/votte.jpg",
     link: "https://github.com/flushingtech/Votte_Backend",
   },
 ];
@@ -51,7 +51,7 @@ export default function ProjectsCarouselComponent() {
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
     },
-    [emblaApi]
+    [emblaApi],
   );
 
   const onSelect = useCallback(() => {
