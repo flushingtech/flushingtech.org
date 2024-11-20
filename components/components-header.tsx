@@ -4,13 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import SocialIcons from "@/app/components/header/SocialIcons";
-
-const navItems = [
-  { text: "Events", href: "#event-showcase" },
-  { text: "Github", href: "https://github.com/flushingtech" },
-  { text: "Meetup", href: "https://www.meetup.com/flushing-tech/" },
-  { text: "Discord", href: "https://discord.gg/xGgFcZknDR" },
-];
+import navItems from "@/app/components/header/navItems";
 
 export default function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -35,23 +29,25 @@ export default function HeaderComponent() {
         </div>
 
         {/* Desktop menu */}
-        <nav className="hidden md:block px-4">
-          <ul className="flex space-x-8">
-            {navItems.map(
-              (item) =>
-                item.text === "Events" && (
-                  <li key={item.text}>
-                    <Link
-                      href={item.href}
-                      className="text-primary hover:text-site_orange transition-colors duration-300 text-xl font-titillium"
-                    >
-                      {item.text}
-                    </Link>
-                  </li>
-                ),
-            )}
-          </ul>
-          <SocialIcons />
+        <nav className="hidden md:block">
+          <div className="flex justify-end items-center">
+            <ul className="flex space-x-8 block mr-8">
+              {navItems.map(
+                (item) =>
+                  item.faIcon === undefined && (
+                    <li key={item.text}>
+                      <Link
+                        href={item.href}
+                        className="text-primary hover:text-site_orange transition-colors duration-300 text-xl font-titillium"
+                      >
+                        {item.text}
+                      </Link>
+                    </li>
+                  )
+              )}
+            </ul>
+            <SocialIcons />
+          </div>
         </nav>
 
         {/* Mobile menu button */}
