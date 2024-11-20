@@ -2,6 +2,7 @@
 
 import { Events } from "@/types/events";
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
@@ -26,7 +27,9 @@ const EventCard = ({
   <div onClick={onClick} className="cursor-pointer">
     <h3 className="text-2xl text-center mb-5">{title}</h3>
     <Card
-      className={`bg-transparent border-2 rounded-none ${selected ? "border-accent" : "border-peach"}`}
+      className={`bg-transparent border-2 rounded-none ${
+        selected ? "border-accent" : "border-peach"
+      }`}
     >
       <CardContent className="p-0">
         <Image
@@ -43,15 +46,27 @@ const EventCard = ({
 
 export default function ConnectWithUsComponent() {
   const [selectedDescription, setSelectedDescription] = useState<string>(
-    "Click an event to learn more",
+    "Click an event to learn more"
   ); // Default description
   const [learnMoreLink, setLearnMoreLink] = useState<string>("");
   const [events, setEvents] = useState<undefined | Events[]>();
+  const [external, setExternal] = useState<
+    { text: string; link: string } | undefined
+  >();
 
-  const handleCardClick = (info: {
-    description: string;
-    link: string;
-  }): void => {
+  const handleCardClick = (event: Events): void => {
+    const info: {
+      description: string;
+      link: string;
+    } = event.info;
+    if (event.title === "Bi-Weekly Tech Jams") {
+      setExternal({
+        text: "Vote on the next hackathon idea!",
+        link: "https://votte-frontend.vercel.app",
+      });
+    } else {
+      setExternal(undefined);
+    }
     setSelectedDescription(info.description);
     setLearnMoreLink(info.link);
   };
@@ -77,7 +92,7 @@ export default function ConnectWithUsComponent() {
                 title={event.title}
                 imageSrc={event.imageSrc}
                 imageAlt={event.imageAlt}
-                onClick={() => handleCardClick(event.info)}
+                onClick={() => handleCardClick(event)}
                 selected={event.info.description == selectedDescription}
               />
             ))}
@@ -91,6 +106,11 @@ export default function ConnectWithUsComponent() {
                   Learn More
                 </a>
               </Button>
+            )}
+            {typeof external === "object" && (
+              <div className="mt-4 2xl:mt-8 text-site_orange 2xl:text-4xl underline text-site_header">
+                <Link href={external.link}>{external.text}</Link>
+              </div>
             )}
           </div>
         </div>
