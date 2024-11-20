@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import SocialIcons from "@/app/components/header/SocialIcons";
 
 const navItems = [
   { text: "Events", href: "#event-showcase" },
@@ -36,17 +37,21 @@ export default function HeaderComponent() {
         {/* Desktop menu */}
         <nav className="hidden md:block px-4">
           <ul className="flex space-x-8">
-            {navItems.map((item) => (
-              <li key={item.text}>
-                <Link
-                  href={item.href}
-                  className="text-primary hover:text-site_orange transition-colors duration-300 text-xl font-titillium"
-                >
-                  {item.text}
-                </Link>
-              </li>
-            ))}
+            {navItems.map(
+              (item) =>
+                item.text === "Events" && (
+                  <li key={item.text}>
+                    <Link
+                      href={item.href}
+                      className="text-primary hover:text-site_orange transition-colors duration-300 text-xl font-titillium"
+                    >
+                      {item.text}
+                    </Link>
+                  </li>
+                ),
+            )}
           </ul>
+          <SocialIcons />
         </nav>
 
         {/* Mobile menu button */}
