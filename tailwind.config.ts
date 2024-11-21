@@ -69,6 +69,11 @@ const config: Config = {
             fontFamily: {
                 titillium: ["var(--font-titillium)"],
                 montserrat: ["var(--font-montserrat)"],
+                site_header: ["var(--font-source-code-pro)"],
+                site_button: ["var(--font-source-code-pro)"],
+                site_nav_item: ["var(--font-source-code-pro)"],
+                site_1st_paragraph: ["var(--font-source-sans-pro)"],
+                site_2nd_paragraph: ["var(--font-source-sans-pro)"],
             },
         },
     },
