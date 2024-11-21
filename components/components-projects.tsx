@@ -72,7 +72,8 @@ export default function ProjectsCarouselComponent() {
     <section className="bg-peach overflow-x-hidden">
       <div className="w-screen h-screen flex flex-col justify-around item-center">
         <h2 className="block text-4xl font-site_header text-center">
-          Check_Out_Our_<span className="text-site_red">Projects</span><span className="text-site_orange">()</span>
+          Check_Out_Our_<span className="text-site_red">Projects</span>
+          <span className="text-site_orange">()</span>
         </h2>
         <div ref={emblaRef}>
           <div className="flex">
@@ -107,10 +108,10 @@ export default function ProjectsCarouselComponent() {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <h3 className="text-3xl font-bold mb-4 text-gray-900 text-center">
+                    <h3 className="text-3xl font-bold font-site_header mb-4 text-gray-900 text-center">
                       {project.title}
                     </h3>
-                    <p className="text-lg mb-6 text-gray-700">
+                    <p className="text-lg mb-6 text-gray-700 font-site_1st_paragraph">
                       {project.description}
                     </p>
                   </div>
