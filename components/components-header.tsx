@@ -38,7 +38,7 @@ export default function HeaderComponent() {
                     <li key={item.text}>
                       <Link
                         href={item.href}
-                        className="text-primary hover:text-site_orange transition-colors duration-300 text-xl font-titillium"
+                        className="text-primary hover:text-site_orange transition-colors duration-300 text-xl font-site_nav_item"
                       >
                         {item.text}
                       </Link>
@@ -78,7 +78,7 @@ export default function HeaderComponent() {
             <Link
               key={item.text}
               href={item.href}
-              className="text-primary hover:text-site_orange block px-3 py-2 rounded-md text-base font-medium font-titillium"
+              className="text-primary hover:text-site_orange block px-3 py-2 rounded-md text-base font-medium font-site_nav_item"
               onClick={() => setIsMenuOpen(false)}
             >
               {item.text}
