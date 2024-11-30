@@ -51,7 +51,7 @@ export default function ProjectsCarouselComponent() {
     (index: number) => {
       if (emblaApi) emblaApi.scrollTo(index);
     },
-    [emblaApi],
+    [emblaApi]
   );
 
   const onSelect = useCallback(() => {
@@ -71,9 +71,9 @@ export default function ProjectsCarouselComponent() {
   return (
     <section className="bg-peach overflow-x-hidden">
       <div className="w-screen h-screen flex flex-col justify-around item-center">
-        <h2 className="block text-4xl font-site_header text-center">
-          Check_Out_Our_<span className="text-site_red">Projects</span>
-          <span className="text-site_orange">()</span>
+        <h2 className="block text-4xl font-site_header text-center font-bold">
+          {"//"}Check Out Our <span className="text-site_red">Projects</span>
+          <span className="text-site_orange">;</span>
         </h2>
         <div ref={emblaRef}>
           <div className="flex">
