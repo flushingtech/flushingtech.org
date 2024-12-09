@@ -46,7 +46,7 @@ const EventCard = ({
 
 export default function ConnectWithUsComponent() {
   const [selectedDescription, setSelectedDescription] = useState<string>(
-    "Click an event to learn more"
+    "Click an event to learn more",
   ); // Default description
   const [learnMoreLink, setLearnMoreLink] = useState<string>("");
   const [events, setEvents] = useState<undefined | Events[]>();
@@ -61,8 +61,8 @@ export default function ConnectWithUsComponent() {
     } = event.info;
     if (event.title === "Bi-Weekly Tech Jams") {
       setExternal({
-        text: "Vote on the next hackathon idea!",
-        link: "https://votte-frontend.vercel.app",
+        text: "Vote on the next hackathon ideas!",
+        link: process.env.NEXT_PUBLIC_VOTTE_URL,
       });
     } else {
       setExternal(undefined);
