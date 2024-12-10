@@ -62,7 +62,10 @@ export default function ConnectWithUsComponent() {
     if (event.title === "Bi-Weekly Tech Jams") {
       setExternal({
         text: "Vote on the next hackathon ideas!",
-        link: process.env.NEXT_PUBLIC_VOTTE_URL as string,
+        link:
+          typeof process.env.NEXT_PUBLIC_VOTTE_URL === "string"
+            ? process.env.NEXT_PUBLIC_VOTTE_URL
+            : "",
       });
     } else {
       setExternal(undefined);
