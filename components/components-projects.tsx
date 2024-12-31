@@ -70,13 +70,13 @@ export default function ProjectsCarouselComponent() {
 
   return (
     <section className="bg-peach overflow-x-hidden">
-      <div className="w-screen h-screen flex flex-col justify-around item-center">
+      <div className="w-screen flex flex-col item-center pt-10 pb-4 md:pt-28 md:pb-36">
         <h2 className="block text-4xl font-site_header text-center font-bold">
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
           <span className="text-site_orange">;</span>
         </h2>
         <div ref={emblaRef}>
-          <div className="flex">
+          <div className="flex mt-10 md:mt-20">
             {projects.map((project, index) => (
               <div key={index} className="flex-[0_0_100%]">
                 <div className="container w-[80%] flex flex-col md:flex-row gap-8 items-center mx-auto">
