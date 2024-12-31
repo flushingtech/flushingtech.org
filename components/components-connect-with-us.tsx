@@ -39,8 +39,8 @@ const EventCard = ({
   <div onClick={onClick} className="cursor-pointer">
     <h3 className="text-2xl text-center mb-5">{title}</h3>
     <Card
-      className={`bg-transparent border-2 rounded-none ${
-        selected ? "border-accent" : "border-peach"
+      className={`bg-transparent border-2 rounded-none border-peach ${
+        selected ? "md:border-accent" : "md:border-peach"
       }`}
     >
       <CardContent className="p-0">
