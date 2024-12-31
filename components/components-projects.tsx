@@ -28,7 +28,7 @@ const projects: Project[] = [
     link: "",
   },
   {
-    title: "Smart Homes Using Department of Buildings Data",
+    title: "Smart Homes",
     description:
       "Explore Department of Buildings data to help build potential smart home solutions.",
     image: "/smarthome-dob.jpg",
@@ -108,10 +108,10 @@ export default function ProjectsCarouselComponent() {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <h3 className="text-3xl font-bold font-site_header mb-4 text-gray-900 text-center">
+                    <h3 className="text-3xl font-bold font-site_header m-auto mb-12 text-gray-900 text-center md:w-1/2 md:text-5xl">
                       {project.title}
                     </h3>
-                    <p className="text-lg mb-6 text-gray-700 font-site_1st_paragraph">
+                    <p className="text-lg m-auto mb-6 text-gray-700 font-site_1st_paragraph text-center md:w-3/4 md:text-3xl">
                       {project.description}
                     </p>
                   </div>
