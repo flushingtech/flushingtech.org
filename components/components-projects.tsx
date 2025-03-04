@@ -73,7 +73,6 @@ export default function ProjectsCarouselComponent() {
       <div className="w-screen flex flex-col item-center pt-10 pb-4 md:pt-28 md:pb-36">
         <h2 className="block text-4xl font-site_header text-center font-bold">
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
-          <span className="text-site_orange">;</span>
         </h2>
         <div ref={emblaRef}>
           <div className="flex mt-10 md:mt-20">
