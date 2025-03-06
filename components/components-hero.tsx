@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 export default function HeroComponent() {
   return (
     <section
-      className="text-white py-20"
+      className="text-white py-20 relative"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/luca-bravo-XJXWbfSo2f0-unsplash_1_1.webp')`,
         backgroundSize: "cover",
@@ -14,8 +14,9 @@ export default function HeroComponent() {
         height: "calc(100vh - 4em)",
       }}
     >
+      <div className="hidden md:block w-[30%] max-w-[600px] h-full bg-gradient-to-b from-black/85 via-black/70 to-black/30 absolute right-0 top-0"></div>
       <div className="container mx-auto px-4 lg:py-[10%] h-full flex flex-col justify-center item-center">
-        <div className="py-[5%]">
+        <div className="md:w-[70%] py-[5%]">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-site_header">
             <span className="text-peach">Meet</span>{" "}
             <span className="text-site_orange">Flushing Tech</span>
