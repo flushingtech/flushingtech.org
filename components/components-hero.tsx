@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
 
 export default function HeroComponent() {
   return (
@@ -14,7 +15,26 @@ export default function HeroComponent() {
         height: "calc(100vh - 4em)",
       }}
     >
-      <div className="hidden md:block w-[30%] max-w-[600px] h-full bg-gradient-to-b from-black/85 via-black/70 to-black/30 absolute right-0 top-0"></div>
+      <div className="hidden md:block w-[30%] max-w-[600px] h-full bg-gradient-to-b from-black/85 via-black/50 to-black/10 absolute right-0 top-0 py-4 px-2 text-peach">
+        <div className="w-fit mx-auto text-5xl font-site_header">
+          Leader<span className="text-site_orange">board</span>
+        </div>
+        <div className="w-fit mx-auto my-4 text-4xl">Total Wins</div>
+        <div className="text-2xl grid grid-cols-[2fr_4fr_1fr] px-8 py-4 gap-x-8">
+          <div>username123</div>
+          <div className="p-3">
+            <Progress className="bg-white" value={100} />
+          </div>
+          <div>2</div>
+        </div>
+        <div className="text-2xl grid grid-cols-[2fr_4fr_1fr]  gap-x-8 py-4 px-8">
+          <div>username321</div>
+          <div className="p-3">
+            <Progress className="bg-white" value={50} />
+          </div>
+          <div>1</div>
+        </div>
+      </div>
       <div className="container mx-auto px-4 lg:py-[10%] h-full flex flex-col justify-center item-center">
         <div className="md:w-[70%] py-[5%]">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-site_header">
