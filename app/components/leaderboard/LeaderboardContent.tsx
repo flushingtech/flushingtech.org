@@ -20,7 +20,7 @@ export default function LeaderboardContent({
             key={i}
             gridTemplate={gridTemplate}
             row={row}
-            delay={(i + 1) * 100}
+            delay={(i + 1) * 200}
           />
         ))}
     </>
