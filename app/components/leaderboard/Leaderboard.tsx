@@ -4,7 +4,7 @@ import LeaderboardContent from "./LeaderboardContent";
 import { ContentArray } from "./LeaderboardContent";
 type MostWins = { contributor: string; total_wins: string };
 
-export default function Leaderboard() {
+export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
   const [mostWins, setMostWins] = useState<MostWins[] | null>();
   const [contentMostWins, setContentMostWins] = useState<
     ContentArray[] | null
@@ -32,6 +32,7 @@ export default function Leaderboard() {
     }
   }, [mostWins]);
   return (
+    !hidden &&
     contentMostWins && (
       <LeaderboardContent
         title="Total Wins"
