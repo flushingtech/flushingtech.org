@@ -11,13 +11,13 @@ export default function LeaderboardItem({
   delay: number;
 }) {
   const [progressValue, setProgressValue] = useState<number>(0);
-  if (type === "progress") {
-    useEffect(() => {
+  useEffect(() => {
+    if (type === "progress") {
       setTimeout(() => {
         setProgressValue(typeof value === "string" ? Number(value) : value);
       }, delay);
-    }, [value]);
-  }
+    }
+  }, [value, type, delay]);
   return type === "progress" ? (
     <div className="p-2.5">
       <Progress className="bg-white" value={progressValue} />
