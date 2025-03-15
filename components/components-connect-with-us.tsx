@@ -16,6 +16,18 @@ interface EventCardProps {
   selected: boolean;
 }
 
+type External = {
+  text: string;
+  link: string;
+};
+
+const VotteInfo: External = {
+  text: "Vote on the next hackathon ideas!",
+  link: process.env.NEXT_PUBLIC_VOTTE_URL as string,
+};
+
+const mainEvent = "Bi-Weekly Tech Jams";
+
 // Reusable EventCard Component
 const EventCard = ({
   title,
@@ -27,8 +39,8 @@ const EventCard = ({
   <div onClick={onClick} className="cursor-pointer">
     <h3 className="text-2xl text-center mb-5">{title}</h3>
     <Card
-      className={`bg-transparent border-2 rounded-none ${
-        selected ? "border-accent" : "border-peach"
+      className={`bg-transparent border-2 rounded-none border-peach ${
+        selected ? "md:border-accent" : "md:border-peach"
       }`}
     >
       <CardContent className="p-0">
@@ -46,24 +58,19 @@ const EventCard = ({
 
 export default function ConnectWithUsComponent() {
   const [selectedDescription, setSelectedDescription] = useState<string>(
-    "Click an event to learn more",
+    "Click an event to learn more"
   ); // Default description
   const [learnMoreLink, setLearnMoreLink] = useState<string>("");
   const [events, setEvents] = useState<undefined | Events[]>();
-  const [external, setExternal] = useState<
-    { text: string; link: string } | undefined
-  >();
+  const [external, setExternal] = useState<External | undefined>();
 
   const handleCardClick = (event: Events): void => {
     const info: {
       description: string;
       link: string;
     } = event.info;
-    if (event.title === "Bi-Weekly Tech Jams") {
-      setExternal({
-        text: "Vote on the next hackathon ideas!",
-        link: process.env.NEXT_PUBLIC_VOTTE_URL as string,
-      });
+    if (event.title === mainEvent) {
+      setExternal(VotteInfo);
     } else {
       setExternal(undefined);
     }
@@ -87,17 +94,29 @@ export default function ConnectWithUsComponent() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-44 gap-y-12">
           {events != undefined &&
             events.map((event, index) => (
-              <EventCard
-                key={index}
-                title={event.title}
-                imageSrc={event.imageSrc}
-                imageAlt={event.imageAlt}
-                onClick={() => handleCardClick(event)}
-                selected={event.info.description == selectedDescription}
-              />
+              <div key={index}>
+                <EventCard
+                  title={event.title}
+                  imageSrc={event.imageSrc}
+                  imageAlt={event.imageAlt}
+                  onClick={() => handleCardClick(event)}
+                  selected={event.info.description == selectedDescription}
+                />
+                <div className="md:hidden text-center">
+                  <p className="mt-2">{event.info.description}</p>
+                  {event.title === mainEvent && (
+                    <div className="mt-2 text-site_orange underline text-site_header">
+                      <Link href={VotteInfo.link}>{VotteInfo.text}</Link>
+                    </div>
+                  )}
+                  <Button size="lg" className="mt-2">
+                    <a href={event.info.link}>Learn More</a>
+                  </Button>
+                </div>
+              </div>
             ))}
         </div>
-        <div className="flex justify-center mt-10">
+        <div className="md:flex justify-center mt-10 hidden">
           <div className="text-lg 2xl:text-2xl 2xl:w-2/3 text-center flex-col">
             <p>{selectedDescription}</p>
             {learnMoreLink !== "" && (

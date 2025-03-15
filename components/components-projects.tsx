@@ -28,7 +28,7 @@ const projects: Project[] = [
     link: "",
   },
   {
-    title: "Smart Homes Using Department of Buildings Data",
+    title: "Smart Homes",
     description:
       "Explore Department of Buildings data to help build potential smart home solutions.",
     image: "/smarthome-dob.jpg",
@@ -70,13 +70,12 @@ export default function ProjectsCarouselComponent() {
 
   return (
     <section className="bg-peach overflow-x-hidden">
-      <div className="w-screen h-screen flex flex-col justify-around item-center">
+      <div className="w-screen flex flex-col item-center pt-10 pb-4 md:pt-28 md:pb-36">
         <h2 className="block text-4xl font-site_header text-center font-bold">
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
-          <span className="text-site_orange">;</span>
         </h2>
         <div ref={emblaRef}>
-          <div className="flex">
+          <div className="flex mt-10 md:mt-20">
             {projects.map((project, index) => (
               <div key={index} className="flex-[0_0_100%]">
                 <div className="container w-[80%] flex flex-col md:flex-row gap-8 items-center mx-auto">
@@ -108,10 +107,10 @@ export default function ProjectsCarouselComponent() {
                     </div>
                   </div>
                   <div className="md:w-1/2">
-                    <h3 className="text-3xl font-bold font-site_header mb-4 text-gray-900 text-center">
+                    <h3 className="text-3xl font-bold font-site_header m-auto mb-12 text-gray-900 text-center md:w-1/2 md:text-5xl">
                       {project.title}
                     </h3>
-                    <p className="text-lg mb-6 text-gray-700 font-site_1st_paragraph">
+                    <p className="text-lg m-auto mb-6 text-gray-700 font-site_1st_paragraph text-center md:w-3/4 md:text-3xl">
                       {project.description}
                     </p>
                   </div>
