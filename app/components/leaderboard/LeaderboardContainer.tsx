@@ -19,6 +19,10 @@ export default function LeaderboardContainer() {
     >
       <div className="w-fit mx-auto text-3xl lg:text-4xl font-bold font-site_header text-center">
         Hackathon <span className="text-site_orange">Leaderboard</span>
+        <p className="text-lg font-site_paragraph text-center my-4 mx-auto px-8">
+          Join us in celebrating the achievements of our fellow tech
+          enthusiasts!
+        </p>
       </div>
       <Leaderboard hidden={hidden} />
     </div>
