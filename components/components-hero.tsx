@@ -5,7 +5,7 @@ import LeaderboardContainer from "@/app/components/leaderboard/LeaderboardContai
 export default function HeroComponent() {
   return (
     <section
-      className="text-white py-20 lg:h-[calc(100vh-4em)] relative"
+      className="text-white py-20 lg:h-[max(calc(100vh-4em),600px)] relative"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/luca-bravo-XJXWbfSo2f0-unsplash_1_1.webp')`,
         backgroundSize: "cover",
