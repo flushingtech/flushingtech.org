@@ -6,7 +6,7 @@ export default function LeaderboardItem({
   value,
   delay = 0,
 }: {
-  type: "text" | "progress";
+  type: string;
   value: string | number;
   delay: number;
 }) {
