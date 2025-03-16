@@ -1,4 +1,4 @@
-export type Content = ["text" | "progress", string | number];
+export type Content = [string, string | number];
 export type ContentArray = Array<Content>;
 import LeaderboardRow from "./LeaderboardRow";
 
