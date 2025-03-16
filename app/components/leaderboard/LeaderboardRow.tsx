@@ -11,7 +11,9 @@ export default function LeaderboardRow({
   delay: number;
 }) {
   return (
-    <div className={`text-xl grid ${gridTemplate} gap-x-4 px-8 py-4 w-full`}>
+    <div
+      className={`text-xl grid ${gridTemplate} gap-x-4 px-8 py-4 w-full text-center`}
+    >
       {row &&
         row.map(([type, value]) => (
           <LeaderboardItem
