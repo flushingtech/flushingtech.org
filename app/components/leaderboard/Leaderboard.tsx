@@ -20,7 +20,7 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
   const [contentMostWins, setContentMostWins] = useState<
     ContentArray[] | null
   >();
-  const [selected, setSelected] = useState<string>("Total Wins");
+  const [selected, setSelected] = useState<string>("Recent Winners");
   useEffect(() => {
     fetch(
       "https://votte-backend.flushingtech.org/api/leaderboard/leaderboardmostwins"
@@ -40,7 +40,7 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
     <>
       <div className="my-8 text-center xl:text-right ">
         <Tabs
-          defaultValue="Total Wins"
+          defaultValue="Recent Winners"
           className="w-fit inline-block"
           onValueChange={handleTabValueChange}
         >
