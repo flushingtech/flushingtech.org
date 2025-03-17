@@ -88,7 +88,8 @@ const config: Config = {
         },
       },
       animation: {
-        "slide-in": "slide-in 3s ease-out forwards",
+        "slide-in-3s": "slide-in 3s ease-out forwards",
+        "slide-in-500": "slide-in 500ms ease-out forwards",
       },
     },
   },

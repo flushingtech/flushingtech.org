@@ -8,7 +8,7 @@ export default function LeaderboardItem({
 }: {
   type: string;
   value: string | number;
-  delay: number;
+  delay?: number;
 }) {
   const [progressValue, setProgressValue] = useState<number>(0);
   useEffect(() => {

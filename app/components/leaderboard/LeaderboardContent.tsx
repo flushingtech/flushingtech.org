@@ -15,14 +15,17 @@ export default function LeaderboardContent({
     <>
       <div className="w-fit mx-auto my-4 text-3xl">{title}</div>
       {content &&
-        content.map((row, i) => (
-          <LeaderboardRow
-            key={i}
-            gridTemplate={gridTemplate}
-            row={row}
-            delay={(i + 1) * 200}
-          />
-        ))}
+        content.map((row, i) => {
+          return (
+            <LeaderboardRow
+              key={i}
+              gridTemplate={gridTemplate}
+              row={row}
+              delay={(i + 1) * 250 + content.length * 100}
+              animationDelay={{ animationDelay: `${i * 250}ms` }}
+            />
+          );
+        })}
     </>
   );
 }
