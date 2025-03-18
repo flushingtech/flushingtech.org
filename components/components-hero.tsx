@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { PrefetchCacheEntryStatus } from "next/dist/client/components/router-reducer/router-reducer-types";
 
 export default function HeroComponent() {
   return (
@@ -19,7 +20,7 @@ export default function HeroComponent() {
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-site_header">
             <span className="text-peach">Meet</span>{" "}
             <span className="text-site_orange">Flushing Tech</span>
-            <span className="text-peach"> |</span>
+            <span className="text-peach-blink" > |</span>
           </h1>
           <p className="text-xl lg:text-2xl max-w-4xl text-peach font-site_1st_paragraph">
             We are a vibrant community of tech enthusiasts who come together to
@@ -44,3 +45,4 @@ export default function HeroComponent() {
     </section>
   );
 }
+ 
