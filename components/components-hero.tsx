@@ -18,7 +18,24 @@ export default function HeroComponent() {
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-site_header">
             <span className="text-peach">Meet</span>{" "}
             <span className="text-site_orange">Flushing Tech</span>
-            <span className="text-peach"> |</span>
+            <span
+              style={{
+                animation: "blink 1s steps(1, start) infinite",
+                color: "#fff", // Ensures full black color
+                fontWeight: "bold" // Makes it stand out more
+              }}
+            >
+              |
+              <style>
+                {`
+          @keyframes blink {
+
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+          }
+        `}
+              </style>
+            </span>
           </h1>
           <p className="text-xl lg:text-2xl max-w-4xl text-peach font-site_1st_paragraph">
             We are a vibrant community of tech enthusiasts who come together to
