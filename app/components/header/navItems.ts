@@ -12,9 +12,19 @@ export default [
     href: "", //need information
   },
   {
+    text: "Instagram",
+    href: "https://www.instagram.com/flushingtech/",
+    faIcon: "faInstagram",
+  },
+  {
     text: "Github",
     href: "https://github.com/flushingtech",
     faIcon: "faGithub",
+  },
+  {
+    text: "Linkedin",
+    href: "https://www.linkedin.com/company/flushingtech",
+    faIcon: "faLinkedin",
   },
   {
     text: "Meetup",
@@ -25,5 +35,10 @@ export default [
     text: "Discord",
     href: "https://discord.gg/xGgFcZknDR",
     faIcon: "faDiscord",
+  },
+  {
+    text: "Twitter",
+    href: "https://x.com/flushingtech",
+    faIcon: "faTwitter",
   },
 ] as NavItem[];
