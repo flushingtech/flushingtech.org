@@ -12,9 +12,19 @@ export default [
     href: "", //need information
   },
   {
+    text: "Instagram",
+    href: "https://www.instagram.com/flushingtech/",
+    faIcon: "faInstagram",
+  },
+  {
     text: "Github",
     href: "https://github.com/flushingtech",
     faIcon: "faGithub",
+  },
+  {
+    text: "Linkedin",
+    href: "https://www.linkedin.com/company/flushingtech",
+    faIcon: "faLinkedin",
   },
   {
     text: "Meetup",
