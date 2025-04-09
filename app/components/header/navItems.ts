@@ -36,9 +36,4 @@ export default [
     href: "https://discord.gg/xGgFcZknDR",
     faIcon: "faDiscord",
   },
-  {
-    text: "Twitter",
-    href: "https://x.com/flushingtech",
-    faIcon: "faTwitter",
-  },
 ] as NavItem[];
