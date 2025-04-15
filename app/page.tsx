@@ -3,6 +3,7 @@
 import HeroComponent from "@/components/components-hero"
 import ProjectsComponent from "@/components/components-projects"
 import ConnectWithUsComponent from "@/components/components-connect-with-us"
+import FooterComponent from "@/components/components-footer"
 
 export default function Homepage() {
   return (
@@ -10,6 +11,7 @@ export default function Homepage() {
       <HeroComponent />
       <ProjectsComponent />
       <ConnectWithUsComponent />
+      <FooterComponent />
     </div>
   )
 }
