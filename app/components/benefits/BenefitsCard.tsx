@@ -1,21 +1,19 @@
-import React from 'react';
-import { BenefitsType } from './benefits-data';
 
-const BenefitsCard = ({ title, description, headerColor }: BenefitsType) => {
+import React from 'react';
+import { BenefitsHomeType } from './benefits-data';
+
+const BenefitsCard = ({ title, description, icon }: BenefitsHomeType) => {
+  const Icon = icon;
+
   return (
-    <div className='card-container h-max w-[200px] rounded shadow-lg flex flex-col gap-4 py-6 px-4 bg-neutral-100 flex-1'>
-      <div className='card-header h-full w-full bg-lime-500 p-2'>
-        <div className={`${headerColor} text-neutral-700 h-max w-full`}>
-          <h3 className='text-2xl font-semibold leading-6'>
-            {title}
-          </h3>
-        </div>
+    <div className="flex flex-col items-center text-center px-4 sm:px-6 max-w-sm mx-auto">
+      <div className="flex items-center justify-center w-16 h-16 rounded-full border-2 border-site_orange mb-4">
+        <Icon className="h-6 w-6 text-orange-500" />
       </div>
-      <div className='card-content w-full h-full'>
-        {description}
-      </div>
+      <h3 className="text-lg 2xl:text-2xl font-semibold mb-2">{title}</h3>
+      <p className="text-base text-muted-foreground">{description}</p>
     </div>
-  )
-}
+  );
+};
 
 export default BenefitsCard;

@@ -12,8 +12,8 @@ export default function Homepage() {
       <HeroComponent />
       <ProjectsComponent />
       <ConnectWithUsComponent />
-      <FooterComponent />
       <Benefits />
+      <FooterComponent />
     </div>
   )
 }
