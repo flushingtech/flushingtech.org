@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import LeaderboardContent from "./LeaderboardContent";
 
 import { ContentArray } from "./LeaderboardContent";
@@ -77,9 +77,17 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
     setSelected(value);
   }
   function processContentMostWins(data: MostWins[]) {
-    const content: ContentArray[] = data.map(
+    const validifiedData = data.filter((e: MostWins) =>
+      /@/.test(e.contributor)
+    );
+    const content: ContentArray[] = validifiedData.map(
       (e: MostWins, _: number, arr: any[]) => [
-        ["text", (e.contributor.match(/[\w\W]+(?=@)/) as any[])[0] as string],
+        [
+          "text",
+          (
+            e.contributor.match(/[\w\W]+(?=@)/) as RegExpMatchArray
+          )[0] as string,
+        ],
         ["progress", (Number(e.total_wins) / Number(arr[0].total_wins)) * 100],
         ["text", e.total_wins],
       ]
@@ -87,17 +95,31 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
     setContentMostWins(content);
   }
   function processContentRecentWinners(data: RecentWinners[]) {
-    console.log(data);
-    const content: ContentArray[] = data.map((e: RecentWinners) => [
-      ["text", (e.contributors.match(/[\w\W]+(?=@)/) as any[])[0] as string],
-      ["text", e.idea_title],
-      [
-        "text",
-        new Date(e.event_date)
-          .toISOString()
-          .match(/[\W\w]+(?=T)/) as any[][0] as string,
-      ],
-    ]);
+    const validifiedData = data.filter((e: RecentWinners) =>
+      /@/.test(e.contributors)
+    );
+    const content: ContentArray[] = validifiedData
+      .map((e: RecentWinners) =>
+        e.contributors.split(",").map(
+          (contributor: string) =>
+            [
+              [
+                "text",
+                (
+                  contributor.match(/[\w\W]+(?=@)/) as RegExpMatchArray
+                )[0] as string,
+              ],
+              ["text", e.idea_title],
+              [
+                "text",
+                new Date(e.event_date)
+                  .toISOString()
+                  .match(/[\W\w]+(?=T)/) as any[][0] as string,
+              ],
+            ] as ContentArray
+        )
+      )
+      .flat();
     setContentRecentWinners(content);
   }
 }
