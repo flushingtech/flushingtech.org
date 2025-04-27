@@ -2,6 +2,7 @@ import React from 'react';
 import { BENEFITS_HOME_DATA, BenefitsHomeType } from './benefits-data';
 import BenefitsCard from './BenefitsCard';
 import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 
 const Benefits = () => {
   return (
@@ -25,9 +26,11 @@ const Benefits = () => {
       </div>
 
       <div className="w-full flex justify-center mt-12">
-        <Button size="xl">
-          See Everything We Offer
-        </Button>
+        <Link href='https://www.meetup.com/flushing-tech/' passHref target="_blank">
+          <Button size="xl">
+           See Everything We Offer
+          </Button>
+        </Link>
       </div>
     </section>
   );
