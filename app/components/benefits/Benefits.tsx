@@ -27,7 +27,7 @@ const Benefits = () => {
 
       <div className="w-full flex justify-center mt-12">
         <Link href='https://www.meetup.com/flushing-tech/' passHref target="_blank">
-          <Button size="xl">
+          <Button size="xl" className='px-4 sm:px-10'>
            See Everything We Offer
           </Button>
         </Link>
