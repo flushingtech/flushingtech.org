@@ -6,6 +6,7 @@ type NavItem = {
   faIcon?: FaBrand;
 };
 export default [
+  {text:"About", href: '/about'},
   { text: "Events", href: "#event-showcase" },
   {
     text: "Contact",
