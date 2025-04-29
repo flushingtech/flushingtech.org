@@ -33,10 +33,10 @@ const page = () => {
         <div className="flex flex-col gap-6 text-left max-w-lg">
           <h3 className="text-3xl font-semibold">The Flushing Tech Experience</h3>
           <p className="text-base text-muted-foreground">
-            Flushing-Tech is more than just a meetup — it's a thriving community of developers, designers, and tech enthusiasts who are passionate about building, learning, and collaborating.
+            {`Flushing-Tech is more than just a meetup — it's a thriving community of developers, designers, and tech enthusiasts who are passionate about building, learning, and collaborating.
             We host bi-weekly hackathons where we brainstorm, vote on project ideas, and create exciting tech together.
             While a winner is crowned, the real goal is to have fun, grow your skills, meet new people, and be part of an ever-evolving tech scene.
-            Whether you're looking to network, make new friends, or just enjoy the creative energy of Flushing's tech community, you'll find a place here with us!
+            Whether you're looking to network, make new friends, or just enjoy the creative energy of Flushing's tech community, you'll find a place here with us!`}
           </p>
           <div>
             <Link href='/about#faq-section' passHref>
