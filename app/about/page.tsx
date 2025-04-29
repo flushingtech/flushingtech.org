@@ -19,8 +19,8 @@ const page = () => {
       />
 
       {/* {content section} */}
-      <section className="bg-white flex flex-col md:flex-row items-center justify-between gap-12 px-6 py-16 sm:px-12 sm:py-24">
-        <div className="w-full md:w-1/2 h-[300px] sm:h-[400px] relative border-2 border-accent rounded overflow-hidden flex-shrink-0">
+      <section className="bg-white flex flex-col md:flex-row items-center justify-center gap-16 px-6 py-16 sm:px-12 sm:py-24">
+        <div className="w-full md:max-w-[700px] h-[300px] sm:h-[400px] relative border-2 border-accent rounded overflow-hidden flex-shrink-0">
           <Image
             src="/images/about-page-image-1.jpg"
             alt="placeholder image"

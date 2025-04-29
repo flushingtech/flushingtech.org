@@ -28,7 +28,7 @@ const Benefits = () => {
       <div className="w-full flex justify-center mt-12">
         <Link href='/about#benefits-section' passHref>
           <Button size="xl">
-           See Everything We Offer
+            See Everything We Offer
           </Button>
         </Link>
       </div>
