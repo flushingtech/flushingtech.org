@@ -12,7 +12,7 @@ export default function FAQSection() {
       <div className="text-center mb-10">
         <h2 className="text-3xl font-bold font-site_header">Frequently Asked Questions</h2>
         <p className="text-muted-foreground mt-2">
-          Everything you need to know before joining Flushing-Tech
+          Everything you need to know before coming to a meetup 
         </p>
       </div>
 

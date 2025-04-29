@@ -5,9 +5,9 @@ import { cn } from "@/lib/utils"; // optional className merge helper
 
 export const BenefitsGrid = () => {
   return (
-    <section className="w-full py-16 px-6 sm:px-12">
+    <section className="w-full py-16 px-6 sm:px-12" id="benefits-section">
       <div className="max-w-7xl mx-auto text-center mb-12">
-        <h2 className="text-3xl font-bold sm:text-4xl font-site_header">Why Flushing-Tech?</h2>
+        <h2 className="text-3xl font-bold sm:text-4xl font-site_header">Made For People Like You</h2>
         <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
           A community-first approach to learning, building, and connecting with others in tech.
         </p>
@@ -19,7 +19,7 @@ export const BenefitsGrid = () => {
             key={idx}
             className="bg-white rounded-xl border border-border shadow-sm p-6 flex flex-col gap-4"
           >
-            <div className="w-10 h-10 rounded-full bg-peach/20 flex items-center justify-center">
+            <div className="w-10 h-10 rounded-full bg-site_navy/80 flex items-center justify-center">
               <benefit.icon className="w-5 h-5 text-peach" />
             </div>
             <h3 className="text-lg font-semibold text-foreground">{benefit.title}</h3>

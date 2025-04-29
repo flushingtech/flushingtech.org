@@ -23,8 +23,8 @@ export default function RootLayout({
       <body className={`${inter.className} ${fontVariables}`}>
         <HeaderComponent></HeaderComponent>
         {children}
+        <FooterComponent />
       </body>
-      <FooterComponent />
     </html>
   );
 }
