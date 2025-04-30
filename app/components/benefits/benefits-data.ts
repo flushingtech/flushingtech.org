@@ -1,8 +1,9 @@
-import { RocketIcon, Users, FileText, LucideIcon } from "lucide-react";
+import { RocketIcon, Users, FileText, LucideIcon, Rocket, Clock, CheckCircle, Code, MessageSquare } from "lucide-react";
 
 export type BenefitsType = {
   title: string;
   description: string;
+  icon: LucideIcon;
 };
 
 export type BenefitsHomeType = {
@@ -31,53 +32,39 @@ export const BENEFITS_HOME_DATA: BenefitsHomeType[] = [
 
 export const BENEFITS_DATA: BenefitsType[] = [
   {
-    title: "Collaborative Hackathons",
+    title: "Creative Hackathons",
     description:
-      "Join hands-on coding events where you can brainstorm, build, and launch creative projects with like-minded individuals.",
-  },
-  {
-    title: "Real-World Experience",
-    description:
-      "Gain practical development experience by working on real projects under time constraints — just like in tech jobs.",
-  },
-  {
-    title: "Meet Developers & Creators",
-    description:
-      "Connect with developers, designers, and tech enthusiasts from Flushing and beyond. Expand your circle and make new friends.",
-  },
-  {
-    title: "Learn by Doing",
-    description:
-      "Whether you're a beginner or experienced, you'll level up by solving problems, debugging, and shipping ideas fast.",
-  },
-  {
-    title: "Get Inspired",
-    description:
-      "Hear from guest speakers, mentors, and fellow hackers about their journeys. Leave every event with new motivation.",
-  },
-  {
-    title: "Build Your Portfolio",
-    description:
-      "Add hackathon projects to your GitHub and resume — show employers what you’ve created, not just what you know.",
-  },
-  {
-    title: "Team Up with Others",
-    description:
-      "Find teammates with complementary skills. Designers, coders, product thinkers — build something awesome together.",
-  },
-  {
-    title: "Win Prizes & Recognition",
-    description:
-      "Compete for cool prizes and earn recognition from local businesses, mentors, and peers.",
-  },
-  {
-    title: "Stay Ahead of Trends",
-    description:
-      "Explore new tools, frameworks, and APIs. Hackathons are a playground for trying out cutting-edge tech.",
+      "Join bi-weekly hackathons where we pitch ideas, form teams, and build exciting projects together — no pressure, just fun and innovation.",
+    icon: Rocket,
   },
   {
     title: "Supportive Community",
     description:
-      "No gatekeeping, just good vibes. Whether you’re building your first app or tenth, you’re welcome here.",
+      "Be part of a welcoming group of developers, designers, and makers who are always ready to share, help, and grow with you.",
+    icon: Users,
+  },
+  {
+    title: "Consistent Meetups",
+    description:
+      "Our events run like clockwork — every two weeks you can count on meaningful sessions filled with learning, laughs, and connection.",
+    icon: Clock,
+  },
+  {
+    title: "Open Collaboration",
+    description:
+      "Every voice matters here. Whether you're a beginner or a pro, you'll have a place to contribute, experiment, and make an impact.",
+    icon: MessageSquare,
+  },
+  {
+    title: "Modern Tech Stack",
+    description:
+      "Explore and work with current, real-world technologies — from full-stack JavaScript to cutting-edge tools used in today’s tech teams.",
+    icon: Code,
+  },
+  {
+    title: "Real Connections",
+    description:
+      "Make new friends, find collaborators, or even a co-founder. It's not just about code — it's about the people you meet along the way.",
+    icon: CheckCircle,
   },
 ];
