@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import Link from "next/link";
 
 interface HeroSectionProps {
   heading: string;
@@ -21,11 +20,11 @@ const HeroSection = ({ heading, content, btnText, btnLink }: HeroSectionProps) =
               {content}
             </p>
             <div className="mt-10 flex items-center justify-center gap-x-6 animate-fade-in-button">
-              <Link href={btnLink} passHref>
+              <a href={btnLink} target="_blank" rel="noopener noreferrer">
                 <Button size='lg'>
                   {btnText}
                 </Button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>
