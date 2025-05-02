@@ -15,7 +15,7 @@ const page = () => {
         heading='About Flushing-Tech'
         content='Flushing-Tech is a tech group based in Flushing, New York that hosts bi-weekly meetups for developers, designers, and tech enthusiasts. Our mission is to build a vibrant tech community in Flushing and provide a platform for learning, networking, and collaboration.'
         btnText='Join Our Meetup'
-        btnLink='www.meetup.com/flushing-tech'
+        btnLink='https://www.meetup.com/flushing-tech'
       />
 
       {/* {content section} */}
