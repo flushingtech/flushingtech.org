@@ -1,4 +1,4 @@
-import eventData from "../../events.json";
+import Image from "next/image";
 
 // Define the interface for the props
 interface EventCardProps {
@@ -22,7 +22,7 @@ const EventCard = ({
     >
       <div>{title}</div>
 
-      <img src={image_URL} />
+      <Image alt={image_URL} src={image_URL} />
     </button>
   );
 };
