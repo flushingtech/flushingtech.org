@@ -1,0 +1,27 @@
+# Ignore build output and dependencies
+.next/
+out/
+node_modules/
+dist/
+coverage/
+
+# Ignore version control and system files
+.git/
+.DS_Store
+
+# Ignore lock files (optional, if formatting isn't needed)
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Ignore config or asset files that don't benefit from formatting
+*.snap
+*.ico
+*.png
+*.jpg
+*.jpeg
+*.svg
+
+# Ignore any environment or local dev files
+.env
+.env.*.local
