@@ -11,16 +11,13 @@ Welcome to the Flushing Tech website repository! This repo is dedicated to build
 5. [Contributing](#contributing)
 6. [Contact](#contact)
 
-
-
 ## Background on the Group
 
 Flushing Tech is a group for people from any skill level interested in technology. The group hosts multiple events, including in-person and virtual "hackathon" events where people come together, brainstorm project ideas, and then work on those projects together. The group also currently has a virtual "office hours" event where people vote on tech discussion topics. The group has an active Discord page, and people sign up for events through Meetup. The group also has a GitHub where some of the group's projects are hosted.
 
-
 ## About the Project
 
-This website will be built using Next.js and React, aiming to serve multiple purposes:
+This website will be built using Next.js, aiming to serve multiple purposes:
 
 - **Introduction to the Group**: Explain what Flushing Tech is all about.
 - **Event Information**: Provide details about upcoming events and how to sign up.
@@ -34,14 +31,16 @@ Our roadmap includes several exciting features:
 - **Mentorship Opportunities**: A feature that enables mentors or more senior group members to indicate their availability for different types of mentorship (e.g., resume review, code review). Members can sign up for these slots.
 
 ## Installation
+
 To set up the project locally, follow these steps:
 
-1. Clone the repo 
+1. Clone the repo
+
 ```bash
 git clone https://github.com/flushingtech/flushingtech.org.git
 ```
 
-2. Switch to your project directory 
+2. Switch to your project directory
 
 ```
 cd flushing-tech-website
@@ -49,7 +48,7 @@ cd flushing-tech-website
 
 3. Install dependencies
 
-``` bash
+```bash
 npm install
 # or
 yarn install
@@ -61,7 +60,7 @@ bun install
 
 4. Run the development server:
 
-``` bash
+```bash
 npm run dev
 # or
 yarn dev
@@ -78,11 +77,41 @@ You can start editing the page by modifying app/page.tsx. The page auto-updates 
 
 This project uses next/font to automatically optimize and load Inter, a custom Google Font.
 
-## Contributing
-Now that you've cloned the repository, create a new branch: ```git checkout -b your-branch-name```
+## Recommended VS Code Extensions
 
-Make and stage your changes. Commit Changes. When you're ready, you can push those changes with ```git push origin your-branch-name```. Then you can come back over to GitHub to open up a Pull Request to merge your branch with the main branch!
+To ensure a smooth development experience, we recommend installing the following VS Code extensions:
+
+- **Prettier – Code Formatter**  
+  Automatically formats your code according to the project's Prettier configuration.
+
+- **ESLint**  
+  Provides real-time linting feedback based on the ESLint rules defined in the project.
+
+- **Tailwind CSS IntelliSense**  
+  Offers autocomplete, syntax highlighting, and linting for Tailwind CSS classes.
+
+## Contributing
+
+After cloning the repository, follow these steps to contribute:
+
+1. **Create a new branch**  
+   Run: `git checkout -b your-branch-name`
+
+2. **Make your changes**
+
+3. **Format and lint your code**  
+   Before staging any changes, run: `npm run prebuild`  
+   If there are no errors or warnings, proceed to the next step.
+
+4. **Stage and commit your changes**, then push them:  
+   Run: `git push origin your-branch-name`
+
+5. **Open a Pull Request**  
+   Go to GitHub and open a Pull Request to merge your branch into the `main` branch.
+
+Thank you for contributing!
 
 ## Contact
+
 If you have other questions about the group or the website, you can ask on Discord! Here's the invite link: https://discord.gg/xGgFcZknDR
-We have a specific channel for the website project - feel free to ask website-related questions there. 
+We have a specific channel for the website project - feel free to ask website-related questions there.
