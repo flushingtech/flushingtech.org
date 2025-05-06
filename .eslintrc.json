@@ -13,7 +13,6 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "ignorePatterns": ["postcss.config.mjs"],
   "rules": {
     "prettier/prettier": "off",
     "@typescript-eslint/no-unused-vars": "warn",
