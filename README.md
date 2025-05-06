@@ -23,7 +23,7 @@ This website will be built using Next.js, aiming to serve multiple purposes:
 - **Event Information**: Provide details about upcoming events and how to sign up.
 - **Project Showcase**: Display projects that have come out of the Flushing Tech group.
 
-### Future Features
+## Future Features
 
 Our roadmap includes several exciting features:
 
