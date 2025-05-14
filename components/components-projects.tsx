@@ -131,6 +131,7 @@ function ProjectsCarouselComponent() {
 		};
 	}, [emblaApi, onSelect]);
 
+<<<<<<< HEAD
 	return (
 		<section className='bg-peach overflow-x-hidden'>
 			<div className='w-screen flex flex-col item-center pt-10 pb-4 md:pt-28 md:pb-36'>
