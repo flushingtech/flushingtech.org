@@ -67,6 +67,34 @@ const projects: Project[] = [
     image: "/votte.jpg",
     link: "https://github.com/flushingtech/Votte_Backend",
   },
+	{
+		title: 'SpaceX UPS',
+		description:
+			'Save API data to local file, in this case SpaceX launch data to an output.json. Built using Java with Maven.',
+		image: '/spacex-ups.jpg',
+		link: 'https://github.com/AaronNewTech/space-scanner',
+	},
+	{
+		title: 'Wearable',
+		description:
+			'Explore building wearables by learning Arduino basics. This project got a simple blinking program to run on the Arduino.',
+		image: '/wearables.jpg',
+		link: '',
+	},
+	{
+		title: 'Smart Homes',
+		description:
+			'Explore Department of Buildings data to help build potential smart home solutions.',
+		image: '/smarthome-dob.jpg',
+		link: '',
+	},
+	{
+		title: 'Votte',
+		description:
+			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
+		image: '/votte.jpg',
+		link: 'https://github.com/flushingtech/Votte_Backend',
+	},
 ];
 
 function GridLayout() {
@@ -75,7 +103,7 @@ function GridLayout() {
   create a simple grid based images in a single container
   Part 2:
   create an onclick event for each image which leads to a new container that shows
-  the image displayed in Projects CarouselComponent
+  the image displayed similar to Projects CarouselComponent
   Part 3: 
   Implementing such things.
   */
@@ -109,6 +137,8 @@ function GridLayout() {
 function ProjectsCarouselComponent() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
   const [selectedIndex, setSelectedIndex] = useState(0);
+	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
+	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const scrollTo = useCallback(
 		(index: number) => {
@@ -131,7 +161,6 @@ function ProjectsCarouselComponent() {
 		};
 	}, [emblaApi, onSelect]);
 
-<<<<<<< HEAD
 	return (
 		<section className='bg-peach overflow-x-hidden'>
 			<div className='w-screen flex flex-col item-center pt-10 pb-4 md:pt-28 md:pb-36'>
