@@ -41,9 +41,60 @@ const projects: Project[] = [
     image: "/votte.jpg",
     link: "https://github.com/flushingtech/Votte_Backend",
   },
+  {
+    title: "Votte",
+    description:
+      "Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech",
+    image: "/votte.jpg",
+    link: "https://github.com/flushingtech/Votte_Backend",
+  },
+  {
+    title: "Votte",
+    description:
+      "Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech",
+    image: "/votte.jpg",
+    link: "https://github.com/flushingtech/Votte_Backend",
+  },
 ];
 
-export default function ProjectsCarouselComponent() {
+function GridLayout() {
+  /*
+  Part 1:
+  create a simple grid based images in a single container
+  Part 2:
+  create an onclick event for each image which leads to a new container that shows
+  the image displayed in Projects CarouselComponent
+  Part 3: 
+  Implementing such things.
+  */
+
+  const [slideNumber, setSlideNumber] = useState(0);
+
+  return (
+  <section className="bg-peach overflow-x-hidden">
+      <div className="w-screen flex flex-col item-center pt-10 pb-4 pl-10 pr-10 md:pt-28 md:pb-36">
+        <h2 className="block text-4xl font-site_header text-center font-bold pb-10">
+          {"//"}Check Out Our <span className="text-site_red">Projects</span>
+        </h2>
+          <div className="grid grid-cols-4 gap-10 width-200 height-200">
+            {
+              projects && projects.map((project, index) => {
+                return (
+                  <div className='max-w-30 cursor-pointer transform h-25 bg-blue-400 w-25 transition duration-500 hover:scale-125 hover:bg-blue-600'  key={index}>
+                  <img src={project.image} alt='' 
+                  />
+                  </div>
+                );
+              })
+            }
+          </div>
+        </div>
+    </section>
+
+  );
+}
+
+function ProjectsCarouselComponent() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -122,4 +173,6 @@ export default function ProjectsCarouselComponent() {
       </div>
     </section>
   );
+
 }
+export {ProjectsCarouselComponent, GridLayout}
