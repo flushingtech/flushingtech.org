@@ -26,48 +26,6 @@ const VotteInfo: External = {
 };
 
 const projects: Project[] = [
-  {
-    title: "SpaceX UPS",
-    description:
-      "Save API data to local file, in this case SpaceX launch data to an output.json. Built using Java with Maven.",
-    image: "/spacex-ups.jpg",
-    link: "https://github.com/AaronNewTech/space-scanner",
-  },
-  {
-    title: "Wearable",
-    description:
-      "Explore building wearables by learning Arduino basics. This project got a simple blinking program to run on the Arduino.",
-    image: "/wearables.jpg",
-    link: "",
-  },
-  {
-    title: "Smart Homes",
-    description:
-      "Explore Department of Buildings data to help build potential smart home solutions.",
-    image: "/smarthome-dob.jpg",
-    link: "",
-  },
-  {
-    title: "Votte",
-    description:
-      "Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech",
-    image: "/votte.jpg",
-    link: "https://github.com/flushingtech/Votte_Backend",
-  },
-  {
-    title: "Votte",
-    description:
-      "Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech",
-    image: "/votte.jpg",
-    link: "https://github.com/flushingtech/Votte_Backend",
-  },
-  {
-    title: "Votte",
-    description:
-      "Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech",
-    image: "/votte.jpg",
-    link: "https://github.com/flushingtech/Votte_Backend",
-  },
 	{
 		title: 'SpaceX UPS',
 		description:
@@ -147,7 +105,7 @@ function GridLayout() {
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
         </h2>
         {
-          isHidden && 
+          
         }
           <div className="grid grid-cols-4 gap-12 width-200 height-200" >
             {
