@@ -32,7 +32,7 @@ const projects: Project[] = [
 			'Save API data to local file, in this case SpaceX launch data to an output.json. Built using Java with Maven.',
 		image: '/spacex-ups.jpg',
 		link: 'https://github.com/AaronNewTech/space-scanner',
-    id: 1
+    	id: 1
 	},
 	{
 		title: 'Wearable',
@@ -40,7 +40,7 @@ const projects: Project[] = [
 			'Explore building wearables by learning Arduino basics. This project got a simple blinking program to run on the Arduino.',
 		image: '/wearables.jpg',
 		link: '',
-    id: 2
+    	id: 2
 	},
 	{
 		title: 'Smart Homes',
@@ -48,7 +48,7 @@ const projects: Project[] = [
 			'Explore Department of Buildings data to help build potential smart home solutions.',
 		image: '/smarthome-dob.jpg',
 		link: '',
-    id: 3
+    	id: 3
 	},
 	{
 		title: 'Votte',
@@ -56,7 +56,7 @@ const projects: Project[] = [
 			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
 		image: '/votte.jpg',
 		link: 'https://github.com/flushingtech/Votte_Backend',
-    id: 4
+    	id: 4
 	},
   {
 		title: 'Votte',
@@ -64,7 +64,7 @@ const projects: Project[] = [
 			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
 		image: '/votte.jpg',
 		link: 'https://github.com/flushingtech/Votte_Backend',
-    id: 5
+    	id: 5
 	},
   {
 		title: 'Votte',
@@ -72,7 +72,7 @@ const projects: Project[] = [
 			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
 		image: '/votte.jpg',
 		link: 'https://github.com/flushingtech/Votte_Backend',
-    id: 6
+    	id: 6
 	},
 ];
 
@@ -92,11 +92,19 @@ function GridLayout() {
   */
 
   const [isHidden, setIsHidden] = useState(false);
+  const [key, setKey] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const clickedImage = (e) => {
-    e.stopPropagation()
+  const clickedImage = () => {
     setIsHidden(true);
   }
+
+  const clickedButton = () => {
+	setIsHidden(false);
+  }
+  /*
+  Using conditional render to show the image gallery or the detailed image.
+  */
 
   return (
   <section className="bg-peach overflow-x-hidden">
@@ -105,21 +113,67 @@ function GridLayout() {
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
         </h2>
         {
-          
-        }
-          <div className="grid grid-cols-4 gap-12 width-200 height-200" >
+          //conditional for image gallery or image detail
+		  isHidden ? (
+		  <>
+			{
+				projects.map((project, index) => {
+					if(key === project.id) {
+						return (
+							<div key={index} className='flex-[0_0_100%]'>
+								<div className='container w-[80%] flex flex-col md:flex-row gap-8 items-center mx-auto'>
+									<div className='md:w-1/2 relative'>
+										<a {...(project.link !== '' ? { href: project.link } : {})}>
+												<Image
+													src={project.image}
+													alt={`${project.title} Image`}
+													width={1000}
+													height={1000}
+													className='border-4 border-site_red w-full'
+												/>
+											</a>
+											<div className='absolute bottom-8 left-0 right-0 flex justify-center'>
+												<div className='flex space-x-8'>
+													
+												</div>
+											</div>
+										</div>
+										<div className='md:w-1/2'>
+											<h3 className='text-3xl font-bold font-site_header m-auto mb-12 text-gray-900 text-center md:w-1/2 md:text-5xl'>
+												{project.title}
+											</h3>
+											<p className='text-lg m-auto mb-6 text-gray-700 font-site_1st_paragraph text-center md:w-3/4 md:text-3xl'>
+												{project.description}
+											</p>
+										</div>
+									</div>
+								</div>
+								)
+							}
+							})
+			}
+			<button className='pt-15 font-bold ' onClick={clickedButton}>Click here to return</button>
+		</>
+		) : (
+			<div className="grid grid-cols-4 gap-12 width-200 height-200" >
             {
               projects && projects.map((project, index) => {
                 return (
                   <div className='max-w-30 cursor-pointer transform h-25 bg-blue-400 w-25 transition duration-500 hover:scale-125 hover:bg-blue-600'  key={index}>
                   <img src={project.image} alt=''
-                  onClick={clickedImage}
+                  onClick={() => {
+					clickedImage()
+					setKey(project.id)
+				  }}
                   />
                   </div>
                 );
               })
             }
           </div>
+		  )
+        }
+          
         </div>
     </section>
 
@@ -129,8 +183,6 @@ function GridLayout() {
 function ProjectsCarouselComponent() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
   const [selectedIndex, setSelectedIndex] = useState(0);
-	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-	const [selectedIndex, setSelectedIndex] = useState(0);
 
 	const scrollTo = useCallback(
 		(index: number) => {
