@@ -12,6 +12,7 @@ type Project = {
 	description: string;
 	image: string;
 	link: string;
+  id: number;
 };
 
 type External = {
@@ -73,6 +74,7 @@ const projects: Project[] = [
 			'Save API data to local file, in this case SpaceX launch data to an output.json. Built using Java with Maven.',
 		image: '/spacex-ups.jpg',
 		link: 'https://github.com/AaronNewTech/space-scanner',
+    id: 1
 	},
 	{
 		title: 'Wearable',
@@ -80,6 +82,7 @@ const projects: Project[] = [
 			'Explore building wearables by learning Arduino basics. This project got a simple blinking program to run on the Arduino.',
 		image: '/wearables.jpg',
 		link: '',
+    id: 2
 	},
 	{
 		title: 'Smart Homes',
@@ -87,6 +90,7 @@ const projects: Project[] = [
 			'Explore Department of Buildings data to help build potential smart home solutions.',
 		image: '/smarthome-dob.jpg',
 		link: '',
+    id: 3
 	},
 	{
 		title: 'Votte',
@@ -94,8 +98,27 @@ const projects: Project[] = [
 			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
 		image: '/votte.jpg',
 		link: 'https://github.com/flushingtech/Votte_Backend',
+    id: 4
+	},
+  {
+		title: 'Votte',
+		description:
+			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
+		image: '/votte.jpg',
+		link: 'https://github.com/flushingtech/Votte_Backend',
+    id: 5
+	},
+  {
+		title: 'Votte',
+		description:
+			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
+		image: '/votte.jpg',
+		link: 'https://github.com/flushingtech/Votte_Backend',
+    id: 6
 	},
 ];
+
+
 
 function GridLayout() {
   /*
@@ -106,9 +129,16 @@ function GridLayout() {
   the image displayed similar to Projects CarouselComponent
   Part 3: 
   Implementing such things.
+
+  Using conditional to show detailed specs of the image
   */
 
-  const [slideNumber, setSlideNumber] = useState(0);
+  const [isHidden, setIsHidden] = useState(false);
+
+  const clickedImage = (e) => {
+    e.stopPropagation()
+    setIsHidden(true);
+  }
 
   return (
   <section className="bg-peach overflow-x-hidden">
@@ -116,12 +146,16 @@ function GridLayout() {
         <h2 className="block text-4xl font-site_header text-center font-bold pb-10">
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
         </h2>
-          <div className="grid grid-cols-4 gap-10 width-200 height-200">
+        {
+          isHidden && 
+        }
+          <div className="grid grid-cols-4 gap-12 width-200 height-200" >
             {
               projects && projects.map((project, index) => {
                 return (
                   <div className='max-w-30 cursor-pointer transform h-25 bg-blue-400 w-25 transition duration-500 hover:scale-125 hover:bg-blue-600'  key={index}>
-                  <img src={project.image} alt='' 
+                  <img src={project.image} alt=''
+                  onClick={clickedImage}
                   />
                   </div>
                 );
