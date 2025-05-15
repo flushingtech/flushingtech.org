@@ -112,6 +112,9 @@ function GridLayout() {
         <h2 className="block text-4xl font-site_header text-center font-bold pb-10">
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
         </h2>
+		<div className='mt-4 mb-20 text-4xl text-site_orange text-center hover:bg-sky-700 text-site_header'>
+					<Link href={VotteInfo.link}>{VotteInfo.text}</Link>
+		</div>
         {
           //conditional for image gallery or image detail
 		  isHidden ? (
