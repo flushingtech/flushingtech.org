@@ -38,13 +38,13 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
 
   return (
     <>
-      <div className="my-8 text-center xl:text-right ">
+      <div className="my-8 text-center xl:text-center ">
         <Tabs
           defaultValue="Recent Winners"
           className="w-fit inline-block"
           onValueChange={handleTabValueChange}
         >
-          <TabsList className="bg-site_navy text-white font-site_button h-auto">
+          <TabsList className="bg-site_navy text-white font-site_button h-auto flex content-center items-center">
             <TabsTrigger className={tabsTriggerCN} value="Total Wins">
               Total Wins
             </TabsTrigger>
