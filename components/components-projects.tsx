@@ -6,6 +6,8 @@ import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import axios from 'axios';
+import LeaderboardContainerStatic from "@/app/components/leaderboard/LeaderboardContainerStatic";
 
 type Project = {
 	title: string;
@@ -58,7 +60,7 @@ const projects: Project[] = [
 		link: 'https://github.com/flushingtech/Votte_Backend',
     	id: 4
 	},
-  {
+  	{
 		title: 'Votte',
 		description:
 			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
@@ -66,7 +68,7 @@ const projects: Project[] = [
 		link: 'https://github.com/flushingtech/Votte_Backend',
     	id: 5
 	},
-  {
+  	{
 		title: 'Votte',
 		description:
 			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
@@ -74,8 +76,34 @@ const projects: Project[] = [
 		link: 'https://github.com/flushingtech/Votte_Backend',
     	id: 6
 	},
+	{
+		title: 'Smart Homes',
+		description:
+			'Explore Department of Buildings data to help build potential smart home solutions.',
+		image: '/smarthome-dob.jpg',
+		link: '',
+    	id: 7
+	},
+	{
+		title: 'Smart Homes',
+		description:
+			'Explore Department of Buildings data to help build potential smart home solutions.',
+		image: '/smarthome-dob.jpg',
+		link: '',
+    	id: 8
+	},
 ];
 
+ const fetchIdeasWithImages = async () => {
+  try {
+	//https://votte-backend.vercel.app/api/ideas/with-images
+    const response = await axios.get('https://votte-backend.vercel.app/');
+    return response;
+  } catch (error) {
+    console.error('Failed to fetch image ideas:', error);
+    return [];
+  }
+ }; 
 
 
 function GridLayout() {
@@ -102,12 +130,16 @@ function GridLayout() {
   const clickedButton = () => {
 	setIsHidden(false);
   }
+
+  //const imageList = fetchIdeasWithImages()
+  //console.log(imageList, 'result list');
+
   /*
   Using conditional render to show the image gallery or the detailed image.
   */
 
   return (
-  <section className="bg-peach overflow-x-hidden">
+  <section className="bg-peach overflow-x-hidden flex flex-row">
       <div className="w-screen flex flex-col item-center pt-10 pb-4 pl-10 pr-10 md:pt-28 md:pb-36">
         <h2 className="block text-4xl font-site_header text-center font-bold pb-10">
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
@@ -163,7 +195,11 @@ function GridLayout() {
               projects && projects.map((project, index) => {
                 return (
                   <div className='max-w-30 cursor-pointer transform h-25 bg-blue-400 w-25 transition duration-500 hover:scale-125 hover:bg-blue-600'  key={index}>
-                  <img src={project.image} alt=''
+                  <Image 
+				  src={project.image} 
+				  alt=''
+				  width={1000}
+				  height={1000}
                   onClick={() => {
 					clickedImage()
 					setKey(project.id)
@@ -178,6 +214,7 @@ function GridLayout() {
         }
           
         </div>
+		<LeaderboardContainerStatic />
     </section>
 
   );
