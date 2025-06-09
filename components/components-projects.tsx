@@ -1,319 +1,123 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import axios from 'axios';
 import LeaderboardContainerStatic from "@/app/components/leaderboard/LeaderboardContainerStatic";
 
 type Project = {
-	title: string;
-	description: string;
-	image: string;
-	link: string;
+  title: string;
+  description: string;
+  image_url: string;
+  idea: string;
   id: number;
+  technologies?: string;
 };
 
 type External = {
-	text: string;
-	link: string;
+  text: string;
+  link: string;
 };
 
 const VotteInfo: External = {
-	text: '👉 Vote on the next hackathon ideas! 👈',
-	link: process.env.NEXT_PUBLIC_VOTTE_URL as string,
+  text: '👉 Vote on the next hackathon ideas! 👈',
+  link: process.env.NEXT_PUBLIC_VOTTE_URL as string,
 };
 
-const projects: Project[] = [
-	{
-		title: 'SpaceX UPS',
-		description:
-			'Save API data to local file, in this case SpaceX launch data to an output.json. Built using Java with Maven.',
-		image: '/spacex-ups.jpg',
-		link: 'https://github.com/AaronNewTech/space-scanner',
-    	id: 1
-	},
-	{
-		title: 'Wearable',
-		description:
-			'Explore building wearables by learning Arduino basics. This project got a simple blinking program to run on the Arduino.',
-		image: '/wearables.jpg',
-		link: '',
-    	id: 2
-	},
-	{
-		title: 'Smart Homes',
-		description:
-			'Explore Department of Buildings data to help build potential smart home solutions.',
-		image: '/smarthome-dob.jpg',
-		link: '',
-    	id: 3
-	},
-	{
-		title: 'Votte',
-		description:
-			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
-		image: '/votte.jpg',
-		link: 'https://github.com/flushingtech/Votte_Backend',
-    	id: 4
-	},
-  	{
-		title: 'Votte',
-		description:
-			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
-		image: '/votte.jpg',
-		link: 'https://github.com/flushingtech/Votte_Backend',
-    	id: 5
-	},
-  	{
-		title: 'Votte',
-		description:
-			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
-		image: '/votte.jpg',
-		link: 'https://github.com/flushingtech/Votte_Backend',
-    	id: 6
-	},
-	{
-		title: 'Smart Homes',
-		description:
-			'Explore Department of Buildings data to help build potential smart home solutions.',
-		image: '/smarthome-dob.jpg',
-		link: '',
-    	id: 7
-	},
-	{
-		title: 'Smart Homes',
-		description:
-			'Explore Department of Buildings data to help build potential smart home solutions.',
-		image: '/smarthome-dob.jpg',
-		link: '',
-    	id: 8
-	},
-];
-
-
-
 function GridLayout() {
-  /*
-  Part 1:
-  create a simple grid based images in a single container
-  Part 2:
-  create an onclick event for each image which leads to a new container that shows
-  the image displayed similar to Projects CarouselComponent
-  Part 3: 
-  Implementing such things.
-
-  Using conditional to show detailed specs of the image
-  */
-
   const [isHidden, setIsHidden] = useState(false);
-  const [key, setKey] = useState(0)
-  const [selectedIndex, setSelectedIndex] = useState(0);
-  const [imageData, setData] = useState([])
+  const [key, setKey] = useState(0);
+  const [imageData, setData] = useState<Project[]>([]);
 
-  const clickedImage = () => {
-    setIsHidden(true);
-  }
-
-  const clickedButton = () => {
-	setIsHidden(false);
-  }
+  const clickedImage = () => setIsHidden(true);
+  const clickedButton = () => setIsHidden(false);
 
   const fetchIdeasWithImages = async () => {
-  try {
-    const response = await axios.get('https://votte-backend.flushingtech.org/api/ideas/with-images');
-	console.log(response.data.ideas);
-	setData(response.data.ideas);
-  } catch (error) {
-    console.error('Failed to fetch image ideas:', error);
-    return [];
-  }
- }
+    try {
+      const response = await axios.get('https://votte-backend.flushingtech.org/api/ideas/with-images');
+      setData(response.data.ideas);
+    } catch (error) {
+      console.error('Failed to fetch image ideas:', error);
+    }
+  };
 
   useEffect(() => {
-		fetchIdeasWithImages()
-	}, [imageData])
-
-  /*
-  Using conditional render to show the image gallery or the detailed image.
-  */
+    fetchIdeasWithImages();
+  }, []);
 
   return (
-  <section className="bg-peach overflow-x-hidden flex flex-row">
-      <div className="w-screen flex flex-col item-center pt-10 pb-4 pl-10 pr-10 md:pt-28 md:pb-36">
-        <h2 className="block text-4xl font-site_header text-center font-bold pb-10">
+    <section className="bg-peach overflow-hidden flex flex-row">
+      <div className="w-screen flex flex-col items-center pt-10 pb-8 px-6 md:pt-20 md:pb-20">
+        <h2 className="text-2xl md:text-3xl font-site_header text-center font-bold mb-2">
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
         </h2>
-		<div className='mt-4 mb-20 text-4xl text-site_orange text-center hover:bg-sky-700 text-site_header'>
-					<Link href={VotteInfo.link}>{VotteInfo.text}</Link>
-		</div>
-        {
-          //conditional for image gallery or image detail
-		  isHidden ? (
-		  <>
-			{
-				imageData.map((project, index) => {
-					if(key === project.id) {
-						return (
-							<div key={index} className='flex-[0_0_100%]'>
-								<div className='container w-[80%] flex flex-col md:flex-row gap-8 items-center mx-auto'>
-									<div className='md:w-1/2 relative'>
-										<a {...(project.technologies !== '' ? { href: project.technologies } : {})}>
-												<Image
-													src={project.image_url}
-													alt={`${project.idea} Image`}
-													width={1000}
-													height={1000}
-													className='border-4 border-site_red w-full'
-												/>
-											</a>
-											<div className='absolute bottom-8 left-0 right-0 flex justify-center'>
-												<div className='flex space-x-8'>
-													
-												</div>
-											</div>
-										</div>
-										<div className='md:w-1/2'>
-											<h3 className='text-3xl font-bold font-site_header m-auto mb-12 text-gray-900 text-center md:w-1/2 md:text-5xl'>
-												{project.title} 
-											</h3>
-											<p className='text-lg m-auto mb-6 text-gray-700 font-site_1st_paragraph text-center md:w-3/4 md:text-3xl'>
-												{project.description}
-											</p>
-										</div>
-									</div>
-								</div>
-								)
-							}
-							})
-			}
-			<button className='pt-15 font-bold ' onClick={clickedButton}>Click here to return</button>
-		</>
-		) : (
-			<div className="grid grid-cols-4 gap-12 width-200 height-200" >
-            {
-              imageData && imageData.map((project, index) => {
+        <div className="text-lg md:text-xl text-site_orange text-center mb-10 hover:bg-sky-700 px-2 py-1 rounded transition">
+          <Link href={VotteInfo.link}>{VotteInfo.text}</Link>
+        </div>
+
+        {isHidden ? (
+          <>
+            {imageData.map((project, index) => {
+              if (key === project.id) {
                 return (
-                  <div className='max-w-30 cursor-pointer transform h-25 bg-blue-400 w-25 transition duration-500 hover:scale-125 hover:bg-blue-600'  key={index}>
-                  <Image 
-				  src={project.image_url} 
-				  alt=''
-				  width={1000}
-				  height={1000}
-                  onClick={() => {
-					clickedImage()
-					setKey(project.id)
-				  }}
-                  />
+                  <div key={index} className="w-full">
+                    <div className="container max-w-5xl flex flex-col md:flex-row gap-6 items-center mx-auto">
+                      <div className="md:w-1/2 relative">
+                        <a {...(project.technologies ? { href: project.technologies } : {})}>
+                          <Image
+                            src={project.image_url}
+                            alt={`${project.idea} Image`}
+                            width={1000}
+                            height={1000}
+                            className="border-4 border-site_red w-full object-cover"
+                          />
+                        </a>
+                      </div>
+                      <div className="md:w-1/2">
+                        <h3 className="text-2xl md:text-4xl font-bold font-site_header mb-6 text-gray-900 text-center">
+                          {project.title}
+                        </h3>
+                        <p className="text-base md:text-lg mb-4 text-gray-700 font-site_1st_paragraph text-center">
+                          {project.description}
+                        </p>
+                      </div>
+                    </div>
                   </div>
                 );
-              })
-            }
+              }
+            })}
+            <button className="mt-8 font-bold text-sm text-site_red underline" onClick={clickedButton}>
+              ← Back to Grid
+            </button>
+          </>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-h-[720px] overflow-y-auto px-2">
+            {imageData.map((project, index) => (
+              <div
+                key={index}
+                className="cursor-pointer transition duration-300 hover:scale-[1.02]"
+                onClick={() => {
+                  clickedImage();
+                  setKey(project.id);
+                }}
+              >
+                <Image
+                  src={project.image_url}
+                  alt={project.idea}
+                  width={800}
+                  height={600}
+                  className="w-full h-[180px] object-cover"
+                />
+              </div>
+            ))}
           </div>
-		  )
-        }
-          
-        </div>
-			<div>
-				Hello
-				{
-				imageData.map((someIdea, index) => {
-					console.log(someIdea.idea, index, "Checked it works")
-					return someIdea.idea;
-				})}
-			</div>
-		<LeaderboardContainerStatic />
-    </section>
+        )}
+      </div>
 
+      <LeaderboardContainerStatic />
+    </section>
   );
 }
 
-function ProjectsCarouselComponent() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-  const [selectedIndex, setSelectedIndex] = useState(0);
-
-	const scrollTo = useCallback(
-		(index: number) => {
-			if (emblaApi) emblaApi.scrollTo(index);
-		},
-		[emblaApi]
-	);
-
-	const onSelect = useCallback(() => {
-		if (!emblaApi) return;
-		setSelectedIndex(emblaApi.selectedScrollSnap());
-	}, [emblaApi]);
-
-	useEffect(() => {
-		if (!emblaApi) return;
-		onSelect();
-		emblaApi.on('select', onSelect);
-		return () => {
-			emblaApi.off('select', onSelect);
-		};
-	}, [emblaApi, onSelect]);
-
-	return (
-		<section className='bg-peach overflow-x-hidden'>
-			<div className='w-screen flex flex-col item-center pt-10 pb-4 md:pt-28 md:pb-36'>
-				<h2 className='block text-4xl font-site_header text-center font-bold'>
-					{'//'}Check Out Our <span className='text-site_red'>Projects</span>
-				</h2>
-				<div className='mt-4 text-4xl text-site_orange text-center hover:bg-sky-700 text-site_header'>
-					<Link href={VotteInfo.link}>{VotteInfo.text}</Link>
-				</div>
-				<div ref={emblaRef}>
-					<div className='flex mt-10 md:mt-20'>
-						{projects.map((project, index) => (
-							<div key={index} className='flex-[0_0_100%]'>
-								<div className='container w-[80%] flex flex-col md:flex-row gap-8 items-center mx-auto'>
-									<div className='md:w-1/2 relative'>
-										<a {...(project.link !== '' ? { href: project.link } : {})}>
-											<Image
-												src={project.image}
-												alt={`${project.title} Image`}
-												width={1000}
-												height={1000}
-												className='border-4 border-site_red w-full'
-											/>
-										</a>
-										<div className='absolute bottom-8 left-0 right-0 flex justify-center'>
-											<div className='flex space-x-8'>
-												{projects.map((_, dotIndex) => (
-													<Button
-														key={dotIndex}
-														variant='ghost'
-														size='sm'
-														className={`w-5 h-5 p-0 rounded-full ${
-															dotIndex === selectedIndex
-																? 'bg-site_red'
-																: 'bg-site_orange'
-														}`}
-														onClick={() => scrollTo(dotIndex)}
-														aria-label={`Go to project ${dotIndex + 1}`}
-													/>
-												))}
-											</div>
-										</div>
-									</div>
-									<div className='md:w-1/2'>
-										<h3 className='text-3xl font-bold font-site_header m-auto mb-12 text-gray-900 text-center md:w-1/2 md:text-5xl'>
-											{project.title}
-										</h3>
-										<p className='text-lg m-auto mb-6 text-gray-700 font-site_1st_paragraph text-center md:w-3/4 md:text-3xl'>
-											{project.description}
-										</p>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</div>
-		</section>
-	);
-}
-export {ProjectsCarouselComponent, GridLayout}
+export { GridLayout };
