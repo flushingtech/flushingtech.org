@@ -94,16 +94,6 @@ const projects: Project[] = [
 	},
 ];
 
- const fetchIdeasWithImages = async () => {
-  try {
-	//https://votte-backend.vercel.app/api/ideas/with-images
-    const response = await axios.get('https://votte-backend.vercel.app/');
-    return response;
-  } catch (error) {
-    console.error('Failed to fetch image ideas:', error);
-    return [];
-  }
- }; 
 
 
 function GridLayout() {
@@ -122,6 +112,7 @@ function GridLayout() {
   const [isHidden, setIsHidden] = useState(false);
   const [key, setKey] = useState(0)
   const [selectedIndex, setSelectedIndex] = useState(0);
+  const [imageData, setData] = useState([])
 
   const clickedImage = () => {
     setIsHidden(true);
@@ -131,8 +122,20 @@ function GridLayout() {
 	setIsHidden(false);
   }
 
-  //const imageList = fetchIdeasWithImages()
-  //console.log(imageList, 'result list');
+  const fetchIdeasWithImages = async () => {
+  try {
+    const response = await axios.get('https://votte-backend.flushingtech.org/api/ideas/with-images');
+	console.log(response.data.ideas);
+	setData(response.data.ideas);
+  } catch (error) {
+    console.error('Failed to fetch image ideas:', error);
+    return [];
+  }
+ }
+
+  useEffect(() => {
+		fetchIdeasWithImages()
+	}, [imageData])
 
   /*
   Using conditional render to show the image gallery or the detailed image.
@@ -152,16 +155,16 @@ function GridLayout() {
 		  isHidden ? (
 		  <>
 			{
-				projects.map((project, index) => {
+				imageData.map((project, index) => {
 					if(key === project.id) {
 						return (
 							<div key={index} className='flex-[0_0_100%]'>
 								<div className='container w-[80%] flex flex-col md:flex-row gap-8 items-center mx-auto'>
 									<div className='md:w-1/2 relative'>
-										<a {...(project.link !== '' ? { href: project.link } : {})}>
+										<a {...(project.technologies !== '' ? { href: project.technologies } : {})}>
 												<Image
-													src={project.image}
-													alt={`${project.title} Image`}
+													src={project.image_url}
+													alt={`${project.idea} Image`}
 													width={1000}
 													height={1000}
 													className='border-4 border-site_red w-full'
@@ -175,7 +178,7 @@ function GridLayout() {
 										</div>
 										<div className='md:w-1/2'>
 											<h3 className='text-3xl font-bold font-site_header m-auto mb-12 text-gray-900 text-center md:w-1/2 md:text-5xl'>
-												{project.title}
+												{project.title} 
 											</h3>
 											<p className='text-lg m-auto mb-6 text-gray-700 font-site_1st_paragraph text-center md:w-3/4 md:text-3xl'>
 												{project.description}
@@ -192,11 +195,11 @@ function GridLayout() {
 		) : (
 			<div className="grid grid-cols-4 gap-12 width-200 height-200" >
             {
-              projects && projects.map((project, index) => {
+              imageData && imageData.map((project, index) => {
                 return (
                   <div className='max-w-30 cursor-pointer transform h-25 bg-blue-400 w-25 transition duration-500 hover:scale-125 hover:bg-blue-600'  key={index}>
                   <Image 
-				  src={project.image} 
+				  src={project.image_url} 
 				  alt=''
 				  width={1000}
 				  height={1000}
@@ -214,6 +217,14 @@ function GridLayout() {
         }
           
         </div>
+			<div>
+				Hello
+				{
+				imageData.map((someIdea, index) => {
+					console.log(someIdea.idea, index, "Checked it works")
+					return someIdea.idea;
+				})}
+			</div>
 		<LeaderboardContainerStatic />
     </section>
 
