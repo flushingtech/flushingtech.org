@@ -76,7 +76,7 @@ function GridLayout() {
                       </div>
                       <div className="md:w-1/2">
                         <h3 className="text-2xl md:text-4xl font-bold font-site_header mb-6 text-gray-900 text-center">
-                          {project.title}
+                          {project.idea}
                         </h3>
                         <p className="text-base md:text-lg mb-4 text-gray-700 font-site_1st_paragraph text-center">
                           {project.description}
