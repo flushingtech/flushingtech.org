@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import axios from 'axios';
 import LeaderboardContainerStatic from "@/app/components/leaderboard/LeaderboardContainerStatic";
+import { Button } from "@/components/ui/button";
 
 type Idea = {
   id: number;
@@ -32,11 +33,10 @@ type External = {
 };
 
 const VotteInfo: External = {
-  text: '👉 Vote on the next hackathon ideas! 👈',
+  text: 'Vote on Hackathon Ideas',
   link: process.env.NEXT_PUBLIC_VOTTE_URL as string,
 };
 
-// Fisher-Yates Shuffle
 const shuffleArray = (array: Item[]) => {
   const newArray = [...array];
   for (let i = newArray.length - 1; i > 0; i--) {
@@ -82,18 +82,27 @@ function GridLayout() {
     fetchIdeasAndEventsWithImages();
   }, []);
 
-  const maxItems = 3 * 3; // 3 rows x 3 columns = 9
+  const maxItems = 3 * 3;
   const displayedItems = items.slice(0, maxItems);
 
   return (
     <section className="bg-peach overflow-hidden flex flex-col lg:flex-row min-h-screen">
-      <div className="w-full flex flex-col items-center pt-10 pb-8 px-6 md:pt-20 md:pb-20">
-        <h2 className="text-2xl md:text-3xl font-site_header text-center font-bold mb-2">
-          {"//"}Check Out Our <span className="text-site_red">Projects</span>
+      <div className="w-full flex flex-col items-start pt-10 pb-8 px-10 md:pt-20 md:pb-20">
+        <h2 className="text-5xl font-site_header font-bold text-left text-gray-900 mb-6 mx-40 leading-tight">
+  // Check Out Our <span className="text-orange-600">Projects</span>
         </h2>
-        <div className="text-lg md:text-xl text-site_orange text-center mb-10 hover:bg-sky-700 px-2 py-1 rounded transition">
-          <Link href={VotteInfo.link}>{VotteInfo.text}</Link>
+
+        <div className="mx-40 mt-6 mb-12 w-full">
+          <div className="flex">
+            <a href={VotteInfo.link} target="_blank" rel="noopener noreferrer">
+            <Button size="xl" className="block lg:inline">
+                {VotteInfo.text.toUpperCase()}
+              </Button>
+            </a>
+          </div>
         </div>
+
+
 
         {isHidden && key !== null ? (
           <>
@@ -111,7 +120,7 @@ function GridLayout() {
                           className="border-4 border-site_red w-full object-cover"
                         />
                       </div>
-                      <div className="md:w-1/2 text-center">
+                      <div className="md:w-1/2 text-left">
                         <h3 className="text-2xl md:text-4xl font-bold font-site_header mb-6 text-gray-900">
                           {item.type === 'idea' ? item.idea : item.title}
                         </h3>
