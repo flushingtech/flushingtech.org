@@ -1,7 +1,7 @@
 'use client'
 
 import HeroComponent from "@/components/components-hero"
-import {GridLayout, ProjectsCarouselComponent} from "@/components/components-projects"
+import {GridLayout } from "@/components/components-projects"
 import ConnectWithUsComponent from "@/components/components-connect-with-us"
 import Benefits from "./components/benefits/Benefits"
 
