@@ -57,7 +57,8 @@ export default function HeroComponent() {
           </Button>
         </div>
       </div>
-      <LeaderboardContainer />
+      
     </section>
   );
 }
+//<LeaderboardContainer />

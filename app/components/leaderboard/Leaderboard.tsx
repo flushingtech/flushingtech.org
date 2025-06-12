@@ -11,7 +11,7 @@ type RecentWinners = {
 };
 
 const tabsTriggerCN =
-  "font-site_button lg:text-base border border-peach border-2 p-2 data-[state=active]:bg-site_navy data-[state=active]:text-site_orange data-[state=active]:border-site_orange";
+  "font-site_button lg:text-sm rounded-md border border-peach px-4 py-2 transition-all duration-200 hover:border-white/30 hover:text-site_orange data-[state=active]:bg-site_navy data-[state=active]:text-site_orange data-[state=active]:border-site_orange";
 
 export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
   const [contentRecentWinners, setContentRecentWinners] = useState<
@@ -38,13 +38,13 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
 
   return (
     <>
-      <div className="my-8 text-center xl:text-right ">
+      <div className="my-8 text-center xl:text-center ">
         <Tabs
           defaultValue="Recent Winners"
           className="w-fit inline-block"
           onValueChange={handleTabValueChange}
         >
-          <TabsList className="bg-site_navy text-white font-site_button h-auto">
+          <TabsList className="bg-site_navy text-white font-site_button h-auto flex content-center items-center">
             <TabsTrigger className={tabsTriggerCN} value="Total Wins">
               Total Wins
             </TabsTrigger>
@@ -58,7 +58,7 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
       {contentMostWins && selected === "Total Wins" && (
         <LeaderboardContent
           title="Total Wins"
-          gridTemplate="grid-cols-1 xl:grid-cols-[minmax(8em,1fr)_minmax(4em,1fr)_1em]"
+          gridTemplate="grid-cols-1 grid-cols-[minmax(8em,1fr)_minmax(4em,1fr)_1em]"
           content={contentMostWins}
         />
       )}
@@ -66,7 +66,7 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
       {contentRecentWinners && selected === "Recent Winners" && (
         <LeaderboardContent
           title="Recent Winners"
-          gridTemplate="grid-cols-1 xl:grid-cols-[minmax(8em,1fr)_1fr_1fr]"
+          gridTemplate="grid-cols-1 grid-cols-[minmax(8em,1fr)_1fr_1fr]"
           content={contentRecentWinners}
         />
       )}

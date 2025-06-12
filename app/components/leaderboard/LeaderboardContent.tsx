@@ -13,7 +13,9 @@ export default function LeaderboardContent({
 }) {
   return (
     <>
-      <div className="w-fit mx-auto my-4 text-3xl">{title}</div>
+      <div className="w-fit mx-auto my-6 text-2xl font-bold border-b-2 border-site_orange pb-1">
+  {title}
+</div>
       {content &&
         content.map((row, i) => {
           return (
