@@ -50,6 +50,7 @@ function GridLayout() {
   const [isHidden, setIsHidden] = useState(false);
   const [key, setKey] = useState<number | null>(null);
   const [items, setItems] = useState<Item[]>([]);
+  const [maxItems, setMaxItems] = useState(9);
 
   const clickedImage = () => setIsHidden(true);
   const clickedButton = () => setIsHidden(false);
@@ -82,27 +83,38 @@ function GridLayout() {
     fetchIdeasAndEventsWithImages();
   }, []);
 
-  const maxItems = 3 * 3;
+  useEffect(() => {
+    const updateMaxItems = () => {
+      setMaxItems(window.innerWidth < 768 ? 4 : 9);
+    };
+
+    updateMaxItems(); // initial
+    window.addEventListener('resize', updateMaxItems);
+    return () => window.removeEventListener('resize', updateMaxItems);
+  }, []);
+
   const displayedItems = items.slice(0, maxItems);
 
   return (
     <section className="bg-peach overflow-hidden flex flex-col lg:flex-row min-h-screen">
-      <div className="w-full flex flex-col items-start pt-10 pb-8 px-10 md:pt-20 md:pb-20">
-        <h2 className="text-5xl font-site_header font-bold text-left text-gray-900 mb-6 mx-40 leading-tight">
-  // Check Out Our <span className="text-orange-600">Projects</span>
+      <div className="w-full flex flex-col items-start pt-10 pb-8 px-6 md:pt-20 md:pb-20">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-site_header font-bold text-left text-gray-900 mb-6 px-4 sm:px-6 md:px-10 lg:px-40 leading-snug break-words">
+          <span className="text-gray-900">// Check Out Our </span>
+          <span className="text-orange-600">Projects</span>
         </h2>
 
-        <div className="mx-40 mt-6 mb-12 w-full">
-          <div className="flex">
+        <div className="px-4 sm:px-6 md:px-10 lg:px-40 mt-6 mb-12 w-full">
+          <div className="flex justify-center lg:justify-start">
             <a href={VotteInfo.link} target="_blank" rel="noopener noreferrer">
-            <Button size="xl" className="block lg:inline">
+              <Button
+                size="xl"
+                className="w-full sm:w-auto text-sm sm:text-base px-6 py-3 font-semibold"
+              >
                 {VotteInfo.text.toUpperCase()}
               </Button>
             </a>
           </div>
         </div>
-
-
 
         {isHidden && key !== null ? (
           <>
@@ -140,7 +152,7 @@ function GridLayout() {
             </button>
           </>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full overflow-hidden px-2">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full overflow-hidden px-4">
             {displayedItems.map((item) => (
               <div
                 key={item.id}
