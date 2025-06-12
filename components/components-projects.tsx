@@ -82,13 +82,12 @@ function GridLayout() {
     fetchIdeasAndEventsWithImages();
   }, []);
 
-  // Limit displayed items to 3 rows worth
   const maxItems = 3 * 3; // 3 rows x 3 columns = 9
   const displayedItems = items.slice(0, maxItems);
 
   return (
-    <section className="bg-peach overflow-hidden flex flex-row">
-      <div className="w-screen flex flex-col items-center pt-10 pb-8 px-6 md:pt-20 md:pb-20">
+    <section className="bg-peach overflow-hidden flex flex-col lg:flex-row min-h-screen">
+      <div className="w-full flex flex-col items-center pt-10 pb-8 px-6 md:pt-20 md:pb-20">
         <h2 className="text-2xl md:text-3xl font-site_header text-center font-bold mb-2">
           {"//"}Check Out Our <span className="text-site_red">Projects</span>
         </h2>
@@ -116,15 +115,11 @@ function GridLayout() {
                         <h3 className="text-2xl md:text-4xl font-bold font-site_header mb-6 text-gray-900">
                           {item.type === 'idea' ? item.idea : item.title}
                         </h3>
-                        {item.type === 'idea' ? (
-                          <p className="text-base md:text-lg mb-4 text-gray-700 font-site_1st_paragraph">
-                            {item.description}
-                          </p>
-                        ) : (
-                          <p className="text-base md:text-lg mb-4 text-gray-700 font-site_1st_paragraph">
-                            {new Date(item.event_date).toLocaleDateString()}
-                          </p>
-                        )}
+                        <p className="text-base md:text-lg mb-4 text-gray-700 font-site_1st_paragraph">
+                          {item.type === 'idea'
+                            ? item.description
+                            : new Date(item.event_date).toLocaleDateString()}
+                        </p>
                       </div>
                     </div>
                   </div>
