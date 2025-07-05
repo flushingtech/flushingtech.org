@@ -81,7 +81,9 @@ export default function ConnectWithUsComponent() {
   useEffect(() => {
     handleRSS().then((res) => setEvents(res));
   }, []);
-
+/*
+<iframe src="https://discord.com/widget?id=1391186199904915517&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+*/
   return (
     <section
       id="event-showcase"
@@ -115,6 +117,12 @@ export default function ConnectWithUsComponent() {
                 </div>
               </div>
             ))}
+            <iframe 
+              src="https://discord.com/widget?id=1391186199904915517&theme=dark" 
+              width="280px" 
+              height="500px"
+              allowTransparency='true'
+              sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
         <div className="md:flex justify-center mt-10 hidden">
           <div className="text-lg 2xl:text-2xl 2xl:w-2/3 text-center flex-col">
@@ -139,3 +147,18 @@ export default function ConnectWithUsComponent() {
 }
 
 // make this accessible
+
+/*
+,
+  {
+    "title": "Happy Hour",
+    "imageSrc": "/major-tom-agency-MJqMxzsxLtM-unsplash.jpg",
+    "imageAlt": "Happy Hour",
+    "info": {
+      "description": "Join us for our monthly happy hours! This is a good way to meet the rest of the group, unwind, and socialize or network in a more casual setting.",
+      "link": "https://www.meetup.com/flushing-tech/events/"
+    }
+  }
+
+  events.json file placeholder
+*/
