@@ -84,6 +84,19 @@ export default function ConnectWithUsComponent() {
 /*
 <iframe src="https://discord.com/widget?id=1391186199904915517&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 */
+//---------------------------------------------------------------------------
+/*
+iframe is listed on Line 120
+
+<iframe 
+  src="https://discord.com/widget?id=1391186199904915517&theme=dark" 
+  width="280" 
+  height="500"
+  allowtransparency="true" 
+  frameborder= DEPRECATED 
+  sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+*/
+//-----------------------------------------------------------------
   return (
     <section
       id="event-showcase"
