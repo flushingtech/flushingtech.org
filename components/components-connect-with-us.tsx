@@ -97,6 +97,27 @@ iframe is listed on Line 120
   sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
 */
 //-----------------------------------------------------------------
+
+//DEPRECATED CODE - WILL REMOVE AT LATER POINT IN TIME
+//=================================================================
+//onClick={() => handleCardClick(event)} - DEPRECATED
+{/* <div className="md:hidden text-center">
+                  <p className="mt-2">{event.info.description}</p>
+                  {event.title === mainEvent && (
+                    <div className="mt-2 text-site_orange underline text-site_header">
+                      <Link href={VotteInfo.link}>{VotteInfo.text}</Link>
+                    </div>
+                  )}
+                  <Button size="lg" className="mt-2">
+                    <a href={event.info.link}>Learn More</a>
+                  </Button>
+                </div> }
+  =================================================================
+*/
+//=================================================================
+/*
+Line 140 reference to meetup button
+*/
   return (
     <section
       id="event-showcase"
@@ -107,6 +128,8 @@ iframe is listed on Line 120
           Connect With Us!
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-44 gap-y-12">
+          <div className="grid grid-rows-2 grid-cols-4">
+            <div className="row-start-1 row-end-2 col-start-1 col-end-5">
           {events != undefined &&
             events.map((event, index) => (
               <div key={index}>
@@ -114,27 +137,18 @@ iframe is listed on Line 120
                   title={event.title}
                   imageSrc={event.imageSrc}
                   imageAlt={event.imageAlt}
-                  onClick={() => handleCardClick(event)}
                   selected={event.info.description == selectedDescription}
                 />
-                <div className="md:hidden text-center">
-                  <p className="mt-2">{event.info.description}</p>
-                  {event.title === mainEvent && (
-                    <div className="mt-2 text-site_orange underline text-site_header">
-                      <Link href={VotteInfo.link}>{VotteInfo.text}</Link>
-                    </div>
-                  )}
-                  <Button size="lg" className="mt-2">
-                    <a href={event.info.link}>Learn More</a>
-                  </Button>
-                </div>
               </div>
             ))}
+            </div>
+            <div className=" row-start-2 row-end-3 col-start-2 col-end-4 bg-no-repeat bg-[url(/MeetUpLogoFlushingTech.png)]">Click Me</div>
+            
+          </div>
             <iframe 
               src="https://discord.com/widget?id=1391186199904915517&theme=dark" 
               width="280px" 
               height="500px"
-              allowTransparency='true'
               sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
         </div>
         <div className="md:flex justify-center mt-10 hidden">
