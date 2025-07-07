@@ -1,8 +1,9 @@
 [
   {
-    "title": "Bi-Weekly Tech Jams",
+    "title": "Join our Biweekly Hackathons for self-organized creativitiy and innovation",
     "imageSrc": "/fahim-muntashir-14JOIxmsOqA-unsplash.jpg",
     "imageAlt": "Tech Jams",
+    "buttonImgSrc":"/MeetUpLogoFlushingTech.png",
     "info": {
       "description": "We host biweekly Hackathons at the Queens College Incubator. This is freeform, self-organized hackathon where creativity knows no bounds. Whether you're a seasoned pro, aspiring entrepreneur, or a passionate hobbyist, this event is tailor-made for tech enthusiasts like you. Bring your laptops, your brightest ideas, and ongoing projects – let's build something extraordinary together! ",
       "link": "https://www.meetup.com/flushing-tech/events/"
