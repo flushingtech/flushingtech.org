@@ -93,7 +93,7 @@ export default function ConnectWithUsComponent() {
           <div className="flex flex-col items-center">
             <EventCard
               title="Bi-Weekly Tech Jams"
-              imageSrc="/images/laptop.png" // ✅ Make sure this file exists in /public/images/
+              imageSrc="/laptop.jpg" // ✅ Make sure this file exists in /public/images/
               imageAlt="Bi-Weekly Tech Jams"
               selected={true}
               onClick={() => {}}
