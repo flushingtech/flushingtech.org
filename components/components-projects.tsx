@@ -96,7 +96,7 @@ function GridLayout() {
   const displayedItems = items.slice(0, maxItems);
 
   return (
-    <section className="bg-peach overflow-hidden flex flex-col lg:flex-row min-h-screen">
+    <section className="bg-peach overflow-hidden flex flex-col lg:flex-row min-h-[80vh]">
       <div className="w-full flex flex-col items-start pt-10 pb-8 px-6 md:pt-20 md:pb-20">
         <h2 className="text-2xl sm:text-3xl md:text-5xl font-site_header font-bold text-left text-gray-900 mb-6 px-4 sm:px-6 md:px-10 lg:px-40 leading-snug break-words">
           <span className="text-gray-900">// Check Out Our </span>

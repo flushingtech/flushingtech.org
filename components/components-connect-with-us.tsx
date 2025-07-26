@@ -81,36 +81,44 @@ export default function ConnectWithUsComponent() {
   return (
     <section
       id="event-showcase"
-      className="bg-site_navy text-peach py-10 min-h-screen font-site_2nd_paragraph"
+      className="bg-site_navy text-peach py-32 font-site_2nd_paragraph"
     >
       <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-semibold text-center mb-8 font-site_header">
-          Connect With Us!
-        </h2>
+        {/* HEADER & INTRO */}
+        <div className="mb-8">
+          <h2 className="text-5xl font-semibold text-left">Connect With Us</h2>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-44 gap-y-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-44 gap-y-12">
           {/* LEFT SIDE */}
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col">
+            <p className="text-2xl text-left max-w-[800px]">
+              Join our biweekly hackathons for self organized creativity and
+              innovation.
+            </p>
+
             <EventCard
-              title="Bi-Weekly Tech Jams"
-              imageSrc="/images/laptop.jpg" // ✅ Make sure this file exists in /public/images/
+              title=""
+              imageSrc="/images/laptop.jpg"
               imageAlt="Bi-Weekly Tech Jams"
               selected={true}
               onClick={() => {}}
             />
 
-            <div className="mt-6">
+            <div className="mt-6 self-center md:self-end">
               <a
                 href="https://www.meetup.com/flushing-tech/events/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-[10px] px-10 py-3 bg-white rounded-full border shadow-sm hover:scale-105 transition-transform"
+                className="flex items-center gap-[10px] px-6 py-3 bg-white rounded-full border shadow-sm hover:scale-105 transition-transform"
               >
-                <span className="text-2xl font-semibold text-black">RSVP on</span>
+                <span className="text-xl md:text-3xl font-semibold text-black">
+                  RSVP on
+                </span>
                 <Image
                   src="/images/meetup-logo.png"
                   alt="Meetup"
-                  width={110}
+                  width={90}
                   height={24}
                   className="object-contain"
                 />
@@ -119,29 +127,12 @@ export default function ConnectWithUsComponent() {
           </div>
 
           {/* RIGHT SIDE */}
-          <iframe
-            src="https://discord.com/widget?id=1121935362663657503&theme=dark"
-            width="350"
-            height="500"
-            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
-          ></iframe>
-        </div>
-
-        <div className="md:flex justify-center mt-10 hidden">
-          <div className="text-lg 2xl:text-2xl 2xl:w-2/3 text-center flex-col">
-            <p>{selectedDescription}</p>
-            {learnMoreLink !== "" && (
-              <Button size="xl" className="mt-4">
-                <a href={learnMoreLink} target="_blank">
-                  Learn More
-                </a>
-              </Button>
-            )}
-            {typeof external === "object" && (
-              <div className="mt-4 2xl:mt-8 text-site_orange 2xl:text-4xl underline text-site_header">
-                <Link href={external.link}>{external.text}</Link>
-              </div>
-            )}
+          <div className="w-full flex justify-center md:justify-start">
+            <iframe
+              src="https://discord.com/widget?id=1121935362663657503&theme=dark"
+              className="w-full max-w-[350px] h-[500px] md:h-[650px]"
+              sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"
+            ></iframe>
           </div>
         </div>
       </div>
