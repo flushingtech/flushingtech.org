@@ -60,7 +60,7 @@ export default function PrivacyPolicyPage() {
       <section className="mb-6">
         <h2 className="text-xl font-semibold mb-2">8. Contact Us</h2>
         <p>
-          If you have any questions about this Privacy Policy or how we handle your data, please contact us at w@hutson.gy.
+          If you have any questions about this Privacy Policy or how we handle your data, please contact us at hello@flushingtech.org.
         </p>
       </section>
     </main>
