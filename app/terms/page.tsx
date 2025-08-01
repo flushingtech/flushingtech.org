@@ -45,7 +45,7 @@ export default function TermsPage() {
         <h2 className="text-xl font-semibold mb-2">6. Contact Us</h2>
         <p>
           If you have any questions about these terms, you can contact us at 
-w@hutson.gy.
+hello@flushingtech.org.
         </p>
       </section>
     </main>
