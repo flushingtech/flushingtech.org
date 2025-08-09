@@ -13,14 +13,26 @@ type Contributor = {
 };
 
 export default function EngineeringTeamPage() {
+  const [techgroup, setTechGroup] = useState(String)
   const [contributors, setContributors] = useState<Contributor[]>([]);
-
+  /*
+  the click effect tells which repository it needs to fetch and load...
+  */
   useEffect(() => {
     const fetchContributors = async () => {
       try {
-        const res = await fetch(
-          'https://api.github.com/repos/flushingtech/flushingtech.org/contributors'
-        );
+        let res;
+        console.log('hit')
+          if(techgroup) {
+            res = await fetch(
+                `https://api.github.com/repos/flushingtech/${techgroup}/contributors`
+            );
+          } else {
+            res = await fetch(
+                `https://api.github.com/repos/flushingtech/flushingtech.org/contributors`
+            );
+          }
+        
         if (!res.ok) throw new Error('Failed to fetch contributors');
         const data = await res.json();
         setContributors(data);
@@ -28,9 +40,8 @@ export default function EngineeringTeamPage() {
         console.error('GitHub fetch error:', error);
       }
     };
-
     fetchContributors();
-  }, []);
+  }, [techgroup]);
 
   return (
     <div className="bg-[#FBE8D8] min-h-screen px-6 py-16 sm:px-12">
@@ -39,6 +50,11 @@ export default function EngineeringTeamPage() {
         <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
           The brains behind Flushing Tech’s hackathons, platform, and vision.
         </p>
+        <div className="flex justify-around mt-[50px] pt-[30px] pb-[30px] gap-[10px] bg-[white]">
+          <button onClick={() => setTechGroup('flushingtech.org')}>Main Site</button>
+          <button onClick={() => setTechGroup('votte_frontend')}>Votte Frontend</button>
+          <button onClick={() => setTechGroup('votte_backend')}>Votte Backend</button>
+        </div>
       </div>
 
       <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
@@ -70,7 +86,7 @@ export default function EngineeringTeamPage() {
           </div>
         ))}
       </div>
-
+      
       <div className="mt-24 text-center">
         <div className="flex flex-col items-center gap-4">
           <Users className="w-8 h-8 text-site_navy" />
