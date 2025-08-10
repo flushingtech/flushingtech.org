@@ -38,7 +38,9 @@ export default function EngineeringTeamPage() {
     };
     fetchContributors();
   }, [techgroup]);
-
+  /*
+  Changes occurred on lines 51 - lines 54
+  */
   return (
     <div className="bg-[#000080] min-h-screen px-6 py-16 sm:px-12">
       <div className="text-center mb-16">
@@ -76,9 +78,14 @@ export default function EngineeringTeamPage() {
               href={contributor.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-blue-500 hover:underline text-sm"
+              className="text-blue-200 hover:underline text-sm"
             >
-              View GitHub
+              <Image
+                src="/images/github-mark/github-mark.png"
+                alt="GithubLogo"
+                height={30}
+                width={30}
+              />
             </Link>
             </div>
           </div>
