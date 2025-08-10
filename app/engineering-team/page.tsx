@@ -57,7 +57,7 @@ export default function EngineeringTeamPage() {
         {contributors.map((contributor) => (
           <div
             key={contributor.login}
-            className="bg-white rounded-lg shadow-md p-6 flex flex-col items-center text-center"
+            className="bg-white rounded-lg shadow-md p-6 flex flex-row items-center text-center"
           >
             <div className="w-32 h-32 relative mb-4">
               <Image
@@ -67,6 +67,7 @@ export default function EngineeringTeamPage() {
                 fill
               />
             </div>
+            <div className="ml-[4rem] pr-[2rem]">
             <h3 className="text-xl font-semibold">{contributor.login}</h3>
             <p className="text-sm text-gray-500 mb-2">
               {contributor.contributions} commits
@@ -79,6 +80,7 @@ export default function EngineeringTeamPage() {
             >
               View GitHub
             </Link>
+            </div>
           </div>
         ))}
       </div>
