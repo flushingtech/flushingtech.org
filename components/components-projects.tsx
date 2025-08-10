@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+//import Link from 'next/link';
 import axios from 'axios';
 import LeaderboardContainerStatic from "@/app/components/leaderboard/LeaderboardContainerStatic";
 import { Button } from "@/components/ui/button";
