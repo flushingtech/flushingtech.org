@@ -22,6 +22,7 @@ export default function EngineeringTeamPage() {
     const fetchContributors = async () => {
       try {
         let res;
+        //uses a ternary conditional to check whether techgroup is not undefined, if it is it defaults to flushingtech.org
         techgroup ? res = await fetch(
             `https://api.github.com/repos/flushingtech/${techgroup}/contributors`
         ) : res = await fetch(
