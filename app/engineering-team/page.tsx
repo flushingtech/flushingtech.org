@@ -90,7 +90,7 @@ export default function EngineeringTeamPage() {
           <Users className="w-8 h-8 text-site_navy" />
           <h2 className="text-2xl font-semibold">Join Our Team</h2>
           <p className="text-muted-foreground max-w-lg">
-            We're always looking for passionate engineers. Contribute to the repo and see yourself here!
+            We&apos;re always looking for passionate engineers. Contribute to the repo and see yourself here!
           </p>
         </div>
       </div>
