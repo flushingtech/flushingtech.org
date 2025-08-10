@@ -40,10 +40,10 @@ export default function EngineeringTeamPage() {
   }, [techgroup]);
 
   return (
-    <div className="bg-[#FBE8D8] min-h-screen px-6 py-16 sm:px-12">
+    <div className="bg-[#000080] min-h-screen px-6 py-16 sm:px-12">
       <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold">Meet the Engineering Team</h1>
-        <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
+        <h1 className="text-4xl font-bold text-[white]">Meet the Engineering Team</h1>
+        <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto text-[white] mb-[2rem]">
           The brains behind Flushing Tech’s hackathons, platform, and vision.
         </p>
         <div className="flex justify-center">
