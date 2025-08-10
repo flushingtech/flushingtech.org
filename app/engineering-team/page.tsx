@@ -22,16 +22,11 @@ export default function EngineeringTeamPage() {
     const fetchContributors = async () => {
       try {
         let res;
-        console.log('hit')
-          if(techgroup) {
-            res = await fetch(
-                `https://api.github.com/repos/flushingtech/${techgroup}/contributors`
-            );
-          } else {
-            res = await fetch(
-                `https://api.github.com/repos/flushingtech/flushingtech.org/contributors`
-            );
-          }
+        techgroup ? res = await fetch(
+            `https://api.github.com/repos/flushingtech/${techgroup}/contributors`
+        ) : res = await fetch(
+            `https://api.github.com/repos/flushingtech/flushingtech.org/contributors`
+        );
         
         if (!res.ok) throw new Error('Failed to fetch contributors');
         const data = await res.json();
@@ -50,10 +45,10 @@ export default function EngineeringTeamPage() {
         <p className="mt-4 text-muted-foreground text-lg max-w-2xl mx-auto">
           The brains behind Flushing Tech’s hackathons, platform, and vision.
         </p>
-        <div className="flex justify-around mt-[50px] pt-[30px] pb-[30px] gap-[10px] bg-[white]">
-          <button onClick={() => setTechGroup('flushingtech.org')}>Main Site</button>
-          <button onClick={() => setTechGroup('votte_frontend')}>Votte Frontend</button>
-          <button onClick={() => setTechGroup('votte_backend')}>Votte Backend</button>
+        <div className="flex justify-center">
+          <div className=""><button onClick={() => setTechGroup('flushingtech.org')} className="pt-[2rem] pb-[2rem] w-[30rem] bg-[white]">Main Site</button></div>
+          <div className="ml-[1rem] mr-[1rem]"><button onClick={() => setTechGroup('votte_frontend')} className="pt-[2rem] pb-[2rem] w-[30rem] bg-[white]">Votte Frontend</button></div>
+          <div className=""><button onClick={() => setTechGroup('votte_backend')} className="pt-[2rem] pb-[2rem] w-[30rem] bg-[white]">Votte Backend</button></div>
         </div>
       </div>
 
