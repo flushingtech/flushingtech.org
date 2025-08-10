@@ -40,6 +40,7 @@ export default function EngineeringTeamPage() {
   }, [techgroup]);
   /*
   Changes occurred on lines 51 - lines 54
+  Line 84 starts the image of github
   */
   return (
     <div className="bg-[#000080] min-h-screen px-6 py-16 sm:px-12">
