@@ -14,7 +14,7 @@ export default function LeaderboardRow({
 }) {
   return (
     <div
-      className={`invisible text-xl grid ${gridTemplate} gap-x-4 px-8 py-4 w-full text-center relative animate-slide-in-500 ${animationDelay}`}
+      className={`invisible grid ${gridTemplate} gap-x-4 px-4 py-2 w-full  relative animate-slide-in-500 ${animationDelay}`}
       style={animationDelay}
     >
       {row &&

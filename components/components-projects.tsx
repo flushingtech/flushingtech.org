@@ -1,142 +1,183 @@
 'use client';
 
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
-import { Button } from '@/components/ui/button';
 import Link from 'next/link';
+import axios from 'axios';
+import LeaderboardContainerStatic from "@/app/components/leaderboard/LeaderboardContainerStatic";
+import { Button } from "@/components/ui/button";
 
-type Project = {
-	title: string;
-	description: string;
-	image: string;
-	link: string;
+type Idea = {
+  id: number;
+  title?: string;
+  idea: string;
+  description: string;
+  image_url: string;
+  technologies?: string;
+  type: 'idea';
 };
 
+type Event = {
+  id: number;
+  title: string;
+  event_date: string;
+  image_url: string;
+  type: 'event';
+};
+
+type Item = Idea | Event;
+
 type External = {
-	text: string;
-	link: string;
+  text: string;
+  link: string;
 };
 
 const VotteInfo: External = {
-	text: '👉 Vote on the next hackathon ideas! 👈',
-	link: process.env.NEXT_PUBLIC_VOTTE_URL as string,
+  text: 'Vote on Hackathon Ideas',
+  link: process.env.NEXT_PUBLIC_VOTTE_URL as string,
 };
 
-const projects: Project[] = [
-	{
-		title: 'SpaceX UPS',
-		description:
-			'Save API data to local file, in this case SpaceX launch data to an output.json. Built using Java with Maven.',
-		image: '/spacex-ups.jpg',
-		link: 'https://github.com/AaronNewTech/space-scanner',
-	},
-	{
-		title: 'Wearable',
-		description:
-			'Explore building wearables by learning Arduino basics. This project got a simple blinking program to run on the Arduino.',
-		image: '/wearables.jpg',
-		link: '',
-	},
-	{
-		title: 'Smart Homes',
-		description:
-			'Explore Department of Buildings data to help build potential smart home solutions.',
-		image: '/smarthome-dob.jpg',
-		link: '',
-	},
-	{
-		title: 'Votte',
-		description:
-			'Deployed the Votte app to Vercel, and started connecting it to a database powered by Neon.tech',
-		image: '/votte.jpg',
-		link: 'https://github.com/flushingtech/Votte_Backend',
-	},
-];
+const shuffleArray = (array: Item[]) => {
+  const newArray = [...array];
+  for (let i = newArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
+  }
+  return newArray;
+};
 
-export default function ProjectsCarouselComponent() {
-	const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay()]);
-	const [selectedIndex, setSelectedIndex] = useState(0);
+function GridLayout() {
+  const [isHidden, setIsHidden] = useState(false);
+  const [key, setKey] = useState<number | null>(null);
+  const [items, setItems] = useState<Item[]>([]);
+  const [maxItems, setMaxItems] = useState(9);
 
-	const scrollTo = useCallback(
-		(index: number) => {
-			if (emblaApi) emblaApi.scrollTo(index);
-		},
-		[emblaApi]
-	);
+  const clickedImage = () => setIsHidden(true);
+  const clickedButton = () => setIsHidden(false);
 
-	const onSelect = useCallback(() => {
-		if (!emblaApi) return;
-		setSelectedIndex(emblaApi.selectedScrollSnap());
-	}, [emblaApi]);
+  const fetchIdeasAndEventsWithImages = async () => {
+    try {
+      const [ideasRes, eventsRes] = await Promise.all([
+        axios.get('https://votte-backend.flushingtech.org/api/ideas/with-images'),
+        axios.get('https://votte-backend.flushingtech.org/api/events/with-images'),
+      ]);
 
-	useEffect(() => {
-		if (!emblaApi) return;
-		onSelect();
-		emblaApi.on('select', onSelect);
-		return () => {
-			emblaApi.off('select', onSelect);
-		};
-	}, [emblaApi, onSelect]);
+      const ideas: Idea[] = ideasRes.data.ideas.map((idea: any) => ({
+        ...idea,
+        type: 'idea',
+      }));
 
-	return (
-		<section className='bg-peach overflow-x-hidden'>
-			<div className='w-screen flex flex-col item-center pt-10 pb-4 md:pt-28 md:pb-36'>
-				<h2 className='block text-4xl font-site_header text-center font-bold'>
-					{'//'}Check Out Our <span className='text-site_red'>Projects</span>
-				</h2>
-				<div className='mt-4 text-4xl text-site_orange text-center hover:bg-sky-700 text-site_header'>
-					<Link href={VotteInfo.link}>{VotteInfo.text}</Link>
-				</div>
-				<div ref={emblaRef}>
-					<div className='flex mt-10 md:mt-20'>
-						{projects.map((project, index) => (
-							<div key={index} className='flex-[0_0_100%]'>
-								<div className='container w-[80%] flex flex-col md:flex-row gap-8 items-center mx-auto'>
-									<div className='md:w-1/2 relative'>
-										<a {...(project.link !== '' ? { href: project.link } : {})}>
-											<Image
-												src={project.image}
-												alt={`${project.title} Image`}
-												width={1000}
-												height={1000}
-												className='border-4 border-site_red w-full'
-											/>
-										</a>
-										<div className='absolute bottom-8 left-0 right-0 flex justify-center'>
-											<div className='flex space-x-8'>
-												{projects.map((_, dotIndex) => (
-													<Button
-														key={dotIndex}
-														variant='ghost'
-														size='sm'
-														className={`w-5 h-5 p-0 rounded-full ${
-															dotIndex === selectedIndex
-																? 'bg-site_red'
-																: 'bg-site_orange'
-														}`}
-														onClick={() => scrollTo(dotIndex)}
-														aria-label={`Go to project ${dotIndex + 1}`}
-													/>
-												))}
-											</div>
-										</div>
-									</div>
-									<div className='md:w-1/2'>
-										<h3 className='text-3xl font-bold font-site_header m-auto mb-12 text-gray-900 text-center md:w-1/2 md:text-5xl'>
-											{project.title}
-										</h3>
-										<p className='text-lg m-auto mb-6 text-gray-700 font-site_1st_paragraph text-center md:w-3/4 md:text-3xl'>
-											{project.description}
-										</p>
-									</div>
-								</div>
-							</div>
-						))}
-					</div>
-				</div>
-			</div>
-		</section>
-	);
+      const events: Event[] = eventsRes.data.events.map((event: any) => ({
+        ...event,
+        type: 'event',
+      }));
+
+      const merged: Item[] = shuffleArray([...ideas, ...events]);
+      setItems(merged);
+    } catch (error) {
+      console.error('Failed to fetch ideas or events:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchIdeasAndEventsWithImages();
+  }, []);
+
+  useEffect(() => {
+    const updateMaxItems = () => {
+      setMaxItems(window.innerWidth < 768 ? 4 : 9);
+    };
+
+    updateMaxItems(); // initial
+    window.addEventListener('resize', updateMaxItems);
+    return () => window.removeEventListener('resize', updateMaxItems);
+  }, []);
+
+  const displayedItems = items.slice(0, maxItems);
+
+  return (
+    <section className="bg-peach overflow-hidden flex flex-col lg:flex-row min-h-[80vh]">
+      <div className="w-full flex flex-col items-start pt-10 pb-8 px-6 md:pt-20 md:pb-20">
+        <h2 className="text-2xl sm:text-3xl md:text-5xl font-site_header font-bold text-left text-gray-900 mb-6 px-4 sm:px-6 md:px-10 lg:px-40 leading-snug break-words">
+          <span className="text-gray-900">// Check Out Our </span>
+          <span className="text-orange-600">Projects</span>
+        </h2>
+
+        <div className="px-4 sm:px-6 md:px-10 lg:px-40 mt-6 mb-12 w-full">
+          <div className="flex justify-center lg:justify-start">
+            <a href={VotteInfo.link} target="_blank" rel="noopener noreferrer">
+              <Button
+                size="xl"
+                className="w-full sm:w-auto text-sm sm:text-base px-6 py-3 font-semibold"
+              >
+                {VotteInfo.text.toUpperCase()}
+              </Button>
+            </a>
+          </div>
+        </div>
+
+        {isHidden && key !== null ? (
+          <>
+            {items.map((item) => {
+              if (key === item.id) {
+                return (
+                  <div key={item.id} className="w-full">
+                    <div className="container max-w-5xl flex flex-col md:flex-row gap-6 items-center mx-auto">
+                      <div className="md:w-1/2 relative">
+                        <Image
+                          src={item.image_url}
+                          alt={item.type === 'idea' ? item.idea : item.title}
+                          width={1000}
+                          height={1000}
+                          className="border-4 border-site_red w-full object-cover"
+                        />
+                      </div>
+                      <div className="md:w-1/2 text-left">
+                        <h3 className="text-2xl md:text-4xl font-bold font-site_header mb-6 text-gray-900">
+                          {item.type === 'idea' ? item.idea : item.title}
+                        </h3>
+                        <p className="text-base md:text-lg mb-4 text-gray-700 font-site_1st_paragraph">
+                          {item.type === 'idea'
+                            ? item.description
+                            : new Date(item.event_date).toLocaleDateString()}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+            })}
+            <button className="mt-8 font-bold text-sm text-site_red underline" onClick={clickedButton}>
+              ← Back to Grid
+            </button>
+          </>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 w-full overflow-hidden px-4">
+            {displayedItems.map((item) => (
+              <div
+                key={item.id}
+                className="cursor-pointer transition duration-300 hover:scale-[1.02]"
+                onClick={() => {
+                  clickedImage();
+                  setKey(item.id);
+                }}
+              >
+                <Image
+                  src={item.image_url}
+                  alt={item.type === 'idea' ? item.idea : item.title}
+                  width={800}
+                  height={600}
+                  className="w-full h-[180px] object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <LeaderboardContainerStatic />
+    </section>
+  );
 }
+
+export { GridLayout };
