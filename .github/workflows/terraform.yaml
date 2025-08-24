@@ -1,0 +1,78 @@
+name: Terraform GitOps
+
+on:
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'infra/terraform/**'
+      - '.github/workflows/terraform.yml'
+  push:
+    branches: [ main ]
+    paths:
+      - 'infra/terraform/**'
+      - '.github/workflows/terraform.yml'
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    env:
+      TF_INPUT: false
+      TF_IN_AUTOMATION: true
+      GITHUB_OWNER: ${{ github.repository_owner }}
+      REPO_NAME: ${{ github.event.repository.name }}
+      GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.6
+
+      - name: Terraform Fmt
+        working-directory: infra/terraform
+        run: terraform fmt -check -recursive
+
+      - name: Terraform Init
+        working-directory: infra/terraform
+        run: |
+          terraform init
+
+      - name: Terraform Validate
+        working-directory: infra/terraform
+        run: |
+          terraform validate
+
+      - name: Terraform Plan
+        if: github.event_name == 'pull_request'
+        working-directory: infra/terraform
+        run: |
+          terraform plan \
+            -var="github_owner=${GITHUB_OWNER}" \
+            -var="repo_name=${REPO_NAME}" \
+            -no-color \
+            > plan.txt
+
+      - name: Comment Plan
+        if: github.event_name == 'pull_request'
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          recreate: true
+          path: infra/terraform/plan.txt
+        continue-on-error: true
+
+      - name: Terraform Apply
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        working-directory: infra/terraform
+        run: |
+          terraform apply -auto-approve \
+            -var="github_owner=${GITHUB_OWNER}" \
+            -var="repo_name=${REPO_NAME}"
