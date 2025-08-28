@@ -24,6 +24,9 @@ html{
   .text-balance {
     text-wrap: balance;
   }
+  .bg-site-action {
+    @apply bg-gradient-to-r from-site_orange to-site_red;
+  }
 }
 
 @layer base {
