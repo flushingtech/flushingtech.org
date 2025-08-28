@@ -108,7 +108,7 @@ function GridLayout() {
             <a href={VotteInfo.link} target="_blank" rel="noopener noreferrer">
               <Button
                 size="xl"
-                className="w-full sm:w-auto text-sm sm:text-base px-6 py-3 font-semibold"
+                className="w-full sm:w-auto text-sm sm:text-base"
               >
                 {VotteInfo.text.toUpperCase()}
               </Button>
