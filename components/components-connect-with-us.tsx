@@ -91,8 +91,8 @@ export default function ConnectWithUsComponent() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-44 gap-y-12">
           {/* LEFT SIDE */}
-          <div className="flex flex-col">
-            <p className="text-2xl text-left max-w-[800px]">
+          <div className="flex flex-col gap-y-8">
+            <p className="text-2xl text-left max-w-[800px] text-peach -mb-6">
               Join our biweekly hackathons for self organized creativity and
               innovation.
             </p>
@@ -105,25 +105,27 @@ export default function ConnectWithUsComponent() {
               onClick={() => {}}
             />
 
-            <div className="mt-6 self-center md:self-end">
+            <Button size="lg" className="group w-[50%] min-w-48">
               <a
                 href="https://www.meetup.com/flushing-tech/events/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-[10px] px-6 py-3 bg-white rounded-full border shadow-sm hover:scale-105 transition-transform"
+                className="relative w-full h-full block hover:text-white"
               >
-                <span className="text-xl md:text-3xl font-semibold text-black">
-                  RSVP on
-                </span>
-                <Image
-                  src="/images/meetup-logo.png"
-                  alt="Meetup"
-                  width={90}
-                  height={24}
-                  className="object-contain"
-                />
+                <div className="transition-opacity duration-500 group-hover:opacity-0 flex justify-center items-center h-full">
+                  <div>RSVP</div>
+                </div>
+                <div className="absolute opacity-0 transition-opacity duration-500 group-hover:opacity-100 top-0 w-full h-full">
+                  <Image
+                    src="/images/meetup-logo.png"
+                    alt="Meetup"
+                    width={90}
+                    height={24}
+                    className="object-contain m-auto h-full"
+                  />
+                </div>
               </a>
-            </div>
+            </Button>
           </div>
 
           {/* RIGHT SIDE */}
