@@ -1,3 +1,24 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "prettier/prettier": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "no-duplicate-imports": "warn",
+    "no-console": "warn",
+    "simple-import-sort/imports": "warn",
+    "react/react-in-jsx-scope": "off"
+  }
 }

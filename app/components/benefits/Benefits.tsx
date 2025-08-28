@@ -9,7 +9,7 @@ const Benefits = () => {
     <section className="w-full benefits-section py-16 px-4 sm:px-16 bg-muted">
       <div className="benefits-heading flex flex-col gap-2 items-center mb-12">
         <h2 className="text-4xl font-semibold text-center font-site_header">
-          Level Up with Flushing Tech
+          <span className="text-site-action-reversed">Level Up</span> with Flushing Tech
         </h2>
         <p className="text-muted-foreground text-xl text-center">Member Benefits</p>
       </div>
