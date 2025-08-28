@@ -23,7 +23,7 @@ export default function HeaderComponent() {
           >
             flushing
             <span className="text-site_orange">
-              (<span className="text-site_red">tech</span>)
+              (<span className="text-site-action">tech</span>)
             </span>
           </Link>
         </div>

@@ -86,7 +86,7 @@ export default function ConnectWithUsComponent() {
       <div className="container mx-auto px-4">
         {/* HEADER & INTRO */}
         <div className="mb-8">
-          <h2 className="text-5xl font-semibold text-left">Connect With Us</h2>
+          <h2 className="text-5xl font-semibold text-left">Join Our <span className="text-site-action">Events!</span></h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-0 md:gap-x-44 gap-y-12">
