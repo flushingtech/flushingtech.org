@@ -22,8 +22,8 @@ export default function HeaderComponent() {
             style={{ fontFamily: "Gintronic, sans-serif" }}
           >
             flushing
-            <span className="text-site_orange">
-              (<span className="text-site-action">tech</span>)
+            <span className="text-site-action">
+              (tech)
             </span>
           </Link>
         </div>
