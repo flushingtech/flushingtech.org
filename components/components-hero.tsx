@@ -52,7 +52,7 @@ export default function HeroComponent() {
         <div>
           <Button size="xl" className="block lg:inline">
             <a href="https://www.meetup.com/flushing-tech" target="_blank">
-              Learn More
+              Join Us
             </a>
           </Button>
         </div>
