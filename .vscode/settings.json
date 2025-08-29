@@ -1,0 +1,9 @@
+{
+  "editor.formatOnSave": true,
+  "eslint.options": {
+    "overrideConfigFile": "./.eslintrc.json"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  }
+}
