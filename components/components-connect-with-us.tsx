@@ -102,12 +102,17 @@ export default function ConnectWithUsComponent() {
               imageSrc="/images/laptop.jpg"
               imageAlt="Bi-Weekly Tech Jams"
               selected={true}
-              onClick={() => {}}
+              onClick={() => {
+                const url = events?.[0]?.info?.link;
+                if (url) {
+                  window.open(url, "_blank", "noopener,noreferrer");
+                }
+              }}
             />
 
             <Button size="lg" className="group w-[50%] min-w-48">
               <a
-                href="https://www.meetup.com/flushing-tech/events/"
+                href={events && events.length > 0 ? events[0].info.link + "rsvp/" : "https://www.meetup.com/flushing-tech/events/"}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="relative w-full h-full block hover:text-white"
