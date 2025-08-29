@@ -17,7 +17,7 @@ export default function HeroComponent() {
         <div className="md:w-[70%] py-[5%]">
           <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-site_header">
             <span className="text-peach">Meet</span>{" "}
-            <span className="text-site_orange">Flushing Tech</span>
+            <span className="text-site-action">Flushing Tech</span>
             <span
               style={{
                 animation: "blink 1s steps(1, start) infinite",

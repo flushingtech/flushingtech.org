@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
-import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import LeaderboardContent from "./LeaderboardContent";
+import { useEffect, useState } from 'react';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import LeaderboardContent from './LeaderboardContent';
 
-import { ContentArray } from "./LeaderboardContent";
+import { ContentArray } from './LeaderboardContent';
 type MostWins = { contributor: string; total_wins: string };
 type RecentWinners = {
   contributors: string;
@@ -10,8 +10,7 @@ type RecentWinners = {
   idea_title: string;
 };
 
-const tabsTriggerCN =
-  "font-site_button lg:text-sm rounded-md border border-peach px-4 py-2 transition-all duration-200 hover:border-white/30 hover:text-site_orange data-[state=active]:bg-site_navy data-[state=active]:text-site_orange data-[state=active]:border-site_orange";
+const tabsTriggerCN = "font-site_button lg:text-sm rounded-md border border-peach px-4 py-2 transition-all duration-200 hover:border-white/30 hover:text-site_orange data-[state=active]:bg-site_navy data-[state=active]:text-site_orange data-[state=active]:border-site_orange";
 
 export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
   const [contentRecentWinners, setContentRecentWinners] = useState<
@@ -20,18 +19,18 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
   const [contentMostWins, setContentMostWins] = useState<
     ContentArray[] | null
   >();
-  const [selected, setSelected] = useState<string>("Recent Winners");
+  const [selected, setSelected] = useState<string>('Recent Winners');
   useEffect(() => {
     fetch(
-      "https://votte-backend.flushingtech.org/api/leaderboard/leaderboardmostwins"
+      'https://votte-backend.flushingtech.org/api/leaderboard/leaderboardmostwins',
     )
-      .then((res) => res.json())
-      .then((data) => processContentMostWins(data.leaderboard));
+      .then(res => res.json())
+      .then(data => processContentMostWins(data.leaderboard));
     fetch(
-      "https://votte-backend.flushingtech.org/api/leaderboard/leaderboard3winners"
+      'https://votte-backend.flushingtech.org/api/leaderboard/leaderboard3winners',
     )
-      .then((res) => res.json())
-      .then((data) => processContentRecentWinners(data.leaderboard));
+      .then(res => res.json())
+      .then(data => processContentRecentWinners(data.leaderboard));
   }, []);
 
   if (hidden) return null;
@@ -41,9 +40,10 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
       <div className="my-8 text-center xl:text-center ">
         <Tabs
           defaultValue="Recent Winners"
-          className="w-fit inline-block"
+          className="inline-block w-fit"
           onValueChange={handleTabValueChange}
         >
+
           <TabsList className="bg-site_navy text-white font-site_button h-auto flex content-center items-center">
             <TabsTrigger className={tabsTriggerCN} value="Total Wins">
               Total Wins
@@ -55,7 +55,7 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
         </Tabs>
       </div>
 
-      {contentMostWins && selected === "Total Wins" && (
+      {contentMostWins && selected === 'Total Wins' && (
         <LeaderboardContent
           title="Total Wins"
           gridTemplate="grid-cols-1 grid-cols-[minmax(8em,1fr)_minmax(4em,1fr)_1em]"
@@ -63,7 +63,7 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
         />
       )}
 
-      {contentRecentWinners && selected === "Recent Winners" && (
+      {contentRecentWinners && selected === 'Recent Winners' && (
         <LeaderboardContent
           title="Recent Winners"
           gridTemplate="grid-cols-1 grid-cols-[minmax(8em,1fr)_1fr_1fr]"
@@ -78,46 +78,46 @@ export default function Leaderboard({ hidden = false }: { hidden: boolean }) {
   }
   function processContentMostWins(data: MostWins[]) {
     const validifiedData = data.filter((e: MostWins) =>
-      /@/.test(e.contributor)
+      /@/.test(e.contributor),
     );
     const content: ContentArray[] = validifiedData.map(
-      (e: MostWins, _: number, arr: any[]) => [
+      (e: MostWins, _: number, arr) => [
         [
-          "text",
+          'text',
           (
             e.contributor.match(/[\w\W]+(?=@)/) as RegExpMatchArray
           )[0] as string,
         ],
-        ["progress", (Number(e.total_wins) / Number(arr[0].total_wins)) * 100],
-        ["text", e.total_wins],
-      ]
+        ['progress', (Number(e.total_wins) / Number(arr[0].total_wins)) * 100],
+        ['text', e.total_wins],
+      ],
     );
     setContentMostWins(content);
   }
   function processContentRecentWinners(data: RecentWinners[]) {
     const validifiedData = data.filter((e: RecentWinners) =>
-      /@/.test(e.contributors)
+      /@/.test(e.contributors),
     );
     const content: ContentArray[] = validifiedData
       .map((e: RecentWinners) =>
-        e.contributors.split(",").map(
+        e.contributors.split(',').map(
           (contributor: string) =>
             [
               [
-                "text",
+                'text',
                 (
                   contributor.match(/[\w\W]+(?=@)/) as RegExpMatchArray
                 )[0] as string,
               ],
-              ["text", e.idea_title],
+              ['text', e.idea_title],
               [
-                "text",
+                'text',
                 new Date(e.event_date)
                   .toISOString()
-                  .match(/[\W\w]+(?=T)/) as any[][0] as string,
+                  .match(/[\W\w]+(?=T)/)![0] as string,
               ],
-            ] as ContentArray
-        )
+            ] as ContentArray,
+        ),
       )
       .flat();
     setContentRecentWinners(content);
