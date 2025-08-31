@@ -9,5 +9,11 @@ indent_size = 2
 insert_final_newline = true
 trim_trailing_whitespace = true
 
-[*.md]
+# Markdown: keep trailing spaces for hard line breaks
+[*.{md,mdx}]
 trim_trailing_whitespace = false
+
+# Env files: preserve whitespace/newlines as-is
+[*.env*]
+trim_trailing_whitespace = false
+insert_final_newline = false

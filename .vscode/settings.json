@@ -1,9 +1,34 @@
 {
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "eslint.options": {
-    "overrideConfigFile": "./.eslintrc.json"
-  },
+  "editor.formatOnSaveMode": "modificationsIfAvailable",
+
+  // Match .editorconfig defaults
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // Preserve Markdown/MDX hard line breaks
+  "[markdown]": { "files.trimTrailingWhitespace": false },
+  "[mdx]": { "files.trimTrailingWhitespace": false },
+
+  // Keep Prettier as formatter for typical web stack files
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[json]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[css]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[html]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+
+  // ESLint integration
+  "eslint.format.enable": false,
+  "eslint.run": "onSave",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
-  }
+  },
+
+  // Use workspace TypeScript (avoids version mismatch)
+  "typescript.tsdk": "node_modules/typescript/lib"
 }
