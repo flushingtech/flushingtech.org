@@ -6,11 +6,17 @@ type NavItem = {
   faIcon?: FaBrand;
 };
 export default [
-  {text:"About", href: '/about'},
-  { text: "Events", href: "#event-showcase" },
+  { 
+    text:"About",
+    href: "/about"
+  },
+  { 
+    text: "Events", 
+    href: "/#event-showcase" 
+  },
   {
     text: "Contact",
-    href: "", //need information
+    href: "/#event-showcase", //need information Right now just links to Meetup and Discord
   },
   {
     text: "Instagram",
