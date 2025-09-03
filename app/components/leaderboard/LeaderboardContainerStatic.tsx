@@ -17,7 +17,7 @@ export default function LeaderboardContainer() {
   return (
     <div
       ref={containerRef}
-      className="invisible h-auto bg-gradient-to-b from-black/85 via-black/50 to-black/10 py-6 px-6 text-peach animate-slide-in-3s mt-4 lg:mt-0 overflow-auto"
+      className="invisible w-full h-auto bg-gradient-to-b from-black/85 via-black/50 to-black/10 py-6 px-6 text-peach animate-slide-in-3s mt-4 lg:mt-0 overflow-auto"
     >
       <div className="w-full text-left">
         <h1 className="text-3xl font-bold font-site_header text-site_orange leading-tight mb-4">
