@@ -51,7 +51,6 @@ export default function FooterComponent() {
                 { href: "/", label: "Home" },
                 { href: "https://www.meetup.com/flushing-tech", label: "Learn More" },
                 { href: "/about", label: "About" },
-                { href: "/contact", label: "Contact" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link

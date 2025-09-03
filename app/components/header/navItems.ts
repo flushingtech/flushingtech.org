@@ -9,10 +9,6 @@ export default [
   {text:"About", href: '/about'},
   { text: "Events", href: "#event-showcase" },
   {
-    text: "Contact",
-    href: "", //need information
-  },
-  {
     text: "Instagram",
     href: "https://www.instagram.com/flushingtech/",
     faIcon: "faInstagram",
