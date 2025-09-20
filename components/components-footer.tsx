@@ -39,7 +39,8 @@ export default function FooterComponent() {
               <span className="text-xl font-bold">flushing(tech)</span>
             </Link>
             <p className="text-gray-400 text-sm">
-              Welcome to flushing(tech). Join us on our journey to make a difference.
+              Welcome to flushing(tech). Join us on our journey to make a
+              difference.
             </p>
           </div>
 
@@ -49,9 +50,13 @@ export default function FooterComponent() {
             <ul className="space-y-2">
               {[
                 { href: "/", label: "Home" },
-                { href: "https://www.meetup.com/flushing-tech", label: "Learn More" },
+                {
+                  href: "https://www.meetup.com/flushing-tech",
+                  label: "Learn More",
+                },
                 { href: "/about", label: "About" },
                 { href: "/contact", label: "Contact" },
+                { href: "/engineering-team", label: "Engineering Team" },
               ].map((link) => (
                 <li key={link.href}>
                   <Link
@@ -132,10 +137,10 @@ export default function FooterComponent() {
 
           {/* Social Media Icons */}
           <nav className="hidden md:block">
-          <div className="flex justify-end items-center">
-            <SocialIcons />
-          </div>
-        </nav>
+            <div className="flex justify-end items-center">
+              <SocialIcons />
+            </div>
+          </nav>
         </div>
       </div>
     </footer>
