@@ -85,7 +85,7 @@ export default function EngineeringTeamPage() {
         {contributors.map((contributor) => (
           <div
             key={contributor.login}
-            className="bg-white rounded-lg shadow-md p-6 flex flex-row items-center text-center"
+            className="bg-white rounded-lg shadow-md p-6 relative flex flex-row items-center text-center"
           >
             <div className="w-32 h-32 relative mb-4">
               <Image
@@ -104,7 +104,7 @@ export default function EngineeringTeamPage() {
                 href={contributor.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-200 hover:underline text-sm"
+                className="absolute bottom-4 right-4"
               >
                 <Image
                   src="/images/github-mark/github-mark.png"
