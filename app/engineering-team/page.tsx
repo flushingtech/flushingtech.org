@@ -114,14 +114,14 @@ export default function EngineeringTeamPage() {
         ) : error ? (
           <p className="text-center text-xl text-red-400">Error: {error}</p>
         ) : (
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-1 sm:grid-cols-16 lg:grid-cols-2">
             {contributors.length > 0 ? (
               contributors.map((contributor) => (
                 <div
                   key={contributor.login}
-                  className="bg-white rounded-lg shadow-md p-4 relative flex flex-col items-center"
+                  className="bg-white rounded-md shadow-md p-4 relative flex flex-col items-center"
                 >
-                  <div className="w-24 h-24 relative mb-2">
+                  <div className="w-24 h-24 absolute left-4 top-1">
                     <Image
                       src={contributor.avatar_url}
                       alt={`${contributor.login}'s avatar`}
