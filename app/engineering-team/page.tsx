@@ -13,119 +13,170 @@ type Contributor = {
 };
 
 export default function EngineeringTeamPage() {
-  const [techgroup, setTechGroup] = useState(String);
+  // Initialize techgroup to one of the valid repo names to fetch data on initial load
+  const [techgroup, setTechGroup] = useState<string>("flushingtech.org");
   const [contributors, setContributors] = useState<Contributor[]>([]);
-  /*
-  the click effect tells which repository it needs to fetch and load...
-  */
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+
   useEffect(() => {
     const fetchContributors = async () => {
+      setIsLoading(true);
+      setError(null);
       try {
-        let res;
-        //uses a ternary conditional to check whether techgroup is not undefined, if it is it defaults to flushingtech.org
-        techgroup
-          ? (res = await fetch(
-              `https://api.github.com/repos/flushingtech/${techgroup}/contributors`
-            ))
-          : (res = await fetch(
-              `https://api.github.com/repos/flushingtech/flushingtech.org/contributors`
-            ));
+        const repoName = techgroup || "flushingtech.org";
+        const res = await fetch(
+          `https://api.github.com/repos/flushingtech/${repoName}/contributors`
+        );
 
-        if (!res.ok) throw new Error("Failed to fetch contributors");
+        if (res.status === 403) {
+          // Rate limit exceeded or other forbidden error
+          throw new Error(
+            "GitHub API rate limit exceeded or access forbidden."
+          );
+        }
+        if (!res.ok) {
+          throw new Error("Failed to fetch contributors: " + res.statusText);
+        }
+
         const data = await res.json();
-        setContributors(data);
+        // GitHub API returns an array for contributors; check if it's empty or an error object
+        if (Array.isArray(data)) {
+          setContributors(data);
+        } else {
+          // Handle cases where API returns a non-array but successful-looking response (e.g., if repo has no contributors)
+          setContributors([]);
+        }
       } catch (error) {
         console.error("GitHub fetch error:", error);
+        setError(
+          error instanceof Error ? error.message : "An unknown error occurred."
+        );
+        setContributors([]);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchContributors();
   }, [techgroup]);
-  /*
-  Changes occurred on lines 51 - lines 54
-  Line 84 starts the image of github
-  */
+
   return (
     <div className="bg-[#0D1A2B] min-h-screen px-6 py-16 sm:px-12">
-      <div className="text-center mb-16">
-        <h1 className="text-4xl font-bold text-[white]">
-          Meet the Engineering Team
+      <div className="text-center mb-10">
+        <h1 className="text-4xl font-bold text-white">
+          Meet the Engineering Team 💡
         </h1>
-        <p className="mt-4 text-lg max-w-2xl mx-auto text-[white] mb-[2rem]">
+        <p className="mt-4 text-lg max-w-md mx-auto text-white mb-8">
           The brains behind Flushing Tech’s hackathons, platform, and vision.
         </p>
-        <div className="flex justify-center">
-          <div className="">
-            <button
-              onClick={() => setTechGroup("flushingtech.org")}
-              className="pt-[2rem] pb-[2rem] w-[30rem] bg-[white]"
-            >
-              Main Site
-            </button>
-          </div>
-          <div className="ml-[1rem] mr-[1rem]">
-            <button
-              onClick={() => setTechGroup("votte_frontend")}
-              className="pt-[2rem] pb-[2rem] w-[30rem] bg-[white]"
-            >
-              Votte Frontend
-            </button>
-          </div>
-          <div className="">
-            <button
-              onClick={() => setTechGroup("votte_backend")}
-              className="pt-[2rem] pb-[2rem] w-[30rem] bg-[white]"
-            >
-              Votte Backend
-            </button>
-          </div>
-        </div>
       </div>
 
-      <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-2">
-        {contributors.map((contributor) => (
-          <div
-            key={contributor.login}
-            className="bg-white rounded-lg shadow-md p-6 relative flex flex-row items-center text-center"
+      <div className="max-w-6xl mx-auto">
+        {/* Repository Selection Buttons */}
+        <div className="flex justify-center gap-6 mb-10 flex-wrap">
+          <button
+            onClick={() => setTechGroup("flushingtech.org")}
+            className={`px-6 py-3 rounded-md font-medium w-64 text-center transition-all ${
+              techgroup === "flushingtech.org"
+                ? "bg-indigo-500 text-white"
+                : "bg-white text-gray-800 hover:bg-gray-100"
+            }`}
           >
-            <div className="w-32 h-32 relative mb-4">
-              <Image
-                src={contributor.avatar_url}
-                alt={contributor.login}
-                className="rounded-full object-cover"
-                fill
-              />
-            </div>
-            <div className="ml-[4rem] pr-[2rem]">
-              <h3 className="text-xl font-semibold">{contributor.login}</h3>
-              <p className="text-sm text-gray-500 mb-2">
-                {contributor.contributions} commits
-              </p>
-              <Link
-                href={contributor.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="absolute bottom-4 right-4"
-              >
-                <Image
-                  src="/images/github-mark/github-mark.png"
-                  alt="GithubLogo"
-                  height={30}
-                  width={30}
-                />
-              </Link>
-            </div>
-          </div>
-        ))}
-      </div>
+            Main Site
+          </button>
+          <button
+            onClick={() => setTechGroup("votte_frontend")}
+            className={`px-6 py-3 rounded-md font-medium w-64 text-center transition-all ${
+              techgroup === "votte_frontend"
+                ? "bg-indigo-500 text-white"
+                : "bg-white text-gray-800 hover:bg-gray-100"
+            }`}
+          >
+            Votte Frontend
+          </button>
+          <button
+            onClick={() => setTechGroup("votte_backend")}
+            className={`px-6 py-3 rounded-md font-medium w-64 text-center transition-all ${
+              techgroup === "votte_backend"
+                ? "bg-indigo-500 text-white"
+                : "bg-white text-gray-800 hover:bg-gray-100"
+            }`}
+          >
+            Votte Backend
+          </button>
+        </div>
 
-      <div className="mt-24 text-center">
-        <div className="flex flex-col items-center gap-4">
-          <Users className="w-8 h-8 text-site_navy" />
-          <h2 className="text-2xl font-semibold">Join Our Team</h2>
-          <p className="text-muted-foreground max-w-lg">
-            We&apos;re always looking for passionate engineers. Contribute to
-            the repo and see yourself here!
+        {/* Loading, Error, and Contributor Display */}
+        {isLoading ? (
+          <p className="text-center text-xl text-white">
+            Loading contributors...
           </p>
+        ) : error ? (
+          <p className="text-center text-xl text-red-400">Error: {error}</p>
+        ) : (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {contributors.length > 0 ? (
+              contributors.map((contributor) => (
+                <div
+                  key={contributor.login}
+                  className="bg-white rounded-lg shadow-md p-4 relative flex flex-col items-center"
+                >
+                  <div className="w-24 h-24 relative mb-2">
+                    <Image
+                      src={contributor.avatar_url}
+                      alt={`${contributor.login}'s avatar`}
+                      className="rounded-full object-cover"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw" // Add sizes prop for Next/Image optimization
+                    />
+                  </div>
+                  <h3 className="text-lg font-semibold">{contributor.login}</h3>
+                  <p className="text-sm text-gray-500 mb-6">
+                    {contributor.contributions} commits
+                  </p>
+                  <Link
+                    href={contributor.html_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute bottom-4 right-4"
+                  >
+                    {/* Note: The image path for the GitHub icon is assumed to be correct */}
+                    <Image
+                      src="/images/github-mark/github-mark.png"
+                      alt="GitHub Profile"
+                      width={24}
+                      height={24} // Added height prop for static image
+                      className="justify-end"
+                    />
+                  </Link>
+                </div>
+              ))
+            ) : (
+              <p className="col-span-full text-center text-xl text-gray-300">
+                No contributors found for this repository.
+              </p>
+            )}
+          </div>
+        )}
+
+        {/* Join Our Team Section */}
+        <div className="flex flex-col items-center gap-4 mt-16 p-8 rounded-xl border border-gray-700">
+          <Users className="w-8 h-8 text-white" />
+          <h2 className="text-2xl font-semibold text-white">
+            Join Our Team 🚀
+          </h2>
+          <p className="text-gray-300 max-w-lg text-center">
+            We’re always looking for passionate engineers. Contribute to the
+            repo and see yourself here!
+          </p>
+          <Link
+            href="https://github.com/flushingtech" // Example link to the org
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-4 px-6 py-2 bg-indigo-500 text-white rounded-md font-medium hover:bg-indigo-600 transition-colors"
+          >
+            View GitHub Organization
+          </Link>
         </div>
       </div>
     </div>
