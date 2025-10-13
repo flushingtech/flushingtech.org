@@ -119,7 +119,7 @@ export default function EngineeringTeamPage() {
               contributors.map((contributor) => (
                 <div
                   key={contributor.login}
-                  className="bg-white rounded-md shadow-md p-4 relative flex flex-col items-center"
+                  className="bg-white rounded-md shadow-md p-6 min-h-[139px] min-w[320px] relative flex flex-col items-center justify-start"
                 >
                   <div className="w-24 h-24 absolute left-4 top-1">
                     <Image
@@ -130,10 +130,14 @@ export default function EngineeringTeamPage() {
                       sizes="(max-width: 768px) 100vw, 33vw" // Add sizes prop for Next/Image optimization
                     />
                   </div>
-                  <h3 className="text-lg font-semibold">{contributor.login}</h3>
-                  <p className="text-sm text-gray-500 mb-6">
-                    {contributor.contributions} commits
-                  </p>
+                  <div className=" items-start left-4">
+                    <h3 className="text-lg font-semibold text-gray-800 justify-left">
+                      {contributor.login}
+                    </h3>
+                    <p className="text-sm text-gray-600">
+                      {contributor.contributions} commits
+                    </p>
+                  </div>
                   <Link
                     href={contributor.html_url}
                     target="_blank"
