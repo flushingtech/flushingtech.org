@@ -121,7 +121,7 @@ export default function EngineeringTeamPage() {
                   key={contributor.login}
                   className="bg-white rounded-md shadow-md p-6 min-h-[139px] min-w[320px] relative flex flex-col items-center justify-start"
                 >
-                  <div className="w-24 h-24 absolute left-4 top-1">
+                  <div className="w-24 h-24 absolute left-5 top-4">
                     <Image
                       src={contributor.avatar_url}
                       alt={`${contributor.login}'s avatar`}
@@ -130,8 +130,8 @@ export default function EngineeringTeamPage() {
                       sizes="(max-width: 768px) 100vw, 33vw" // Add sizes prop for Next/Image optimization
                     />
                   </div>
-                  <div className=" items-start left-4">
-                    <h3 className="text-lg font-semibold text-gray-800 justify-left">
+                  <div className="flex flex-col absolute left-40 top-10">
+                    <h3 className="text-lg font-semibold text-gray-800 text-left">
                       {contributor.login}
                     </h3>
                     <p className="text-sm text-gray-600">
