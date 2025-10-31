@@ -86,7 +86,7 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_frontend")}
-            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all ${
+            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
               techgroup === "votte_frontend"
                 ? "bg-black text-white"
                 : "bg-white text-black hover:bg-black hover:text-white"
@@ -96,7 +96,7 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_backend")}
-            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all ${
+            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
               techgroup === "votte_backend"
                 ? "bg-white text-black"
                 : "bg-white text-gray-800 hover:bg-black hover:text-white"
