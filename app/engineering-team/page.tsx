@@ -76,7 +76,7 @@ export default function EngineeringTeamPage() {
         <div className="flex justify-center gap-6 mb-10 flex-wrap">
           <button
             onClick={() => setTechGroup("flushingtech.org")}
-            className={`px-6 py-3 rounded-md font-medium w-64 text-center transition-all ${
+            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all ${
               techgroup === "flushingtech.org"
                 ? "bg-indigo-500 text-white"
                 : "bg-white text-gray-800 hover:bg-gray-100"
@@ -86,7 +86,7 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_frontend")}
-            className={`px-6 py-3 rounded-md font-medium w-64 text-center transition-all ${
+            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all ${
               techgroup === "votte_frontend"
                 ? "bg-indigo-500 text-white"
                 : "bg-white text-gray-800 hover:bg-gray-100"
@@ -96,7 +96,7 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_backend")}
-            className={`px-6 py-3 rounded-md font-medium w-64 text-center transition-all ${
+            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all ${
               techgroup === "votte_backend"
                 ? "bg-indigo-500 text-white"
                 : "bg-white text-gray-800 hover:bg-gray-100"
