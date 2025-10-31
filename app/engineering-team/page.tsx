@@ -78,7 +78,7 @@ export default function EngineeringTeamPage() {
             onClick={() => setTechGroup("flushingtech.org")}
             className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
               techgroup === "flushingtech.org"
-                ? "bg-white text-black"
+                ? "bg-white text-black hover:bg-black hover:text-white"
                 : "bg-white text-black hover:bg-black hover:text-white"
             }`}
           >
