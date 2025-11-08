@@ -1,0 +1,11 @@
+---
+
+- name: Configure user flushingtech
+  become: true
+  ansible.builtin.user:
+    name: flushingtech
+    state: present
+    create_home: true
+    hidden: false
+    shell: /bin/zsh
+    password: "flushingtech"

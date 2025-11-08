@@ -1,0 +1,13 @@
+---
+
+- name: Install development tools
+  ansible.builtin.package:
+    name:
+      - git
+      - wget
+      - htop
+      - tree
+      - jq
+      - visual-studio-code
+      - vlc
+    state: present
