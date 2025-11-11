@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Users } from "lucide-react";
-
+import homeImage from "./images/home-icon-vector.jpg";
 type Contributor = {
   login: string;
   avatar_url: string;
@@ -82,6 +82,13 @@ export default function EngineeringTeamPage() {
                 : "bg-white text-black hover:bg-black hover:text-white"
             }`}
           >
+            <Image
+              src={homeImage}
+              alt="Flaticons Logo"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
             Main Site
           </button>
           <button
