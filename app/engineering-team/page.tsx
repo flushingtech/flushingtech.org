@@ -76,7 +76,7 @@ export default function EngineeringTeamPage() {
         <div className="flex justify-center gap-6 mb-10 flex-wrap">
           <button
             onClick={() => setTechGroup("flushingtech.org")}
-            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
               techgroup === "flushingtech.org"
                 ? "bg-white text-black hover:bg-black hover:text-white"
                 : "bg-white text-black hover:bg-black hover:text-white"
@@ -87,7 +87,7 @@ export default function EngineeringTeamPage() {
               alt="Flaticons Logo"
               width={40}
               height={40}
-              className="rounded-full"
+              className="flex items-start rounded-full"
             />
             Main Site
           </button>
@@ -157,7 +157,7 @@ export default function EngineeringTeamPage() {
                       alt="GitHub Profile"
                       width={24}
                       height={24} // Added height prop for static image
-                      className="justify-end"
+                      className="justify-center"
                     />
                   </Link>
                 </div>
