@@ -80,8 +80,8 @@ export default function EngineeringTeamPage() {
             onClick={() => setTechGroup("flushingtech.org")}
             className={`flex items-center justify-center gap-2 px-6 py-3 rounded-l-md font-medium w-96 text-center transition-all duration-500 border-2 border-grey-300 ${
               techgroup === "flushingtech.org"
-                ? "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
-                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
+                ? "bg-black text-white hover:bg-black hover:text-white hover:border-grey-400 border-b-11 border-b-black"
+                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400 border-b-1 border-b-white"
             }`}
           >
             <Image
@@ -97,8 +97,8 @@ export default function EngineeringTeamPage() {
             onClick={() => setTechGroup("votte_frontend")}
             className={`flex items-center justify-center gap-2 px-6 py-3 font-medium w-96 text-center transition-all duration-500 border-2 border-grey-300 ${
               techgroup === "votte_frontend"
-                ? "bg-black text-white hover:border-grey-400"
-                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
+                ? "bg-black text-white hover:border-grey-400 border-t-2 border-white border-b-0 border-black"
+                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400 border-b-11 border-b-white"
             }`}
           >
             <Image
@@ -114,8 +114,8 @@ export default function EngineeringTeamPage() {
             onClick={() => setTechGroup("votte_backend")}
             className={`flex items-center justify-center rounded-r-md gap-2 px-6 py-3 font-medium w-96 text-center transition-all duration-500 border-2 border-grey-300 ${
               techgroup === "votte_backend"
-                ? "bg-white text-black hover:border-grey-400"
-                : "bg-white text-gray-800 hover:bg-black hover:text-white hover:border-grey-400"
+                ? "bg-black text-white hover:border-grey-400 border-b-11 border-b-black"
+                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400 border-b-11 border-b-white"
             }`}
           >
             <Image
