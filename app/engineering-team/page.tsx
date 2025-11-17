@@ -78,7 +78,7 @@ export default function EngineeringTeamPage() {
         <div className="flex justify-center gap-0 mb-10 flex-wrap">
           <button
             onClick={() => setTechGroup("flushingtech.org")}
-            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-l-md font-medium w-96 text-center transition-all duration-500 border-2 border-grey-300 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-l-md font-medium w-96 text-center transition-all duration-500 border-2 border-gray-500 ${
               techgroup === "flushingtech.org"
                 ? "bg-white text-black hover:border-grey-400 border-b-8 border-b-black"
                 : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400 "
@@ -95,7 +95,7 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_frontend")}
-            className={`flex items-center justify-center gap-2 px-6 py-3 font-medium w-96 text-center transition-all duration-500 border-1 border-grey-300 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 font-medium w-96 text-center transition-all duration-500 border-t-2 border-gray-500 border-b-2 border-gray-500 ${
               techgroup === "votte_frontend"
                 ? "bg-white text-black hover:border-grey-400 border-b-8 border-b-black"
                 : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400 "
@@ -112,10 +112,10 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_backend")}
-            className={`flex items-center justify-center rounded-r-md gap-2 px-6 py-3 font-medium w-96 text-center transition-all duration-500 border-2 border-grey-300 ${
+            className={`flex items-center justify-center rounded-r-md gap-2 px-6 py-3 font-medium w-96 text-center transition-all duration-500 border-2 border-gray-500 ${
               techgroup === "votte_backend"
                 ? "bg-white text-black hover:border-grey-400 border-b-8 border-b-black"
-                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400 "
+                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-500 "
             }`}
           >
             <Image
