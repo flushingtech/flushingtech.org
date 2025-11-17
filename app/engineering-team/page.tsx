@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Users } from "lucide-react";
 import homeImage from "./images/home-icon-vector.jpg";
+import backendImage from "./images/back-end-icon.avif";
 type Contributor = {
   login: string;
   avatar_url: string;
@@ -93,22 +94,36 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_frontend")}
-            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
               techgroup === "votte_frontend"
                 ? "bg-black text-white"
                 : "bg-white text-black hover:bg-black hover:text-white"
             }`}
           >
+            <Image
+              src={backendImage}
+              alt="Flaticons Logo"
+              width={40}
+              height={40}
+              className="flex items-start rounded"
+            />
             Votte Frontend
           </button>
           <button
             onClick={() => setTechGroup("votte_backend")}
-            className={`px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
+            className={`flex items-start justify-center gap-2 px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
               techgroup === "votte_backend"
                 ? "bg-white text-black"
                 : "bg-white text-gray-800 hover:bg-black hover:text-white"
             }`}
           >
+            <Image
+              src={backendImage}
+              alt="Flaticons Logo"
+              width={40}
+              height={40}
+              className="flex items-start rounded"
+            />
             Votte Backend
           </button>
         </div>
