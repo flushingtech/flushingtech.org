@@ -78,7 +78,7 @@ export default function EngineeringTeamPage() {
         <div className="flex justify-center gap-0 mb-10 flex-wrap">
           <button
             onClick={() => setTechGroup("flushingtech.org")}
-            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium w-64 text-center transition-all duration-500 border-2 border-grey-300 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium w-96 text-center transition-all duration-500 border-2 border-grey-300 ${
               techgroup === "flushingtech.org"
                 ? "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
                 : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
@@ -95,7 +95,7 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_frontend")}
-            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium w-64 text-center transition-all duration-500 border-2 border-grey-300 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium w-96 text-center transition-all duration-500 border-2 border-grey-300 ${
               techgroup === "votte_frontend"
                 ? "bg-black text-white hover:border-grey-400"
                 : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
@@ -112,7 +112,7 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_backend")}
-            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium w-64 text-center transition-all duration-500 border-2 border-grey-300 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rounded-sm font-medium w-96 text-center transition-all duration-500 border-2 border-grey-300 ${
               techgroup === "votte_backend"
                 ? "bg-white text-black hover:border-grey-400"
                 : "bg-white text-gray-800 hover:bg-black hover:text-white hover:border-grey-400"
@@ -137,12 +137,12 @@ export default function EngineeringTeamPage() {
         ) : error ? (
           <p className="text-center text-xl text-red-400">Error: {error}</p>
         ) : (
-          <div className="grid gap-2 sm:grid-cols-16 lg:grid-cols-2">
+          <div className="grid gap-2  grid-cols-2">
             {contributors.length > 0 ? (
               contributors.map((contributor) => (
                 <div
                   key={contributor.login}
-                  className="bg-white rounded-md shadow-md p-6 min-h-[139px] min-w[320px] relative flex flex-col items-center justify-start"
+                  className="bg-white rounded-md shadow-md p-3 min-h-[139px] relative flex items-center justify-start"
                 >
                   <div className="w-24 h-24 absolute left-5 top-4">
                     <Image
