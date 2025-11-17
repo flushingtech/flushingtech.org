@@ -75,13 +75,13 @@ export default function EngineeringTeamPage() {
 
       <div className="max-w-6xl mx-auto">
         {/* Repository Selection Buttons */}
-        <div className="flex justify-center gap-6 mb-10 flex-wrap">
+        <div className="flex justify-center gap-1 mb-10 flex-wrap">
           <button
             onClick={() => setTechGroup("flushingtech.org")}
-            className={`flex items-center justify-center gap-2 px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rounded font-medium w-64 text-center transition-all duration-500 border-2 border-grey ${
               techgroup === "flushingtech.org"
-                ? "bg-white text-black hover:bg-black hover:text-white"
-                : "bg-white text-black hover:bg-black hover:text-white"
+                ? "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
+                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
             }`}
           >
             <Image
@@ -95,10 +95,10 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_frontend")}
-            className={`flex items-center justify-center gap-2 px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rounded font-medium w-64 text-center transition-all duration-500 border-2 border-grey ${
               techgroup === "votte_frontend"
-                ? "bg-black text-white"
-                : "bg-white text-black hover:bg-black hover:text-white"
+                ? "bg-black text-white hover:border-grey-400"
+                : "bg-white text-black hover:bg-black hover:text-white hover:border-grey-400"
             }`}
           >
             <Image
@@ -112,10 +112,10 @@ export default function EngineeringTeamPage() {
           </button>
           <button
             onClick={() => setTechGroup("votte_backend")}
-            className={`flex items-center justify-center gap-2 px-6 py-3 rectangle font-medium w-64 text-center transition-all duration-500 ${
+            className={`flex items-center justify-center gap-2 px-6 py-3 rounded font-medium w-64 text-center transition-all duration-500 border-2 border-grey ${
               techgroup === "votte_backend"
-                ? "bg-white text-black"
-                : "bg-white text-gray-800 hover:bg-black hover:text-white"
+                ? "bg-white text-black hover:border-grey-400"
+                : "bg-white text-gray-800 hover:bg-black hover:text-white hover:border-grey-400"
             }`}
           >
             <Image
