@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Users } from "lucide-react";
-import homeImage from "./images/home-icon-vector.jpg";
-import backendImage from "./images/back-end-icon.avif";
-import frontendImage from "./images/front-end-image.jpg";
+import homeImage from "./images/home-icon-vector.webp";
+import backendImage from "./images/back-end-icon.png";
+import frontendImage from "./images/front-end-image.png";
 type Contributor = {
   login: string;
   avatar_url: string;
