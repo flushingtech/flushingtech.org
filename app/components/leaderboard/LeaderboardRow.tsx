@@ -18,9 +18,9 @@ export default function LeaderboardRow({
       style={animationDelay}
     >
       {row &&
-        row.map(([type, value]) => (
+        row.map(([type, value], index) => (
           <LeaderboardItem
-            key={[type, value].join(" ")}
+            key={`${type}-${value}-${index}`}
             type={type}
             value={value}
             delay={delay}

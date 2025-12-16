@@ -18,9 +18,10 @@ export default function LeaderboardContent({
 </div>
       {content &&
         content.map((row, i) => {
+          const rowKey = `${i}-${row.map(([type, value]) => `${type}:${value}`).join('-')}`;
           return (
             <LeaderboardRow
-              key={i}
+              key={rowKey}
               gridTemplate={gridTemplate}
               row={row}
               delay={(i + 1) * 250 + content.length * 100}
