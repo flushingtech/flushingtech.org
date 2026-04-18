@@ -2,6 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import LeaderboardContainer from "@/app/components/leaderboard/LeaderboardContainer";
+import Image from "next/image";
+
 export default function HeroComponent() {
   return (
     <section
@@ -14,47 +16,56 @@ export default function HeroComponent() {
       }}
     >
       <div className="container mx-auto px-4 lg:py-[10%] h-full flex flex-col justify-center item-center">
-        <div className="md:w-[70%] py-[5%]">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-site_header">
-            <span className="text-peach">Meet</span>{" "}
-            <span className="text-site_orange">Flushing Tech</span>
-            <span
-              style={{
-                animation: "blink 1s steps(1, start) infinite",
-                color: "#fff", // Ensures full black color
-                fontWeight: "bold" // Makes it stand out more
-              }}
-            >
-              |
-              <style>
-                {`
-          @keyframes blink {
+        <div className="flex flex-col md:flex-row md:items-center md:gap-8 w-full">
+          <div className="md:w-[70%] py-[5%] flex-1">
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4 font-site_header">
+              <span className="text-peach">Meet</span>{" "}
+              <span className="text-site_orange">Flushing Tech</span>
+              <span
+                style={{
+                  animation: "blink 1s steps(1, start) infinite",
+                  color: "#fff", // Ensures full black color
+                  fontWeight: "bold" // Makes it stand out more
+                }}
+              >
+                |
+                <style>
+                  {`
+            @keyframes blink {
 
-            50% { opacity: 1; }
-            100% { opacity: 0; }
-          }
-        `}
-              </style>
-            </span>
-          </h1>
-          <p className="text-xl lg:text-2xl max-w-4xl text-peach font-site_1st_paragraph">
-            We are a vibrant community of tech enthusiasts who come together to
-            connect, learn, share and inspire one another. At Flushing Tech, we
-            aim to create an environment where ideas flourish, friendships are
-            formed and where the latest trends and developments are explored.
-            <br />
-            <br />
-            Come join our group and enjoy our exciting events, including fun
-            workshops, demos, presentations, social and networking events, and
-            much more!
-          </p>
-        </div>
-        <div>
-          <Button size="xl" className="block lg:inline">
-            <a href="https://www.meetup.com/flushing-tech" target="_blank">
-              Learn More
-            </a>
-          </Button>
+              50% { opacity: 1; }
+              100% { opacity: 0; }
+            }
+          `}
+                </style>
+              </span>
+            </h1>
+            <p className="text-xl lg:text-2xl max-w-4xl text-peach font-site_1st_paragraph mb-6">
+              We are a vibrant community of tech enthusiasts who come together to
+              connect, learn, share and inspire one another. At Flushing Tech, we
+              aim to create an environment where ideas flourish, friendships are
+              formed and where the latest trends and developments are explored.
+              <br />
+              <br />
+              Come join our group and enjoy our exciting events, including fun
+              workshops, demos, presentations, social and networking events, and
+              much more!
+            </p>
+            <Button size="xl" className="block lg:inline">
+              <a href="https://www.meetup.com/flushing-tech" target="_blank">
+                Learn More
+              </a>
+            </Button>
+          </div>
+          <div className="flex justify-center md:justify-end mt-8 md:mt-0">
+            <Image 
+              src="/images/Flushing Tech Logo@4x.png" 
+              alt="Flushing Tech Logo" 
+              width={500} 
+              height={500}
+              className="object-contain"
+            />
+          </div>
         </div>
       </div>
       
