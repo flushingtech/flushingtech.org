@@ -14,23 +14,10 @@ export default function HeaderComponent() {
   return (
     <header className="bg-peach">
       <div className="flex justify-between items-center h-16">
-        {/* logo */}
-        <div className="flex-shrink-0 px-4">
-          <Link
-            href="/"
-            className="text-2xl text-primary"
-            style={{ fontFamily: "Gintronic, sans-serif" }}
-          >
-            flushing
-            <span className="text-site_orange">
-              (<span className="text-site_red">tech</span>)
-            </span>
-          </Link>
-        </div>
 
         {/* Desktop menu */}
-        <nav className="hidden md:block">
-          <div className="flex justify-end items-center">
+        <nav className="hidden md:flex md:flex-1">
+          <div className="flex justify-end items-center w-full pr-4">
             <ul className="flex space-x-8 block mr-8">
               {navItems.map(
                 (item) =>
